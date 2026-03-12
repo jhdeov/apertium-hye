@@ -1,0 +1,8 @@
+prefix=@prefix@
+exec_prefix=${prefix}
+srcdir=@datarootdir@/apertium/apertium-hye
+
+Name: apertium-hye
+Description: Finite-state morphological transducer and constraint grammar for Armenian
+Version: @VERSION@
+
