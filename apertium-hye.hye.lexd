@@ -573,18 +573,19 @@ PassBase Pass ImpSgIR
 
 
 
-CausBase CausPastHye ImpSgU # 
-CausBase CausPastHye ThA ImpSg #  Dir/LR
+CausBase CausPastHye ImpSgU #  անցրու
+CausBase CausPastHye ImpSgA #  Dir/LR անցրա
+
 CausativeVerbRootOrthographicSchwa VZero CausPastHye ImpSgU  #   [<caus_listed>:]
-CausativeVerbRootOrthographicSchwa VZero CausPastHye ThA ImpSg #  Dir/LR  [<caus_listed>:]
+CausativeVerbRootOrthographicSchwa VZero CausPastHye ImpSgA #  Dir/LR  [<caus_listed>:]
 CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero CausOrthographicAffrPastHye ImpSgU  #   [<caus_listed>:] 
-CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero  CausOrthographicAffrPastHye ThA ImpSg #  Dir/LR [<caus_listed>:]
+CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero  CausOrthographicAffrPastHye ImpSgA #  Dir/LR [<caus_listed>:]
 CausativeVerbRootFillHyeImp(1)  VZero    ImpSgInternalMark #  # Dir/LR [<caus_listed>:]
 
 
 
 InchBase InchEmpty Aor ImpSgIR  
-InchBaseWashHye InchEmpty ThA ImpSg  # 
+InchBaseWashHye InchEmpty ImpSg  # 
 
 VerbRootUv(1)|VerbRootUc(1) VZero VerbRootUv(2):|VerbRootUc(2): ImpSgInternalMark #Unclear which one is preferred because archaic/obsolete
 VerbRootUv(1)|VerbRootUc(1) VZero VerbRootUv(2):|VerbRootUc(2): ThU ImpSgInternalMark
@@ -705,32 +706,45 @@ VerbRootStandHyePast(1) VZero VerbRootStandHyePast(2):  ImpPl #
 PATTERN ProhibitiveHyeSpecialArchaic
 #some grammars provide a special archaic prohibitive form for some classes
 # taken from EANC and Dum-Tragut
+# մի գրիր
+# մի կարդա
+# մի մտնիր փախչիր հեռացնիր
+# մի ուրախանա
+
+# մի գրեք
+# մի կարդաք
+# մի մտնեք փախչեք հեռացնեք
+# մի ուրախանաք 
+
+VerbStemE ThE ProhAgrPlK # սիր-ե-ք instead of սիր-եք
+VerbStemA ThA ProhAgrPlK   
 
 
-CausBase CausPres ProhAgrCausHyeOld
-CausativeVerbRootOrthographicSchwa VZero  CausPres ProhAgrCausHyeOld #  [<caus_listed>:]
-CausativeVerbRootOrthographicAffr VZero CausOrthographicAffrPres  ProhAgrCausHyeOld # [<caus_listed>:] 
-CausativeVerbRootOrthographicAffrSchwa VZero CausOrthographicAffrSchwaPres ProhAgrCausHyeOld # [<caus_listed>:] 
+CausBase CausPres ProhAgrHyeOldIrEk 
+CausativeVerbRootOrthographicSchwa VZero  CausOrthographicSchwaPres ProhAgrHyeOldIrEk #  [<caus_listed>:]
+CausativeVerbRootOrthographicAffr VZero CausOrthographicAffrPres  ProhAgrHyeOldIrEk # [<caus_listed>:] 
+CausativeVerbRootOrthographicAffrSchwa VZero CausOrthographicAffrSchwaPres ProhAgrHyeOldIrEk # [<caus_listed>:] 
 
-InchBaseWashHye InchNasal ThA ProhAgrWashHyeOld   
+InchBase InchNasal ThA ProhAgrHyeOldZeroK   
+InchBaseWashHye InchNasal ThA ProhAgrHyeOldZeroK   
 
-VerbRootNelHye(1) EmptyNasal VZero VerbRootNelHye(2):  ProhAgrCausHyeOld
-VerbRootSeeE(1)|VerbRootSeeA(1) EmptyNasal VZero VerbRootSeeE(2):|VerbRootSeeA(2):  ProhAgrCausHyeOld
-VerbRootSeeE(1)|VerbRootSeeA(1) EmptyNasal VZero VerbRootSeeE(2):|VerbRootSeeA(2):  ProhAgrCausHyeOld
-VerbRootNelTogHye(1) EmptyNasal VZero VerbRootNelTogHye(2):  ProhAgrCausHyeOld
-VerbRootCelHye(1) EmptyAffr VZero VerbRootCelHye(2): ProhAgrCausHyeOld  
-VerbRootNelNale(1) EmptyNasal VZero VerbRootNelNale(2):  ProhAgrCausHyeOld # I don't know if մտնալ takes archaic prohibitive TO DO
+VerbRootNelHye(1) EmptyNasal VZero VerbRootNelHye(2):  ProhAgrHyeOldIrEk
+VerbRootSeeE(1)|VerbRootSeeA(1) EmptyNasal VZero VerbRootSeeE(2):|VerbRootSeeA(2):  ProhAgrHyeOldIrEk
+VerbRootSeeE(1)|VerbRootSeeA(1) EmptyNasal VZero VerbRootSeeE(2):|VerbRootSeeA(2):  ProhAgrHyeOldIrEk
+VerbRootNelTogHye(1) EmptyNasal VZero VerbRootNelTogHye(2):  ProhAgrHyeOldIrEk
+VerbRootCelHye(1) EmptyAffr VZero VerbRootCelHye(2): ProhAgrHyeOldIrEk  
+VerbRootNelNale(1) EmptyNasal VZero VerbRootNelNale(2):  ProhAgrHyeOldIrEk # I don't know if մտնալ takes archaic prohibitive TO DO
 
-VerbRootBeLongPresHye(1) VZero VerbRootBeLongPresHye(2):  ProhAgrCausHyeOld
+VerbRootBeLongPresHye(1) VZero VerbRootBeLongPresHye(2):  ProhAgrHyeOldIrEk
 VerbRootCry(1) VZero VerbRootCry(2): ThA ProhAgrMonoHyeOld
 VerbRootGivePres(1) VZero VerbRootGivePres(2): ThA ProhAgrMonoHyeOld
 VerbRootComePres(1) VZero VerbRootComePres(2): ThA ProhAgrMonoHyeOld
 
-VerbRootTurnPres(1) VZero VerbRootTurnPres(2): ThA ProhAgrWashHyeOld
-VerbRootTake(1) EmptyNasal VZero VerbRootTake(2):  ProhAgrCausHyeOld
-VerbRootEatPres(1) VZero VerbRootEatPres(2):  ProhAgrCausHyeOld
+VerbRootTurnPres(1) VZero VerbRootTurnPres(2): ThA ProhAgrHyeOldZeroK
+VerbRootTake(1) EmptyNasal VZero VerbRootTake(2):  ProhAgrHyeOldIrEk
+VerbRootEatPres(1) VZero VerbRootEatPres(2):  ProhAgrHyeOldIrEk
 VerbRootStandHyePres(1) VZero VerbRootStandHyePres(2): ThA ProhAgrMonoHyeOld
-VerbRootBarnalHyePres(1) VZero VerbRootBarnalHyePres(2): ThA  ProhAgrWashHyeOld
+VerbRootBarnalHyePres(1) VZero VerbRootBarnalHyePres(2): ThA  ProhAgrHyeOldZeroK
 
 
 
@@ -740,14 +754,14 @@ VerbStemE SubjPart
 VerbStemA ThA Aor SubjPart
 
 CausBase CausPres SubjPart
-CausativeVerbRootOrthographicSchwa VZero  CausPres SubjPart # [<caus_listed>:]
+CausativeVerbRootOrthographicSchwa VZero  CausOrthographicSchwaPres SubjPart # [<caus_listed>:]
 CausativeVerbRootOrthographicAffr VZero  CausOrthographicAffrPres SubjPart # [<caus_listed>:]
 CausativeVerbRootOrthographicAffrSchwa VZero CausOrthographicAffrSchwaPres SubjPart #  [<caus_listed>:] 
 
 PassBase Pass SubjPart
 
 InchBase InchEmpty Aor SubjPart
-
+InchBaseWashHye InchEmpty Aor SubjPart
 
 VerbRootUv(1)|VerbRootUc(1) VZero VerbRootUv(2):|VerbRootUc(2): SubjPart #Unclear which is preferred because obsolete
 VerbRootUv(1)|VerbRootUc(1) VZero VerbRootUv(2):|VerbRootUc(2): ThU Aor SubjPart 
@@ -800,6 +814,7 @@ CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero C
 PassBase Pass PerfPartSuffixHye
 
 InchBase InchEmpty Aor PerfPartSuffixHye
+InchBaseWashHye InchEmpty Aor PerfPartSuffixHye
 
 #irregulars
 VerbRootNelHye(1) VZero VerbRootNelHye(2): PerfPartSuffixHye 
@@ -848,6 +863,7 @@ CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero C
 PassBase Pass ResultPartSuffix
 
 InchBase InchEmpty Aor ResultPartSuffix
+InchBaseWashHye InchEmpty Aor ResultPartSuffix
 
 
 VerbRootUv(1)|VerbRootUc(1) VZero VerbRootUv(2):|VerbRootUc(2): ResultPartSuffix #Unclear which is preferred because obsolete
@@ -890,13 +906,14 @@ VerbStemE ThE NegPtcpHye
 VerbStemA ThA NegPtcpHye
 
 CausBase CausPres ThE NegPtcpHye
-CausativeVerbRootOrthographicSchwa VZero  CausPres ThE NegPtcpHye # [<caus_listed>:]
+CausativeVerbRootOrthographicSchwa VZero  CausOrthographicSchwaPres ThE NegPtcpHye # [<caus_listed>:]
 CausativeVerbRootOrthographicAffr VZero CausOrthographicAffrPres ThE NegPtcpHye #  [<caus_listed>:] 
 CausativeVerbRootOrthographicAffrSchwa VZero CausOrthographicAffrSchwaPres ThE NegPtcpHye # [<caus_listed>:] 
 
 PassBase Pass ThE NegPtcpHye
 
 InchBase InchNasal ThA NegPtcpHye
+InchBaseWashHye InchNasal ThA NegPtcpHye
 
 #irregualr
 VerbRootNelHye(1) EmptyNasal VZero VerbRootNelHye(2): ThE  NegPtcpHye
@@ -1027,6 +1044,7 @@ LEXICON CausPass
 #Orthographic variants of causative
 LEXICON CausOrthographicSchwaPres
 <caus>:ցըն
+<caus>:ցն # Dir/LR in case theres orthographic variation for some causative
 LEXICON CausOrthographicAffrPres
 <caus>:ձն
 LEXICON CausOrthographicAffrSchwaPres
@@ -1135,6 +1153,8 @@ LEXICON ImpSgUR
 <imp><p2><sg>:ու  # Dir/LR 
 LEXICON ImpSgU 
 <imp><p2><sg>:ու # for EA causative
+LEXICON ImpSgA
+<imp><p2><sg>:ա # used for colloquial causative
 
 
 LEXICON ImpSgInternalMark #Mark is added at end of verb; will later metathesize
@@ -1150,17 +1170,19 @@ LEXICON ImpPl
 
 LEXICON ProhAgr
 <proh><p2><sg>:ր
-<proh><p2><pl>:{ProhPl}ք #Was {է}
-LEXICON ProhAgrCausHyeOld
+<proh><p2><pl>:{ProhPl}ք #Was {է} keep the  {ProhPl} in case do TOA later
+LEXICON ProhAgrHyeOldIrEk
 <proh><p2><sg>:իր
 <proh><p2><sg>:ի # Dir/LR
 <proh><p2><pl>:եք
-LEXICON ProhAgrWashHyeOld
+LEXICON ProhAgrHyeOldZeroK
 <proh><p2><sg>:
 <proh><p2><sg>:ք
 LEXICON ProhAgrMonoHyeOld
 <proh><p2><sg>:ր
 <proh><p2><sg>:ք
+LEXICON ProhAgrPlK
+<proh><p2><sg>:{ProhPl}ք #Was {է} keep the  {ProhPl} in case do TOA later
 
 
 
@@ -1296,7 +1318,7 @@ LEXICON InchRoot(2)
 կարենալ:կարե <iv> # 
 LEXICON InchRootWash(2)
 # just for hye
-լուանալ:լուա <tv> 
+լվանալ:լվա <tv> 
 
 ##############
 #Obsolete verbs
