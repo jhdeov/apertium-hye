@@ -40,6 +40,7 @@ Alphabet
 %{լ%}:լ
 
 %{ProhPl%}:0 %{ImpSg%}:0 %{Aor%}:0 %{Impf%}:0 %{Pres3SG%}:0 %{Pres2PL%}:0 %{NegPtcpHye%}:0
+%{Pres3SGE%}:0
 
 ! no plural possessive նի in hye so commented out
 ! %{PossPlի%}:ի  ! The plural possessive generally surfaces with ի unless before a vowel
@@ -75,9 +76,9 @@ Cons = բ գ դ զ թ ժ  լ խ ծ կ հ ձ ղ ճ մ յ ն շ չ պ ջ ռ ս վ 
 GeneralNInflBoundary = %{Ninfl%} %{NinflRed%} ;
 
 ! commenting out because traditional orthography issue
-!Summary of contexts ե theme vowel becomes է     in Hyw
-! JeToE = %{ProhPl%} %{Pres3SG%} %{ImpSg%} %{Impf%}  %{Pres2PL%}
-! ;
+! Summary of contexts ե theme vowel becomes է     in toa
+! JeToE = %{ProhPl%} %{Pres3SGE%}  %{Impf%}  %{Pres2PL%}
+! ; 
 
 !Summary of contexts ե theme vowel becomes ի     in Hye
 JeToI =   %{Pres3SG%}    %{NegPtcpHye%} 
