@@ -1,0 +1,88 @@
+
+############
+########Irregulars and defective verbs
+### Removing suppletive groups or few-lemma groups, and just keeping them inside the paradigm file
+#####Groupable irregular verbs
+
+
+LEXICON VerbRootBarnalHyePres(2)
+բառնալ:բառ <tv>
+համբառնալ:համբառ <iv>
+վերամբառնալ:վերամբառ <tv>
+LEXICON VerbRootBarnalHyePast(2)
+բառնալ:բարձ <tv>
+համբառնալ:համբարձ <iv>
+վերամբառնալ:վերամբարձ <tv>
+
+
+# Most of these irregulars have derivatives that are likely regularized
+# Just to be safe I make the irregular form be secondary
+LEXICON VerbRootHitStop(2)
+համազարկել:համազարկ <tv> # Dir/LR
+թևազարկել:թևազարկ <iv> # Dir/LR
+
+LEXICON VerbRootTake(2)
+թևառնել:թևառ <tv>
+
+LEXICON VerbRootNelNale(2) # Class 23 24
+հագնել:հագ <tv>
+հասնել:հաս <iv>
+էլնել:էլ <iv>
+ընգնել:ընգ <iv>
+ընգնել:ընգ  <iv>
+փախնել:փախ  <iv>
+պրծնել:պրծ <iv>
+համընկնել:համընկ <iv>
+էղնել:էղ <iv>
+կպնել:կպ <iv>
+թռնել:թռ <iv>
+հատնել:հատ <iv>
+դնդչել:դնդ <iv>
+փախչել:փախ <iv>
+դռնչել:դռն <iv>
+դպչել:դպ <iv>
+դիպչել:դիպ <iv>
+կպչել:կպ <iv>
+թռչել:թռ <iv>
+արտաթռչել:արտաթռ <iv>
+կորչել:կոր <iv>
+վերագտնել:վերագտ <tv>
+մտնել:մտ <iv>
+
+LEXICON VerbRootPutPres(2)
+դնել:դն <tv>
+կանոնադնել:կանոնադն <tv>
+ծնրադնել:ծնրադն <iv>
+առդնել:առդն <tv>
+ներդնել:ներդն <tv>
+LEXICON VerbRootPutPast(2)
+դնել:դր <tv>
+կանոնադնել:կանոնադր <tv>
+ծնրադնել:ծնրադր <iv>
+առդնել:առդր <tv>
+ներդնել:ներդր <tv>
+LEXICON VerbRootPutImpSg(2)
+դնել:դ <tv>
+կանոնադնել:կանոնադ  <tv>
+ծնրադնել:ծնրադ <iv>
+առդնել:առդ <tv>
+ներդնել:ներդ <tv>
+
+LEXICON VerbRootSeeE(2) #Incorrectly part of գտնել group but it has bare imperative 2sg like առնել
+տեսնել:տես <tv>
+նախատեսնել:նախատես <tv>
+
+LEXICON VerbRootEatPres(2) # Class 57 ուտել կերայ
+կիսաուտել:կիսաուտ <tv>
+LEXICON VerbRootEatPast(2)
+կիսաուտել:կիսակեր <tv>
+
+LEXICON VerbRootE(2) 
+կիսաուտել:կիսաուտ <tv> # Dir/LR
+համազարկել:համազարկ <tv> 
+թևազարկել:թևազարկ <iv>
+կանոնադնել:կանոնադն <tv> # Dir/LR
+ծնրադնել:ծնրադն <iv> # Dir/LR
+առդնել:առդն <tv> # Dir/LR
+ներդնել:ներդն <tv> # Dir/LR
+թևառնել:թևառն <tv> # Dir/LR

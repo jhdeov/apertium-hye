@@ -138,6 +138,7 @@ VerbRootNelNala(1)  VZero VerbRootNelNala(2): (EmptyNasal ThA)? # Dir/LR   to ca
 
 
 VerbRootCry(1) VZero VerbRootCry(2): ThA   # լալ
+VerbRootCry(1) VZero VerbRootCry(2): ThA Aor ThA  # Dir/LR լացացնել
 VerbRootCryLong(1) VZero VerbRootCryLong(2): ThE   # լացել
 VerbRootBring(1) VZero VerbRootBring(2): ThE   # բերել
 VerbRootBring(1) VZero VerbRootBring(2): ThE? # Dir/LR   to capture variation in theme-les
@@ -209,9 +210,11 @@ VerbRootPutPast(1) VZero VerbRootPutPast(2):   # դնել
 VerbRootHitStop(1) VZero VerbRootHitStop(2):   # 
 VerbRootDoPast(1) VZero VerbRootDoPast(2):   # ընել
 VerbRootSay(1) VZero VerbRootSay(2):  # ըսել
-VerbRootEatPres(1) VZero VerbRootEatPres(2):   # ուտել
+VerbRootEatPres(1) VZero VerbRootEatPres(2):   # ուտվել
+VerbRootEatPast(1) VZero VerbRootEatPast(2):   # Dir/LR կերվել
 VerbRootSendPast(1) VZero VerbRootSendPast(2):   # տանիլ
- 
+VerbRootWetHyePast(1) VZero VerbRootWetHyePast(2):   # թացվել
+
 
 #Base of inchoative is root+th or root
 PATTERN InchBase
@@ -285,6 +288,7 @@ VerbRootSendPresHye(1) VZero VerbRootSendPresHye(2): ThE Inf #  տանիլ
 
 VerbRootWalkHye(1) VZero VerbRootWalkHye(2): ThE Inf #  քելել
 VerbRootStandHyePres(1) VZero VerbRootStandHyePres(2):  ThA Inf   # 
+VerbRootWetHyePres(1) VZero VerbRootWetHyePres(2):  ThA Inf   # 
 
 #Following defective verbs lack infinitival for Boyacioglu, but they have one in Kouyoumdjian
 VerbRootHaveHye(1) VZero VerbRootHaveHye(2): ThE Inf #  ունել
@@ -345,6 +349,7 @@ VerbRootSendPresHye(1) VZero VerbRootSendPresHye(2): ImpfConvSuffix
 
 VerbRootWalkHye(1) VZero VerbRootWalkHye(2): ImpfConvSuffix 
 VerbRootStandHyePres(1) VZero VerbRootStandHyePres(2):  ImpfConvSuffix   
+VerbRootWetHyePres(1) VZero VerbRootWetHyePres(2):  ImpfConvSuffix   
 
 
 
@@ -423,6 +428,7 @@ VerbRootSendPresHye(1) VZero VerbRootSendPresHye(2): ThE #
 
 VerbRootWalkHye(1) VZero VerbRootWalkHye(2): ThE # 
 VerbRootStandHyePres(1) VZero VerbRootStandHyePres(2):  ThE    # 
+VerbRootWetHyePres(1) VZero VerbRootWetHyePres(2): ThA # 
 
 #I think Boyacioglu has an error because the -i- stayed -i- here
 
@@ -546,8 +552,9 @@ VerbRootRiseAPast(1) VZero VerbRootRiseAPast(2): PastSecAgr Indc0
 VerbRootBeLongPastHye(1) VZero VerbRootBeLongPastHye(2): PastSecAgr Indc0  # 
 
 VerbRootComePast(1) VZero VerbRootComePast(2): PastSecAgr Indc0
-VerbRootCry(1) VZero VerbRootCry(2): ThA Aor ThE Aor PastPrimAgr Indc0 # 
-VerbRootCry(1) VZero VerbRootCry(2): ThA Aor PastAgrGoNo3Sg Indc0 # Dir/LR   
+VerbRootCry(1) VZero VerbRootCry(2): ThA Aor ThE Aor PastPrimAgr Indc0 #  Dir/LR
+VerbRootCry(1) VZero VerbRootCry(2): ThA Aor PastAgrGoNo3Sg Indc0
+VerbRootCry(1) VZero VerbRootCry(2): ThA Aor ThE Aor PastAgrYes3SgZero Indc0
 VerbRootCryLong(1) VZero VerbRootCryLong(2): ThE Aor PastPrimAgr Indc0 # 
 VerbRootCryLong(1) VZero VerbRootCryLong(2): PastAgrGoNo3Sg Indc0 # Dir/LR   
 VerbRootGivePast(1) VZero VerbRootGivePast(2): ThE Aor PastPrimAgr Indc0 # 
@@ -567,8 +574,10 @@ VerbRootSeeA(1) VZero VerbRootSeeA(2):  PastSecAgr Indc0
 VerbRootSeeReducedHyePast(1) VZero VerbRootSeeReducedHyePast(2): PastSecAgr Indc0 # 
 VerbRootOpenAffr(1) VZero VerbRootOpenAffr(2): ThE Aor PastPrimAgr Indc0 # 
 VerbRootOpenAffr(1) VZero VerbRootOpenAffr(2): PastAgrGoNo3Sg Indc0 # Dir/LR     for optional գրինք
-VerbRootOpenNasalPast(1) VZero VerbRootOpenNasalPast(2): ThE Aor PastPrimAgr Indc0 # 
-VerbRootOpenNasalPast(1) VZero VerbRootOpenNasalPast(2): PastAgrGoNo3Sg Indc0 # Dir/LR     for optional գրինք
+VerbRootOpenNasalPast(1) VZero VerbRootOpenNasalPast(2): ThE Aor PastPrimAgr Indc0 # Dir/LR
+VerbRootOpenNasalPast(1) VZero VerbRootOpenNasalPast(2): PastAgrGoNo3Sg Indc0    
+VerbRootOpenNasalPast(1) VZero VerbRootOpenNasalPast(2): ThE Aor PastAgrYes3SgZero Indc0 
+
 
 VerbRootPutPast(1) VZero VerbRootPutPast(2): ThE Aor PastPrimAgr Indc0 # 
 VerbRootPutPast(1) VZero VerbRootPutPast(2): PastAgrGoNo3Sg Indc0 # Dir/LR     for optional գրինք
@@ -592,6 +601,9 @@ VerbRootWalkHye(1) VZero VerbRootWalkHye(2): ThE Aor PastPrimAgr Indc0 #
 VerbRootWalkHye(1) VZero VerbRootWalkHye(2): PastAgrGoNo3Sg Indc0 # Dir/LR     for optional գրինք 
 VerbRootStandHyePastA(1) VZero VerbRootStandHyePastA(2):  PastSecAgr Indc0 # կացավ
 VerbRootStandHyePastE(1) VZero VerbRootStandHyePastE(2):  PastSecAgr Indc0 # կեցավ
+
+VerbRootWetHyePast(1) VZero VerbRootWetHyePast(2): PastAgrGoNo3Sg Indc0 
+VerbRootWetHyePast(1) VZero VerbRootWetHyePast(2): ThE Aor PastAgrYes3SgZero Indc0 
 
 PATTERN Imperative
 #Imperatives sg
@@ -682,6 +694,10 @@ VerbRootWalkHye(1) VZero VerbRootWalkHye(2): ThE ImpSgInternalMark #  Dir/LR
 VerbRootStandHyePastA(1) VZero VerbRootStandHyePastA(2):  ImpSgInternalMark #  
 VerbRootStandHyePastA(1) VZero VerbRootStandHyePastA(2):  ImpSgIR #  Dir/LR
 
+VerbRootThrowImpHye(1) VZero VerbRootThrowImpHye(2): ImpSgInternalMark # Dir/LR
+
+VerbRootWetHyePast(1) VZero VerbRootWetHyePast(2):  ImpSgIR
+
 #Imperatives pl
 VerbStemE         ImpPl #  
 VerbStemE ThE Aor ImpPl #  Dir/LR
@@ -751,6 +767,7 @@ VerbRootWalkHye(1) VZero VerbRootWalkHye(2):  ImpPl #
 VerbRootWalkHye(1) VZero VerbRootWalkHye(2):  ThE Aor ImpPl #  Dir/LR
 VerbRootStandHyePastA(1) VZero VerbRootStandHyePastA(2):  ImpPl #  
 VerbRootStandHyePastE(1) VZero VerbRootStandHyePastE(2):  ImpPl #  Dir/LR
+VerbRootWetHyePast(1) VZero VerbRootWetHyePast(2):  ImpPl 
 
 
 PATTERN ProhibitiveHyeSpecialArchaic
@@ -804,6 +821,8 @@ VerbRootEatPres(1) VZero VerbRootEatPres(2):  ProhAgrHyeOldIrEk
 VerbRootSendPresHye(1) VZero VerbRootSendPresHye(2):  ProhAgrHyeOldIrEk
 VerbRootStandHyePres(1)  VZero VerbRootStandHyePres(2): ThA ProhAgrHyeOldRK
 VerbRootBarnalHyePres(1) EmptyNasal VZero VerbRootBarnalHyePres(2): ThA  ProhAgrHyeOldZeroK
+VerbRootWetHyePast(1)  VZero VerbRootWetHyePast(2): ThA ProhAgrHyeOldRK
+
 
 # don't know how to do other irregular verbs' archaic prohibitive, like բերել
 
@@ -871,6 +890,7 @@ VerbRootWalkHye(1) VZero VerbRootWalkHye(2): SubjPart #
 VerbRootStandHyePastA(1) VZero VerbRootStandHyePastA(2): SubjPart # 
 VerbRootStandHyePres(1) VZero VerbRootStandHyePres(2): SubjPart # Dir/LR
 VerbRootStandHyePastE(1) VZero VerbRootStandHyePastE(2): SubjPart  # Dir/LR
+VerbRootWetHyePast(1) VZero VerbRootWetHyePast(2): SubjPart  
 
 PATTERN PerfectPartHye
 # hye perfective particile in ել
@@ -923,6 +943,7 @@ VerbRootSendPast(1) VZero VerbRootSendPast(2): PerfPartSuffixHye
 VerbRootWalkHye(1) VZero VerbRootWalkHye(2): PerfPartSuffixHye 
 VerbRootStandHyePastA(1) VZero VerbRootStandHyePastA(2): PerfPartSuffixHye 
 VerbRootStandHyePastE(1) VZero VerbRootStandHyePastE(2): PerfPartSuffixHye  # Dir/LR
+VerbRootWetHyePast(1) VZero VerbRootWetHyePast(2): PerfPartSuffixHye  
 
 PATTERN ResultPart
 VerbStemE ResultPartSuffix
@@ -981,6 +1002,7 @@ VerbRootSendPast(1) VZero VerbRootSendPast(2): ResultPartSuffix
 VerbRootWalkHye(1) VZero VerbRootWalkHye(2): ResultPartSuffix # 
 VerbRootStandHyePastA(1) VZero VerbRootStandHyePastA(2): ResultPartSuffix 
 VerbRootStandHyePastE(1) VZero VerbRootStandHyePastE(2): ResultPartSuffix  # Dir/LR
+VerbRootWetHyePast(1) VZero VerbRootWetHyePast(2): ResultPartSuffix 
 
 PATTERN NegativePartHye
 #Negative participle, hye only, connegative
@@ -1031,6 +1053,7 @@ VerbRootEatPres(1) VZero VerbRootEatPres(2): ThE  NegPtcpHye
 VerbRootSendPresHye(1) VZero VerbRootSendPresHye(2): ThE  NegPtcpHye
 VerbRootWalkHye(1) VZero VerbRootWalkHye(2): ThE  NegPtcpHye
 VerbRootStandHyePres(1) VZero VerbRootStandHyePres(2): ThA  NegPtcpHye
+VerbRootWetHyePres(1) VZero VerbRootWetHyePres(2): ThA  NegPtcpHye
 
  
 
@@ -1354,8 +1377,8 @@ LEXICON VerbRootE(2)
 պրծել:պրծ <iv>  # 
 ծնել:ծն <tv>  # 
 սկսել:սկս <tv> # 
-լացել:լաց <iv> #  regularized irregular
 զարնել:զարն <tv> # regularized irregular
+քցել:քց <tv> # has irregular imperative
 
 LEXICON VerbRootA(2)
 աղալ:աղ <tv>
@@ -1378,9 +1401,9 @@ LEXICON CausativeVerbRootFillHyeImp
 
 LEXICON CausativeVerbRootOrthographicSchwa
 անցընել:ան 
+իրավցընել:իրավ
 LEXICON CausativeVerbRootOrthographicAffr
 դարձնել:դար
-վերադարձնել:վերադար
 LEXICON CausativeVerbRootOrthographicAffrSchwa
 դարձընել:դար
 բարձընել:բար
@@ -1475,13 +1498,17 @@ LEXICON VerbRootSeeReducedHyePres(2)
 LEXICON VerbRootSeeReducedHyePast(2) 
 տենալ:տես <tv>
 
+LEXICON VerbRootThrowImpHye(2)
+քցել:քից <tv>
 
 LEXICON VerbRootRiseEPres(2) # Class 25
 ելնել:ելն <iv> # from kouyoumdjian
 ելլել:ելլ <iv> # from kouyoumdjian
+հելնել:հելն <iv>
 LEXICON VerbRootRiseEPast(2)
 ելնել:ել	<iv>
 ելլել:ել	<iv>
+հելնել:հել  <iv>
 LEXICON VerbRootRiseAPres(2)
 ելնալ:ելն	<iv>
 ելլալ:ելլ	<iv>
@@ -1492,9 +1519,9 @@ LEXICON VerbRootRiseAPast(2)
 LEXICON VerbRootCanShort(2)
 կարալ:կար <iv>  
 
-# LEXICON VerbRootAppear(2) #Class 28 երեւիլ, has -nal version that's regular
-# երեւիլ:երեւ <iv> 
-# # in hye, this verb is replaced regular երեւալ
+# LEXICON VerbRootAppear(2) #Class 28 երևիլ, has -nal version that's regular
+# երևիլ:երև <iv> 
+# # in hye, this verb is replaced regular երևալ
 
 LEXICON  VerbRootHaveHye(2)
 ունել:ուն <tv>
@@ -1532,18 +1559,18 @@ LEXICON VerbRootGivePast(2)
 
 LEXICON VerbRootBring(2)  #Class 37 38 արտաբերել բերել
 բերել:բեր <tv>
-արտաբերել:արտաբեր <tv>
 LEXICON VerbRootTurnPres(2)
 դառնալ:դառ <iv>
 անդրադառնալ:անդրադառ <tv>
+վերադառնալ:վերադառն <iv>
 LEXICON VerbRootTurnPast(2)
 դառնալ:դարձ <iv>
 անդրադառնալ:անդրադարձ <tv>
+վերադառնալ:վերադարձ <iv>
 LEXICON VerbRootBarnalHyePres(2)
 բառնալ:բառ <tv>
 LEXICON VerbRootBarnalHyePast(2)
 բառնալ:բարձ <tv>
-
 LEXICON VerbRootTake(2)
 առնել:առ <tv>
 LEXICON VerbRootOpenNasalPres(2)
@@ -1612,3 +1639,7 @@ LEXICON VerbRootStandHyePastANoAff(2)
 կենալ:կա <iv>
 LEXICON VerbRootStandHyePastENoAff(2)
 կենալ:կե <iv>
+LEXICON VerbRootWetHyePres(2) 
+թանալ:թան <tv>
+LEXICON VerbRootWetHyePast(2) 
+թանալ:թաց <tv>
