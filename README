@@ -1,12 +1,12 @@
-Armenian: `apertium-hye`
+Eastern Armenian: `apertium-hye`
 ===============================================================================
 
-This is an Apertium monolingual language package for Armenian. What
+This is an Apertium monolingual language package for Eastern Armenian. What
 you can use this language package for:
 
-* Morphological analysis of Armenian
-* Morphological generation of Armenian
-* Part-of-speech tagging of Armenian
+* Morphological analysis of Eastern Armenian
+* Morphological generation of Eastern Armenian
+* Part-of-speech tagging of Eastern Armenian
 
 Requirements
 -------------------------------------------------------------------------------
