@@ -15,6 +15,10 @@ LEXICON VerbRootBarnalHyePast(2)
 վերամբառնալ:վերամբարձ <tv>
 
 
+LEXICON VerbRootCelHye(2) # Class 26
+փակչել:փակ <iv>
+կափչել:կափ <iv>
+
 # Most of these irregulars have derivatives that are likely regularized
 # Just to be safe I make the irregular form be secondary
 LEXICON VerbRootHitStop(2)
@@ -30,6 +34,8 @@ LEXICON VerbRootNelNale(2) # Class 23 24
 հասնել:հաս <iv>
 էլնել:էլ <iv>
 ընգնել:ընգ <iv>
+հեծնել:հեծ  <tv> # Dir/LR
+վերաբուսնել:վերաբուսն <tv> # Dir/LR
 ընգնել:ընգ  <iv>
 փախնել:փախ  <iv>
 պրծնել:պրծ <iv>
@@ -37,6 +43,7 @@ LEXICON VerbRootNelNale(2) # Class 23 24
 էղնել:էղ <iv>
 կպնել:կպ <iv>
 թռնել:թռ <iv>
+բուսնել:բուսն <iv> # Dir/LR
 հատնել:հատ <iv>
 դնդչել:դնդ <iv>
 փախչել:փախ <iv>
@@ -82,8 +89,11 @@ LEXICON VerbRootE(2)
 կիսաուտել:կիսաուտ <tv> # Dir/LR
 համազարկել:համազարկ <tv> 
 թևազարկել:թևազարկ <iv>
+վերաբուսնել:վերաբուսն <tv>
 կանոնադնել:կանոնադն <tv> # Dir/LR
 ծնրադնել:ծնրադն <iv> # Dir/LR
 առդնել:առդն <tv> # Dir/LR
 ներդնել:ներդն <tv> # Dir/LR
 թևառնել:թևառն <tv> # Dir/LR
+փլչել:փլչ <iv> # Dir/LR
+կափչել:կափ <iv> # Dir/LR
