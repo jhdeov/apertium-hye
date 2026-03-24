@@ -18,6 +18,7 @@ LEXICON VerbRootBarnalHyePast(2)
 # Most of these irregulars have derivatives that are likely regularized
 # Just to be safe I make the irregular form be secondary
 LEXICON VerbRootHitStop(2)
+զարկել:զարկ <tv> # had to redundantly add this so that this lexicon isnt empty
 համազարկել:համազարկ <tv> # Dir/LR
 թևազարկել:թևազարկ <iv> # Dir/LR
 

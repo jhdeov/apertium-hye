@@ -8,6 +8,7 @@ BASENAME=apertium-$(LANG1)
 TARGETS_COMMON =			\
 	$(LANG1).automorf.hfst		\
 	$(LANG1).automorf.bin		\
+	$(LANG1).revautomorf.bin		\
 	$(LANG1).automorf.att.gz	\
 	$(LANG1).autogen.hfst		\
 	$(LANG1).autogen.bin		\
@@ -64,11 +65,8 @@ lint:
 $(LANG1).autogen.hfst: .deps/$(LANG1).RL.hfst
 	hfst-fst2fst -O $< -o $@
 
-.deps/$(LANG1).spellrelax.hfst: $(BASENAME).$(LANG1).spellrelax .deps/.d
-	hfst-regexp2fst -S -o $@ $<
-
-$(LANG1).automorf.hfst: .deps/$(LANG1).LR.hfst .deps/$(LANG1).spellrelax.hfst
-	hfst-compose -1 $< -2 .deps/$(LANG1).spellrelax.hfst | hfst-invert | hfst-fst2fst -O -o $@
+$(LANG1).automorf.hfst: .deps/$(LANG1).LR.hfst
+	hfst-invert $< | hfst-fst2fst -O -o $@
 
 $(LANG1).autogen.att.gz: $(LANG1).autogen.hfst
 	hfst-fst2txt $< | gzip -9 -c -n > $@
@@ -83,6 +81,9 @@ $(LANG1).autogen.bin: $(LANG1).autogen.att.gz .deps/.d
 $(LANG1).automorf.bin: $(LANG1).automorf.att.gz .deps/.d
 	zcat < $< > .deps/$(LANG1).automorf.att
 	lt-comp lr .deps/$(LANG1).automorf.att $@
+
+$(LANG1).revautomorf.bin: $(LANG1).automorf.bin .deps/.d
+	lt-invert $< $@
 
 $(LANG1).autopgen.bin: $(BASENAME).post-$(LANG1).dix
 	lt-comp lr $< $@

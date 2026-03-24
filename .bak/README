@@ -77,7 +77,6 @@ Files and data
 * [`apertium-hye.hye.rlx`](apertium-hye.hye.rlx) - Constraint Grammar disambiguation rules
 * [`apertium-hye.post-hye.dix`](apertium-hye.post-hye.dix) - Post-generator
 * [`hye.prob`](hye.prob) - Tagger model
-* [`apertium-hye.hye.spellrelax`](apertium-hye.hye.spellrelax) - Typographical variance rules
 * [`apertium-hye.hye.udx`](apertium-hye.hye.udx) - Mappings from Apertium tags to Universal Dependencies features
 * [`modes.xml`](modes.xml) - Translation modes
 
