@@ -1024,7 +1024,7 @@ LEXICON VerbRootE(2) 		#Class 1 երգել and 2 քաղել
 կրթնել:կրթն <iv>
 բաժնել:բաժն <tv>
 թալնել:թալն <tv>
-կալնել:կալն <tv>
+#  կալնել:կալն <tv> # wiktionary lists this as infixed
 հեծնել:հեծն <tv>
 արծնել:արծն <tv>
 թեկնել:թեկն <iv>
@@ -7699,7 +7699,7 @@ LEXICON CausativeVerbRoot		# Class 9 աճեցնել and 10 մօտեցնել
 լիք-լցնել:լիք-լ
 լցնել:լ
 էացնել:էա
-կացնել:կա
+# կացնել:կա # this is not actually causative
 փլցնել:փլ
 ծծցնել:ծծ
 ծնցնել:ծն

@@ -116,6 +116,10 @@ CausativeVerbRoot VZero # [<caus_listed>:]
 #Orthographic variants are separately handled based on the inflection lsot
 
 
+PassiveVerbRoot VZero Pass ThE  # have to expand the passbase into passroot in order to prevent recursive self-reference back to caus
+PassiveVerbRoot VZero Pass ThA? # Dir/LR   to capture variation in theme-less or with mismatched vowel 
+
+
 #Irregulars
 
 #Irregulars infixed i-theme
@@ -153,6 +157,7 @@ VerbRootEatPast(1) VZero VerbRootEatPast(2):     # ուտել
 VerbRootEatPres(1) VZero VerbRootEatPres(2):  ThE   # Dir/LR
 VerbRootStandHyePastANoAff(1) VZero VerbRootStandHyePastANoAff(2):    
 VerbRootStandHyePastENoAff(1) VZero VerbRootStandHyePastENoAff(2):     # Dir/LR
+VerbRootRiseEPast(1) VZero VerbRootRiseEPast(2):    
 
 #Base of passive is root
 PATTERN PassBase
@@ -427,7 +432,7 @@ VerbRootEatPres(1) VZero VerbRootEatPres(2): ThE
 VerbRootSendPresHye(1) VZero VerbRootSendPresHye(2): ThE # 
 
 VerbRootWalkHye(1) VZero VerbRootWalkHye(2): ThE # 
-VerbRootStandHyePres(1) VZero VerbRootStandHyePres(2):  ThE    # 
+VerbRootStandHyePres(1) VZero VerbRootStandHyePres(2):  ThA    # 
 VerbRootWetHyePres(1) VZero VerbRootWetHyePres(2): ThA # 
 
 #I think Boyacioglu has an error because the -i- stayed -i- here
@@ -1389,7 +1394,8 @@ LEXICON VerbRootA(2)
 խաղալ:խաղ <tv> # 
 մնալ:մն <iv> # 
 ջանալ:ջան <iv> # 
-սպառնալ:սպառն <iv> # 
+սպառնալ:սպառն <iv> #  
+թանալ:թան <tv> # Dir/LR
 
 #Derived verbs
 LEXICON CausativeVerbRoot
@@ -1537,8 +1543,10 @@ LEXICON VerbRootExist(2) # Class 31 կամ
 
 LEXICON VerbRootBeLongPresHye(2) # Eastern form
 լինել:լին <iv>
+ըլնել:ըլն <iv>
 LEXICON VerbRootBeLongPastHye(2)
 լինել:եղ <iv>
+ըլնել:եղ <iv>
 
 LEXICON VerbRootComePres(2) # Class 34 գալ եկայ
 գալ:գ <iv>
@@ -1562,10 +1570,12 @@ LEXICON VerbRootBring(2)  #Class 37 38 արտաբերել բերել
 LEXICON VerbRootTurnPres(2)
 դառնալ:դառ <iv>
 անդրադառնալ:անդրադառ <tv>
-վերադառնալ:վերադառն <iv>
+անրադառնալ:անրադառ <tv>
+վերադառնալ:վերադառ <iv>
 LEXICON VerbRootTurnPast(2)
 դառնալ:դարձ <iv>
 անդրադառնալ:անդրադարձ <tv>
+անրադառնալ:անրադարձ <tv>
 վերադառնալ:վերադարձ <iv>
 LEXICON VerbRootBarnalHyePres(2)
 բառնալ:բառ <tv>

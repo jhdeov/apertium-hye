@@ -18,6 +18,20 @@ LEXICON VerbRootBarnalHyePast(2)
 LEXICON VerbRootCelHye(2) # Class 26
 փակչել:փակ <iv>
 կափչել:կափ <iv>
+փախչել:փախ <iv>
+դռնչել:դռն <iv>
+դպչել:դպ <iv>
+դիպչել:դիպ <iv>
+կպչել:կպ <iv>
+թռչել:թռ <iv>
+հանգչել:հանգ <iv> # Dir/LR
+կիսահանգչել:կիսահանգ  <iv> # Dir/LR
+սառչել:սառ <iv> # Dir/LR
+ուռչել:ուռ  <iv># Dir/LR
+արտաթռչել:արտաթռ <iv>
+կորչել:կոր <iv>
+դնդչել:դնդ <iv>
+
 
 # Most of these irregulars have derivatives that are likely regularized
 # Just to be safe I make the irregular form be secondary
@@ -32,28 +46,21 @@ LEXICON VerbRootTake(2)
 LEXICON VerbRootNelNale(2) # Class 23 24
 հագնել:հագ <tv>
 հասնել:հաս <iv>
+կալնել:կալ  <tv> 
 էլնել:էլ <iv>
 ընգնել:ընգ <iv>
 հեծնել:հեծ  <tv> # Dir/LR
 վերաբուսնել:վերաբուսն <tv> # Dir/LR
 ընգնել:ընգ  <iv>
+քթնել:քթ <tv>
 փախնել:փախ  <iv>
 պրծնել:պրծ <iv>
 համընկնել:համընկ <iv>
 էղնել:էղ <iv>
 կպնել:կպ <iv>
 թռնել:թռ <iv>
-բուսնել:բուսն <iv> # Dir/LR
+բուսնել:բուս <iv> # Dir/LR
 հատնել:հատ <iv>
-դնդչել:դնդ <iv>
-փախչել:փախ <iv>
-դռնչել:դռն <iv>
-դպչել:դպ <iv>
-դիպչել:դիպ <iv>
-կպչել:կպ <iv>
-թռչել:թռ <iv>
-արտաթռչել:արտաթռ <iv>
-կորչել:կոր <iv>
 վերագտնել:վերագտ <tv>
 մտնել:մտ <iv>
 
