@@ -1,0 +1,1803 @@
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#!!!  M O R P H O T A C T I C S  !!!
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+# I don't use zero affixes for nominative or accusative
+# I don't separate syncretic genitive and dative
+# Not making եան declension because obsolete
+# Not making եաց class From Hagopian grammar
+
+#GAGA GAGA!	 2026: do wiktionary transclusion from ik tempaltes and others
+
+########################################
+########################################
+########################################
+### NOUN PARADIGMS
+########################################
+########################################
+########################################
+########################################
+
+# TO DO: add attributive morphology but it's really hard to know what its distribution is: Dum-Tragut 2009 page 553, and it's mostly limited to spoken speech
+# TO DO: remove repetition in output like ամիսը by reorganizing declensions based on Number
+
+#All the main declension systems
+PATTERNS
+OpenClassRegularNounDeclCanBeBare
+OpenClassRegularNounDeclCantBeBare
+NounDeclIrregularU
+NounDeclNamesFinalI
+InfinitivalDecl
+RegNounFinalVowelDeclension
+
+#suffix-based declensions
+NounDeclUtjunSuffix
+NounDeclUmSuffix
+
+#Full-declension patterns
+
+NounDeclIrregPolyWithN
+NounDeclIrregularTimeVan
+NounDeclOldOch
+NounDeclOldFamilyOAblaut
+
+
+# Dative+oblique only patterns
+NounDeclOldAnForm
+NounDeclFamilyNkForm
+NounDeclOldRandomOAblaut
+NounDeclCountry
+
+#Irregular words
+NounDeclIrregArchaicVowelReduction
+NounDeclIrregReduceNer
+
+NounDeclIrregReduce
+
+
+##########################
+##########################
+
+PATTERN OpenClassRegularNounDeclCanBeBare
+#This is for bucket of nouns that get similar enough inflection
+# This includes regular nouns,   names, and quantifiers that are nominalized even when bare
+# postpositions
+#This excludes irregular U, and infinitivals
+#This excludes adverbs/adjectives and participles that are nominalized when non-bare
+
+
+OpenClassRegularNounDeclCanBeBareStem NSg0 CaseDefIDeclension
+OpenClassRegularNounDeclCanBeBareStem RegPluralDeclension
+
+PATTERN OpenClassRegularNounDeclCanBeBareStem
+NounReg NZero NouNinflBoundary
+NounReg NZero NouNinflBoundaryRed # Dir/LR optionally undergoes vowel reduction or never
+
+NounRegPreferReduce NZero NouNinflBoundaryRed  # preferably undergoes vowel reduction
+NounRegPreferReduce NZero NouNinflBoundary # Dir/LR optionally rejects vowel reduction
+
+
+#GAGA GAGA!	DeclinablePostposition  NouNinflBoundary
+
+# For names or proper nouns. Don't have the NouNInflBoundary to block glide deletion
+#Country names  are in separate category because some of them take -ia suffix
+
+NameBaseNotCountry NouNinflBoundary
+
+#GAGA GAGA!	# quantifiers and question words are explained in the pronoun lexd
+#GAGA GAGA!	Quantifier [<prn><qnt>:]
+#GAGA GAGA!	QuestionWords [<prn>:] ([<rel>:]|[<itg>:])
+#GAGA GAGA!	QuantifierQuestionWords [<prn><qnt>:] ([<itg>:])?
+#GAGA GAGA!	StrictQuestionWords [<prn><itg>:]
+
+PATTERN NameBaseNotCountry
+NameMaleGiven [<np><ant><m>:]
+NameFemaleGiven [<np><ant><f>:]
+
+NameFamily  [<np><cog>:]
+NameGivenUnclassified [<np><ant>:]
+NameNotGivenCountry [<np><al>:]
+
+
+
+
+PATTERN CaseDefIDeclension
+#This is case/def slots where dative is -i
+#Used by regular nouns
+# def is optional even on bare form
+(Def|Poss)?
+CaseRegI_DefPoss?
+AttributiveGenIDef
+AttributiveInst
+
+PATTERN CaseDefIDeclensionWithOvertcase
+#This is case/def slots where dative is -i
+# Used by այնպիսի nouns
+# the case slot is overtly filled
+CaseRegI_DefPoss
+AttributiveGenIDef
+AttributiveInst
+
+PATTERN CaseDefI_OnlyGenDat
+DatGenRegI (Def|Poss)?
+
+PATTERN CaseDefUDeclension
+#This is case/def slots where dative is -u
+#Used by irregular nouns
+# def is optional even on bare form
+(Def|Poss)?
+CaseRegU_DefPoss?
+AttributiveGenUDef
+AttributiveInst
+
+PATTERN CaseDefUDeclensionWithOvertcase
+#This is case/def slots where dative is -u
+#Used by irregular nouns
+# the case slot is overtly filled
+CaseRegU_DefPoss
+AttributiveGenUDef
+AttributiveInst
+
+
+PATTERN DeclUWithFixedDef
+#This is case-def where dative is -u and the noun can't be bare, like an infinitival
+#Hye-style means that Dat gets Def, but the other cases don't
+Def|Poss
+CaseRegU_DefPoss
+AttributiveGenUDef
+AttributiveInst
+
+PATTERN RegNounPluralFormDeclension # plural
+NPlReg CaseDefIDeclension
+
+PATTERN RegNounPluralFormDeclensionNerOnly # plural
+NPlNerOnly CaseDefIDeclension
+
+
+
+PATTERN CaseRegIObliqueWithoutGenAndDefPoss
+OblRegI  Poss?
+OblRegI Def # Dir/LR
+PATTERN CaseRegUObliqueWithoutGenAndDefPoss
+OblRegU Poss?
+OblRegU Def # Dir/LR
+
+ 
+PATTERN CaseDefDatGenArchaicAn
+DatGenArchaicAn (Def|Poss)? 
+
+#GAGA GAGA!	PATTERN PluralPossessiveDeclension # plural possessive
+#GAGA GAGA!	PossPl CaseRegPostPluralPoss? Def|Poss
+#GAGA GAGA!	InsReg PossPl  Def|Poss
+
+PATTERN RegPluralDeclension
+# plural
+RegNounPluralFormDeclension
+#GAGA GAGA!	# plural possessive
+#GAGA GAGA!	NSg0|NPlReg PluralPossessiveDeclension
+#GAGA GAGA!	#Not doing combo of plural possessive and of attributive because weird
+
+
+
+##########################
+##########################
+PATTERN OpenClassRegularNounDeclCantBeBare
+#This is for bucket of words that get regular nominal inflection when not bare
+# This includes  adverbs/adjectives and participles that are nominalized when non-bare
+# interjctions, nubmers
+
+OpenClassRegularNounDeclCantBeBareStem NSg0 RegNounCaseIDeclensionWithReqDef
+OpenClassRegularNounDeclCantBeBareStem RegPluralDeclension
+
+#For bookkeeping, I also have bare adjectives/adverbs here without any substantivization
+AdjAdvBaseDegreed
+
+
+PATTERN OpenClassRegularNounDeclCantBeBareStem
+ParticipleDeclStem
+AdjAdvDeclStem
+#GAGA GAGA!	DeclDeclinableInterjection SubstZero NouNinflBoundary
+#GAGA GAGA!	NumericalBase|CardinalFraction SubstZero  NouNinflBoundary
+#GAGA GAGA!	# NumericalBase|CardinalFraction SubstZero  NouNinflBoundaryRed # I don't think these reduce Dir LR
+#GAGA GAGA!	ClassicalOrdinals [<num><ord>:]  SubstZero  NouNinflBoundary
+#GAGA GAGA!	AdverbialPronounDeclinable AdvZero SubstZero  NouNinflBoundary
+
+PATTERN ParticipleDeclStem
+ParticipleInflectable SubstZero NouNinflBoundary
+(:Neg ParticipleInflectable Neg:) SubstZero NouNinflBoundary
+
+PATTERN ParticipleInflectable
+ResultPart
+SubjectPart
+ProspectivePart
+
+PATTERN AdjAdvDeclStem
+AdjAdvBaseDegreed SubstZero NouNinflBoundary
+AdjAdvBaseDegreed SubstZero NouNinflBoundaryRed # Dir/LR
+
+
+PATTERN AdjAdvBaseDegreed
+#Adj with or without superlative prefix
+AdjAdvBaseSimple
+:AdjSuper AdjAdvBaseSimple AdjSuper:
+
+PATTERN AdjAdvBaseSimple
+#Bare adjectives
+AdjReg AdjZero
+#Bare adverbs
+AdvReg AdvZero
+
+#Derived adverbs
+AdjReg AdvOren
+AdjReg NouNinflBoundaryRed AdvOren # Dir/LR
+
+
+
+PATTERN RegNounFinalVowelDeclension
+# nouns with final ու which turn to վ preferably
+# կատու կատուն; ձու ձուն
+# distinguish between mono and poly
+# include oddballs like ամուսին
+NounRegMonoUFinalVBase NZero NouNinflBoundary (Def|Poss)?
+NounRegPolyUFinalVBase NZero NouNinflBoundary (Def|Poss)?
+
+#  կատվի կատուի; ձվի ձուի 
+NounRegMonoUFinalVChanged NZero NouNinflBoundary NSg0 CaseDefIDeclensionWithOvertcase
+NounRegMonoUFinalVBase NZero NouNinflBoundary NSg0 CaseDefIDeclensionWithOvertcase # Dir/LR
+
+NounRegPolyUFinalVChanged NZero NouNinflBoundary NSg0 CaseDefIDeclensionWithOvertcase
+NounRegPolyUFinalVBase NZero NouNinflBoundary NSg0 CaseDefIDeclensionWithOvertcase # Dir/LR
+
+# ձվեր ձուեր
+NounRegMonoUFinalVChanged NZero NouNinflBoundary RegNounPluralFormDeclension
+NounRegMonoUFinalVBase NZero NouNinflBoundary RegNounPluralFormDeclension # Dir/LR
+
+# կատուներ
+NounRegPolyUFinalVBase NZero NouNinflBoundary RegNounPluralFormDeclension
+
+# nouns where final ի turns to zero preferably
+# and then dat/abl uses ու ուց
+# գինի գինին
+NounRegPolyIFinalZeroBase_U_Uts NZero NouNinflBoundary NSg0 (Def|Poss)?
+
+# գինու  գինուց գինով գինում
+NounRegPolyIFinalZeroChanged_U_Uts NZero NouNinflBoundary NSg0  CaseDefUDeclensionWithOvertcase
+
+#  գինիով  գինիում, րաֆֆի-ի րաֆֆի-ից
+NounRegPolyIFinalZeroBase_U_Uts NZero NouNinflBoundary NSg0 CaseDefIDeclensionWithOvertcase # Dir/LR
+
+# գինիներ
+NounRegPolyIFinalZeroBase_U_Uts NZero NouNinflBoundary  RegNounPluralFormDeclension
+
+
+PATTERN RegNounCaseIDeclensionWithReqDef
+#This is for singular case/def inflection where both either case or  def is required
+#This is like substantivized nouns where the bare form is not interpreted as a noun
+# without case
+Def|Poss
+# with case, with/without definite
+CaseDefIDeclensionWithOvertcase
+
+##########################
+##########################
+
+
+PATTERN NounDeclIrregularU
+#This is for nouns and function words that take u-declension
+#This don't have high vowels that can reduce
+#This is a closet set of nouns
+# Does not include infinitivals because infinitivals cant be bare
+#Singular ձի ձիու ձիուց
+UNounStemBoundary NSg0 CaseDefUDeclension
+UNounStemBoundary NSg0 CaseDefIDeclension  # Dir/LR
+
+
+
+#Plural
+UNounStemBoundary RegPluralDeclension
+
+PATTERN UNounStemBoundary
+NounIrregU NZero NouNinflBoundary
+#GAGA GAGA!	Number1 [<num>:]  SubstZero  NouNinflBoundary
+#GAGA GAGA!	QuantifierU  [<prn><qnt>:] 
+
+
+##########################
+##########################
+
+PATTERN InfinitivalDecl
+#For declined infinitivals, I assume they're not pluralized
+#I don't add the reduction boundary as a safety precaution
+#I make bare infinitival get analyezd as just a verb
+#TO DO: I don't think they can take attributive, but I put them here just to be safe
+
+#Singular caseless definite and attributive
+InfinitivalDeclStem  NSg0 DeclUWithFixedDef
+#GAGA GAGA!	#Plural possessive
+#GAGA GAGA!	InfinitivalDeclStem   PluralPossessiveDeclension
+
+
+PATTERN InfinitivalDeclStem
+Infinitival
+:Neg Infinitival Neg:
+
+
+
+
+
+######################
+######################
+
+
+
+#GAGA GAGA!	PATTERN NounTimeVanAdvStem
+#GAGA GAGA!	NounTimeVanAdv AdvZero
+
+#GAGA GAGA!	PATTERN NounTimeVanAdvNominalizedStem
+#GAGA GAGA!	NounTimeVanAdvStem SubstZero NouNinflBoundary
+#GAGA GAGA!	[երբ<prn>:երբ] ([<rel>:]|[<itg>:])   SubstZero NouNinflBoundary 
+
+
+PATTERN NounTimeVanStemBaseNoOrYesU
+NounTimeVan 
+NounTimeVanBase
+NounTimeVanU 
+NounTimeVanUReducedBase 
+
+NounTimeVanIrigunBase
+
+PATTERN NounTimeVanStemReducedNoOrYesUWithIrigun
+NounTimeVan
+NounTimeVanReduced
+NounTimeVanU 
+NounTimeVanUReducedReduced 
+
+NounTimeVanIrigunReduced
+
+PATTERN NounTimeVanStemReducedNoOrYesUWithoutIrigun
+NounTimeVan
+NounTimeVanReduced
+NounTimeVanU 
+NounTimeVanUReducedReduced 
+
+PATTERN NounTimeVanStemReducedYesU
+NounTimeVanU  
+NounTimeVanUReducedReduced  
+
+PATTERN NounDeclIrregularTimeVan
+#optional normal case
+#ժամ takes the above and dative ու
+
+# մահ ամիս
+NounTimeVanStemBaseNoOrYesU NZero NouNinflBoundary NSg0 (Def|Poss)? 
+# մահվա  ամսվա
+NounTimeVanStemReducedNoOrYesUWithIrigun NZero NouNinflBoundary NSg0 CaseTimeVanDatGenSuffixVa  
+# definite մահ-վա-ն մահ-վան-ս ամս-վա-ն ամս-վան-ս
+NounTimeVanStemReducedNoOrYesUWithIrigun  NZero NouNinflBoundary NSg0 CaseTimeVanDatGenSuffixVan Poss
+NounTimeVanStemReducedNoOrYesUWithIrigun  NZero NouNinflBoundary NSg0 CaseTimeVanDatGenSuffixVa Def  
+NounTimeVanStemReducedNoOrYesUWithIrigun  NZero NouNinflBoundary NSg0 CaseTimeVanDatGenSuffixVan Def # Dir/LR
+# մահու ամսու
+NounTimeVanStemReducedYesU  NZero NouNinflBoundary NSg0 CaseDefUDeclensionWithOvertcase # Dir/LR
+# մահվան
+NounTimeVanStemReducedNoOrYesUWithIrigun  NZero NouNinflBoundary NSg0 CaseTimeVanDatGenSuffixVan # Dir/LR
+
+# մահվանից ամսվանից իրիկվանից
+NounTimeVanStemReducedNoOrYesUWithIrigun NZero NouNinflBoundary NSg0 CaseTimeVanDatGenSuffixVan AblReg Poss?
+NounTimeVanStemReducedNoOrYesUWithIrigun NZero NouNinflBoundary NSg0 CaseTimeVanDatGenSuffixVan AblReg Def? # Dir/LR
+# ամսից
+NounTimeVanStemReducedNoOrYesUWithoutIrigun NZero NouNinflBoundary NSg0 AblReg (Def|Poss) # Dir/LR
+# ամսով ամսում
+NounTimeVanStemReducedNoOrYesUWithoutIrigun NZero NouNinflBoundary NSg0 InsReg|LocReg Poss?
+NounTimeVanStemReducedNoOrYesUWithoutIrigun NZero NouNinflBoundary NSg0 InsReg|LocReg Def? # Dir/LR
+# իրիկունով
+NounTimeVanIrigunBase NZero NouNinflBoundary NSg0 InsReg|LocReg Poss?
+NounTimeVanIrigunBase NZero NouNinflBoundary NSg0 InsReg|LocReg Def? # Dir/LR
+
+# մահվամբ
+NounTimeVanStemReducedNoOrYesUWithIrigun NZero NouNinflBoundary NSg0 CaseTimeVanInsVamp (Def|Poss)? # Dir/LR 
+# մահվա-ս
+NounTimeVanStemReducedNoOrYesUWithIrigun  NZero NouNinflBoundary NSg0 CaseTimeVanDatGenSuffixVa Poss # Dir/LR
+
+# ամիսի ամսի, զատիկի զատկի
+NounTimeVanStemBaseNoOrYesU NZero NouNinflBoundary  CaseDefIDeclensionWithOvertcase # Dir/LR
+NounTimeVanStemBaseNoOrYesU NZero NouNinflBoundaryRed  CaseDefIDeclensionWithOvertcase # Dir/LR
+
+#Plural
+NounTimeVanStemBaseNoOrYesU NZero NouNinflBoundary RegNounPluralFormDeclension 
+
+
+#Singular attributive
+#The ուանէ form is preferably treated as attributive
+NounTimeVanStemReducedNoOrYesUWithIrigun NZero NouNinflBoundary NSg0 AttributiveVan
+
+
+
+
+
+#GAGA GAGA!	#For irregulars among the time words
+#GAGA GAGA!	#For irregulars derived from adverbs like այսօր
+#GAGA GAGA!	#Bare adverb
+#GAGA GAGA!	NounTimeVanAdvStem
+#GAGA GAGA!	#Without case, but with definite
+#GAGA GAGA!	NounTimeVanAdvNominalizedStem NouNinflBoundary NSg0 (Def|Poss)
+#GAGA GAGA!	#With case
+#GAGA GAGA!	NounTimeVanAdvNominalizedStem NSg0 CaseTimeVan NouNinflBoundary (Def|Poss)? 
+#GAGA GAGA!	NounTimeVanAdvNominalizedStem NSg0 CaseRegI (Def|Poss)?  # Dir/LR
+#GAGA GAGA!	#with possible case-boundary m like շատոնցմէ
+#GAGA GAGA!	NounTimeVanAdvNominalizedStem NSg0 CaseBoundaryM CaseRegObliqueWithoutGen (Def|Poss)?  # Dir/LR
+
+
+#GAGA GAGA!	#Attributive
+#GAGA GAGA!	NounTimeVanAdvNominalizedStem NSg0 AttributiveVan
+
+#GAGA GAGA!	#Plural
+#GAGA GAGA!	NounTimeVanAdvNominalizedStem RegPluralDeclension
+
+#GAGA GAGA!	#For irregular հիմակուան from հիմա
+#GAGA GAGA!	NounTimeVanHima AdvZero
+#GAGA GAGA!	NounTimeVanHima [:կ] AdvZero SubstZero NouNinflBoundary NSg0 CaseTimeVan NouNinflBoundary (Def|Poss)? 
+
+#GAGA GAGA!	#singular attributive
+#GAGA GAGA!	NounTimeVanHima [:կ] AdvZero SubstZero NouNinflBoundary NSg0 AttributiveVan
+
+
+#GAGA GAGA!	#Plural possessive (separate line for instrumental)
+#GAGA GAGA!	NounTimeVanHima [:կուան] AdvZero SubstZero NouNinflBoundary NSg0|NPlReg PluralPossessiveDeclension
+
+
+
+#############################
+#############################
+#############################
+#############################
+#Other irregulars
+
+PATTERN NounDeclIrregArchaicVowelReduction
+# մեջ մեջի միջի
+NounMonoArchaicVowelReductionBase NZero NouNinflBoundary NSg0 (Def|Poss)?
+NounMonoArchaicVowelReductionReduced NZero NouNinflBoundary NSg0 CaseDefIDeclensionWithOvertcase  # Dir/LR
+NounMonoArchaicVowelReductionBase NZero NouNinflBoundary NSg0 CaseDefIDeclensionWithOvertcase
+
+# իշու
+NounMonoArchaicVowelReductionReducedDativeU  NZero NouNinflBoundary NSg0 CaseDefUDeclensionWithOvertcase  # Dir/LR
+
+# միջեր մեջեր
+NounMonoArchaicVowelReductionReduced NZero NouNinflBoundary RegNounPluralFormDeclension # Dir/LR
+NounMonoArchaicVowelReductionBase NZero NouNinflBoundary RegNounPluralFormDeclension 
+
+NounMonoArchaicVowelReductionBase NZero NouNinflBoundary NSg0 AttributiveGenIDef
+NounMonoArchaicVowelReductionBase NZero NouNinflBoundary NSg0 AttributiveInst   
+NounMonoArchaicVowelReductionReduced NZero NouNinflBoundary NSg0 AttributiveGenIDef # Dir/LR
+NounMonoArchaicVowelReductionReduced NZero NouNinflBoundary NSg0 AttributiveInst   # Dir/LR
+NounMonoArchaicVowelReductionReducedDativeU  NZero NouNinflBoundary NSg0 AttributiveGenUDef # Dir/LR
+
+PATTERN NounDeclIrregReduceNer
+# for nouns like երկիր which reduce everywhere
+# singular երկիր երկիրը
+NounReduceBeforeNer NZero NouNinflBoundary NSg0 (Def|Poss)?
+# cased երկրի երկիրի
+NounReduceBeforeNer NZero NouNinflBoundaryRed NSg0 CaseDefIDeclensionWithOvertcase
+NounReduceBeforeNer NZero NouNinflBoundary NSg0 CaseDefIDeclensionWithOvertcase # Dir/LR
+# plural երկրներ երկիրներ
+NounReduceBeforeNer NZero NouNinflBoundaryRedForcedNer RegNounPluralFormDeclension
+NounReduceBeforeNer NZero NouNinflBoundary RegNounPluralFormDeclension # Dir/LR
+
+
+
+PATTERN NounDeclIrregPolyWithN
+# these are irregular nouns which are polysyllabic but include nasal liaison
+# the only example in hye are words like այնպիսի which takes -n-i and -n-ner
+
+# singular caseless is այնպիսի, այնպիսի-ն, այնպիսի-ս
+NounIrregPolyNasal NZero NouNinflBoundary NSg0 (Def|Poss)?
+
+# singular cased takes a meaningless nasal ն before the case marker
+# այնպիսի-ն-ից, այնպիսի-ն-ի-ն
+NounIrregPolyNasal NZero NouNinflBoundary NSg0 NominalNasal CaseDefIDeclensionWithOvertcase
+
+# plural takes nasal before ner, and the rest is normal
+NounIrregPolyNasal NZero NouNinflBoundary  NominalNasal RegNounPluralFormDeclension
+
+
+
+################################
+################################
+################################
+################################
+#Suffixal irregulars
+
+PATTERN NounDeclUtjunSuffix
+#paradigm of suffix ութիւն
+
+#Singular caseless
+NounUtjunSuffix NUtjunSuffix NZero NouNinflBoundary NSg0 (Def|Poss)?  
+
+#Singular archaic case dative
+NounUtjunSuffix NZero NouNinflBoundary NSg0 CaseUtjunArchaicDat (Def|Poss)? 
+#Singular regular case dative
+NounUtjunSuffix NUtjunSuffix NZero NouNinflBoundary NSg0 CaseDefI_OnlyGenDat   # Dir/LR
+
+#Singular regular case oblique
+NounUtjunSuffix NUtjunSuffix NZero NouNinflBoundary NSg0 CaseRegIObliqueWithoutGenAndDefPoss
+#Singular archaic case oblique
+NounUtjunSuffix NZero NouNinflBoundary NSg0 (CaseUtjunArchaicAbl|CaseUtjunArchaicInst) (Def|Poss)?  # Dir/LR
+
+#Plural 
+NounUtjunSuffix NUtjunSuffix  NZero NouNinflBoundary RegNounPluralFormDeclension
+#Archaic -ութեանց for plural genitive/dat
+NounUtjunSuffix NZero NouNinflBoundary CaseUtjunArchaicPluralDatGen (Def|Poss)?   # Dir/LR
+#GAGA GAGA!	#Plural possessive (separate line for instrumental)
+#GAGA GAGA!	NounUtjunSuffix NUtjunSuffix  NZero	 NouNinflBoundary NSg0|NPlReg  PluralPossessiveDeclension
+
+
+#attributive, arak included թեանիս
+NounUtjunSuffix  NZero NouNinflBoundary NSg0 AttributiveUtjun
+
+PATTERN NounDeclUmSuffix
+#pattern for suffix ում
+
+#Singular caseless ծագում
+NounUmSuffix NUmSuffixBase NZero NouNinflBoundary NSg0 (Def|Poss)? 
+#Singular archaic case dative ծագման
+NounUmSuffix NUmSuffixReduced NZero NouNinflBoundary NSg0 CaseDefDatGenArchaicAn
+#Singular regular  dative case ծագումի
+NounUmSuffix NUmSuffixBase NZero NouNinflBoundary NSg0 CaseDefI_OnlyGenDat   # Dir/LR
+# singular regular oblique case ծագումից ծագումով
+NounUmSuffix NUmSuffixBase NZero NouNinflBoundary NSg0 CaseRegIObliqueWithoutGenAndDefPoss
+#Singular archaic instrument cases like ուսմանից ուսմամբ
+NounUmSuffix NUmSuffixReduced NZero NouNinflBoundary NSg0 DatGenArchaicAn CaseRegIObliqueWithoutGenAndDefPoss # Dir/LR
+NounUmSuffix NUmSuffixReduced NZero NouNinflBoundary NSg0 InstArchaicAmp (Def|Poss)? # Dir/LR
+
+
+
+#Plural (already know it's polysyllabic)
+NounUmSuffix NUmSuffixBase NZero NouNinflBoundary RegNounPluralFormDeclension
+
+#GAGA GAGA!	#Plural possessive (separate line for instrumental)
+#GAGA GAGA!	NounUmSuffix NUmSuffixBase  NZero NouNinflBoundary NSg0|NPlReg PluralPossessiveDeclension
+
+
+#attributive,
+NounUmSuffix  NZero NouNinflBoundary NSg0 AttributiveUm 
+# NounUmSuffix  NZero NouNinflBoundary NPlReg AttributiveUm # already in the plural
+
+
+######################
+#####################
+##### Archaic declensions on nouns
+
+PATTERN NounDeclOldAnForm
+#These are nouns which can take -ան in the dative
+#The -an form is rather antiquated and with only a few words
+#The -an then triggers arbitrary reduction
+#The words should have a regular version in the regular list
+# There are subcategories based on reduction EANC: գառ, գառան, գառնից vs գարուն գարնան գարունից
+#GAGA GAGA!	# can also do unreduced nouns like կողմ կողման կողմանէ
+#GAGA GAGA!	# Can have ամբ forms in instrumental
+
+# base form գառ
+NounOldAnFormGar NZero NouNinflBoundary NSg0  (Def|Poss)?
+# regular form գառ գառեր գառի, բուռ բռի
+NounOldAnFormGar NZero NouNinflBoundary NSg0  CaseDefIDeclension # Dir/LR
+NounOldAnFormGar NZero NouNinflBoundary RegNounPluralFormDeclension  # Dir/LR
+NounOldAnFormGar NZero NouNinflBoundaryRed NSg0  CaseDefIDeclension # Dir/LR
+NounOldAnFormGar NZero NouNinflBoundaryRed RegNounPluralFormDeclension  # Dir/LR
+
+# irregular գառան գառնից գառներ
+NounOldAnFormGar NZero NouNinflBoundaryRedForcedNer NSg0 CaseDefDatGenArchaicAn
+NounOldAnFormGar NZero NouNinflBoundaryRedForcedNer NSg0 NominalNasal CaseRegIObliqueWithoutGenAndDefPoss   
+NounOldAnFormGar NZero NouNinflBoundaryRedForcedNer RegNounPluralFormDeclensionNerOnly 
+
+# attributive
+NounOldAnFormGar NZero NouNinflBoundaryRedForcedNer NSg0 NominalNasal AttributiveAnNoIns
+NounOldAnFormGar NZero NouNinflBoundaryRedForcedNer NSg0 NominalNasal AttributiveInst 
+
+
+
+#used to do vowel reduction phonologically, but now include in stem becauase ամռան
+# base form գարուն
+NounOldAnFormGarunBase NZero NouNinflBoundary NSg0  (Def|Poss)?
+# regular form գարուն գարունի գարունից
+NounOldAnFormGarunBase NZero NouNinflBoundary NSg0 CaseDefIDeclension  # Dir/LR
+# regular plural գարուններ
+NounOldAnFormGarunBase NZero NouNinflBoundary RegNounPluralFormDeclension
+# irregular գարնան գարնանից, ամռան ամռանից
+NounOldAnFormGarunReduced NZero NouNinflBoundary NSg0 CaseDefDatGenArchaicAn
+NounOldAnFormGarunReduced NZero NouNinflBoundary NSg0 DatGenArchaicAn CaseRegIObliqueWithoutGenAndDefPoss   
+
+# attributive
+NounOldAnFormGarunReduced NZero NouNinflBoundary NSg0 AttributiveAnNoIns
+NounOldAnFormGarunReduced NZero NouNinflBoundary NSg0 DatGenArchaicAn AttributiveInst
+
+
+# irregular ակ that's too archaic to generate full paradigm
+NounIrregArchaicEye NZero NouNinflBoundary NSg0 CaseDefDatGenArchaicAn # Dir/LR
+NounIrregArchaicEye NZero NouNinflBoundary NSg0 DatGenArchaicAn CaseRegIObliqueWithoutGenAndDefPoss # Dir/LR
+NounIrregArchaicEye NZero NouNinflBoundary  DatGenArchaicAn RegNounPluralFormDeclension # Dir/LR
+
+NounIrregArchaicEye NZero NouNinflBoundary NSg0 AttributiveAnNoIns # Dir/LR
+
+# base form աղջիկ
+NounOldAnFormGirl NZero NouNinflBoundary NSg0  (Def|Poss)?
+# reduced աղջկա աղջկանից
+NounOldAnFormGirl NZero NouNinflBoundaryRedForcedNer NSg0 DatGenArchaicAnAj
+NounOldAnFormGirl NZero NouNinflBoundaryRedForcedNer NSg0 DatGenArchaicAn CaseRegIObliqueWithoutGenAndDefPoss
+# definite աղջկա-ն and possessed աղջկան-ս
+NounOldAnFormGirl NZero NouNinflBoundaryRedForcedNer NSg0 DatGenArchaicAnAj Def
+NounOldAnFormGirl NZero NouNinflBoundaryRedForcedNer NSg0 DatGenArchaicAn Poss
+# reduced աղջկաս
+NounOldAnFormGirl NZero NouNinflBoundaryRedForcedNer NSg0 DatGenArchaicAnAj Def|Poss # Dir/LR
+# reduce dative աղջկ-ան
+NounOldAnFormGirl NZero NouNinflBoundaryRedForcedNer NSg0 DatGenArchaicAn # Dir/LR 
+# plural աղջիկներ
+NounOldAnFormGirl NZero NouNinflBoundary RegNounPluralFormDeclension 
+
+# attributive
+NounOldAnFormGirl NZero NouNinflBoundaryRedForcedNer NSg0 AttributiveAnNoIns
+NounOldAnFormGirl NZero NouNinflBoundaryRedForcedNer NSg0 DatGenArchaicAn AttributiveInst
+
+
+PATTERN NounDeclOldOch
+#These are nouns which can take -ոջ in the dative
+#The -ոջ form is rather antiquated and with only a few words
+#The -ոջ then triggers arbitrary reduction
+#My cheat is to use separate reduced stems
+#So this pattern   derives ընկեր ընկերոջ ընկերից քրոջ and regularized form
+
+#Singular caseless ընկեր քույր
+NounDecOldOchNominativeStem NZero NouNinflBoundary NSg0 (Def|Poss)? 
+#Singular archaic case with oblique forms ընկերոջ ընկերոջից քրոջ քրոջից
+NounDecOldOchObliqueStem NZero NouNinflBoundary NSg0 DatGenArchaicOch (Def|Poss)? 
+NounDecOldOchObliqueStem NZero NouNinflBoundary NSg0 DatGenArchaicOch CaseRegIObliqueWithoutGenAndDefPoss
+#Singular regular case
+NounDecOldOchNominativeStem  NZero NouNinflBoundary NSg0 CaseDefIDeclension   # Dir/LR
+
+
+#Plural 
+NounDecOldOchNominativeStem  NZero NouNinflBoundary RegPluralDeclension
+
+#GAGA GAGA!	#regularized plural possessive ընկերնիս կիներնիս
+#GAGA GAGA!	NounDecOldOchNominativeStem NZero NouNinflBoundary NSg0|NPlReg  PluralPossessiveDeclension
+#GAGA GAGA!	#irregular plural possessive ընկերոջնիս ընկերոջմովնիս ընկերոջովնիս կնոջնիս կնոջմովնիս կնոջոջնիս
+#GAGA GAGA!	NounDecOldOchObliqueStem NZero	 NouNinflBoundary  DatGenArchaicOch PossPl CaseRegPostPluralPoss? Def|Poss  # Dir/LR
+#GAGA GAGA!	NounDecOldOchObliqueStem NZero  NouNinflBoundary  DatGenArchaicOch CaseBoundaryM? InsReg PossPl  Def|Poss  # Dir/LR
+
+
+#Attributive
+NounDecOldOchObliqueStem NZero NouNinflBoundary NSg0 AttributiveOch
+
+
+
+PATTERN NounDecOldOchNominativeStem
+#Nominative stems ընկեր քույր
+NounFamilyOchFixed 
+NounFamilyOchBase
+PATTERN NounDecOldOchObliqueStem
+#Oblique  stems ընկեր քր
+NounFamilyOchFixed 
+NounFamilyOchReduced
+
+
+PATTERN NounDeclOldFamilyOAblaut
+#These are nouns which can take -օ- in the dative
+#The -օ- form is rather antiquated and with only a few words
+#The -ոջ then triggers arbitrary reduction
+#My cheat is to use separate reduced stems
+#So this pattern   derives հայր հոր հորից and regularized form
+
+#Singular caseless հայր
+NounFamilyOBase NZero NouNinflBoundary NSg0 (Def|Poss)? 
+#Singular archaic case with oblique forms հոր հորից
+NounFamilyOAblauted NZero NouNinflBoundary NSg0  DatGenArchaicEmpty  (Def|Poss)? 
+NounFamilyOAblauted NZero NouNinflBoundary NSg0  DatGenArchaicEmpty CaseRegIObliqueWithoutGenAndDefPoss 
+#Singular regular case հայրից
+NounFamilyOBase  NZero NouNinflBoundary NSg0 CaseRegIObliqueWithoutGenAndDefPoss  # Dir/LR
+#Singular հայրի
+NounFamilyOBase  NZero NouNinflBoundary NSg0 CaseDefI_OnlyGenDat # Dir/LR
+
+#Plural հայրեր 
+NounFamilyOBase  NZero NouNinflBoundary RegNounPluralFormDeclension
+
+#GAGA GAGA!	#regularized plural possessive եղբայրնիս եղբայրովնիս
+#GAGA GAGA!	NounFamilyOBase NZero	 NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss? Def|Poss
+#GAGA GAGA!	NounFamilyOBase NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+#GAGA GAGA!	#irregular plural possessive եղբօրնիս եղբօրմովնիս եղբօրովնիս
+#GAGA GAGA!	NounFamilyOAblauted NZero	 NouNinflBoundary  DatGenArchaicEmpty PossPl CaseRegPostPluralPoss? Def|Poss  # Dir/LR
+#GAGA GAGA!	NounFamilyOAblauted NZero  NouNinflBoundary  DatGenArchaicEmpty CaseBoundaryM? InsReg PossPl  Def|Poss  # Dir/LR
+
+
+#attributive, I don't think ablauted stem takes attributive
+NounFamilyOBase NZero NouNinflBoundary NSg0 AttributiveGenIDef|AttributiveInst 
+
+
+PATTERN NounDeclOldRandomOAblaut
+# These are nouns which take ablaut -ա- in the dative
+# տուն տան
+# hye optionally take ablaut in oblique տնից տանից
+
+#Singular caseless տուն
+NounRandomOBase NZero NouNinflBoundary NSg0 (Def|Poss)? 
+#Singular archaic case  տան
+NounRandomOAblauted NZero NouNinflBoundary NSg0  DatGenArchaicEmpty   (Def|Poss)? 
+#Singular regular case տնից
+NounRandomOBase  NZero NouNinflBoundaryRed NSg0 CaseRegIObliqueWithoutGenAndDefPoss
+#Singular irregular case տանից
+NounRandomOAblauted  NZero NouNinflBoundary NSg0 CaseRegIObliqueWithoutGenAndDefPoss # Dir/LR
+#Singular non reduced case տունից
+NounRandomOBase  NZero NouNinflBoundary NSg0 CaseRegIObliqueWithoutGenAndDefPoss
+#Singular տունի
+NounRandomOBase  NZero NouNinflBoundary NSg0 CaseDefI_OnlyGenDat # Dir/LR
+
+
+#Plural տներ
+NounRandomOBase  NZero NouNinflBoundaryRed RegNounPluralFormDeclension
+# unreduced
+NounRandomOBase  NZero NouNinflBoundary RegNounPluralFormDeclension # Dir/LR
+
+#GAGA GAGA!	#regularized plural possessive տուներնիս
+#GAGA GAGA!	NounRandomOBase NZero  NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss? Def|Poss
+#GAGA GAGA!	NounRandomOBase NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+
+
+#attributive, doesnt take ablaut I think
+NounRandomOBase NZero NouNinflBoundary NSg0 AttributiveGenIDef|AttributiveInst 
+
+
+
+PATTERN NounDeclCountry
+# These are country nouns which take -ոյ- reduction in dative
+# անգլիա անգլիոյ պոլիս պոլսոյ -- but this is  unproductive and seen as archaic in hye
+# also includes normal countries as separate list NounCountryUnreducible
+# Adds toponym feature
+# Some locations can be reduced like Էջմիածնի so I added optional red boundary
+#Singular caseless անգլիա
+
+NounCountryBase  				[<np><top>:] NouNinflBoundary NSg0 (Def|Poss)? 
+NounCountryUnreducible  		[<np><top>:] NouNinflBoundary NSg0 (Def|Poss)? 
+NounCountryHighVowelreduction 	[<np><top>:] NouNinflBoundary NSg0 (Def|Poss)? 
+NounCountryIHiatusBase			[<np><top>:] NouNinflBoundary NSg0 (Def|Poss)? 
+NounCountryUHiatusBase			[<np><top>:] NouNinflBoundary NSg0 (Def|Poss)? 
+
+
+#Singular archaic case  անգլիոյ, must add infl boundary to get glide deletion անգլիոն
+NounCountryReduced  [<np><top>:] NouNinflBoundary NSg0 DatGenArchaicOj NouNinflBoundary (Def|Poss)?   # Dir/LR
+NounCountryHighVowelreduction  [<np><top>:] NouNinflBoundaryRed NSg0 DatGenArchaicOj NouNinflBoundary (Def|Poss)?   # Dir/LR
+
+#Singular modern dative case
+NounCountryBase  [<np><top>:] NouNinflBoundary NSg0 CaseDefIDeclension
+NounCountryBase  [<np><top>:] NouNinflBoundaryRed NSg0 CaseDefIDeclension # Dir/LR
+NounCountryUnreducible  [<np><top>:] NouNinflBoundary NSg0 CaseDefIDeclension
+NounCountryUnreducible  [<np><top>:] NouNinflBoundaryRed NSg0 CaseDefIDeclension   # Dir/LR
+NounCountryHighVowelreduction  [<np><top>:] NouNinflBoundaryRed NSg0 CaseDefIDeclension
+
+# գյումրի գյումրու գյումրիի գյումրվա
+NounCountryIHiatusBase   	[<np><top>:] NouNinflBoundary NSg0 CaseDefIDeclension # Dir/LR
+NounCountryIHiatusReduced 	[<np><top>:] NouNinflBoundary NSg0  CaseDefUDeclensionWithOvertcase # գինու  գինուց գինով գինում
+NounCountryIHiatusBase   	[<np><top>:]  NouNinflBoundary NSg0 CaseDefIDeclensionWithOvertcase # Dir/LR #  գինիով  գինիում, րաֆֆի-ի րաֆֆի-ից
+NounCountryIHiatusReduced 	[<np><top>:] NouNinflBoundary NSg0 CaseTimeVanDatGenSuffixVa    # Dir/LR
+NounCountryIHiatusReduced  	[<np><top>:] NouNinflBoundary NSg0 CaseTimeVanDatGenSuffixVan Poss # Dir/LR 
+NounCountryIHiatusReduced 	[<np><top>:] NouNinflBoundary NSg0 CaseTimeVanDatGenSuffixVa Def  # Dir/LR 
+NounCountryIHiatusReduced 	[<np><top>:] NouNinflBoundary NSg0 CaseTimeVanDatGenSuffixVan Def # Dir/LR
+NounCountryIHiatusReduced 	[<np><top>:] NouNinflBoundary NSg0 CaseTimeVanDatGenSuffixVan CaseRegIObliqueWithoutGenAndDefPoss # Dir/LR  # Dir/LR 
+NounCountryIHiatusReduced 	[<np><top>:] NouNinflBoundary NSg0 CaseTimeVanDatGenSuffixVan # Dir/LR
+NounCountryIHiatusReduced 	[<np><top>:] NouNinflBoundary NSg0 CaseTimeVanInsVamp (Def|Poss)? # Dir/LR 
+NounCountryIHiatusReduced 	[<np><top>:] NouNinflBoundary NSg0 CaseTimeVanDatGenSuffixVa Poss # Dir/LR
+
+# բագու բագվի բագուի
+NounCountryUHiatusReduced 	[<np><top>:] NouNinflBoundary NSg0 CaseDefIDeclensionWithOvertcase
+NounCountryUHiatusBase  	[<np><top>:] NouNinflBoundary NSg0 CaseDefIDeclensionWithOvertcase # Dir/LR
+
+
+
+#Plural անգլիաներ
+NounCountryBase  				[<np><top>:] NouNinflBoundary RegNounPluralFormDeclension
+NounCountryUnreducible  		[<np><top>:] NouNinflBoundary RegNounPluralFormDeclension
+NounCountryHighVowelreduction 	[<np><top>:] NouNinflBoundary RegNounPluralFormDeclension
+NounCountryIHiatusBase  		[<np><top>:] NouNinflBoundary RegNounPluralFormDeclension
+NounCountryUHiatusBase 			[<np><top>:] NouNinflBoundary RegNounPluralFormDeclension
+
+
+#GAGA GAGA!	#regularized plural possessive տուներնիս
+#GAGA GAGA!	NounCountryBase|NounCountryUnreducible  [<np><top>:] NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss? Def|Poss
+#GAGA GAGA!	NounCountryBase|NounCountryUnreducible  [<np><top>:] NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+
+
+#attributive, is already in casedefI and pl decl patterns
+
+PATTERN NounDeclNamesFinalI
+# this is just for  names like Վարդուհի which take U-declension
+
+NameFemaleGivenIFinalBase 		[<np><ant><f>:] NouNinflBoundary NSg0 (Def|Poss)? 
+NameFamilyIFinalBase 			[<np><cog>:]	NouNinflBoundary NSg0 (Def|Poss)? 
+# Վարդուհու Վարդուհուց Վարդուհով
+NameFemaleGivenIFinalReduced	[<np><ant><f>:] NouNinflBoundary NSg0 CaseDefUDeclensionWithOvertcase
+NameFamilyIFinalReduced 		[<np><cog>:] 	NouNinflBoundary NSg0 CaseDefUDeclensionWithOvertcase
+# regular վարդուհիի etc
+NameFemaleGivenIFinalBase		[<np><ant><f>:]	NouNinflBoundary NSg0 CaseDefIDeclensionWithOvertcase # Dir/LR
+NameFamilyIFinalBase			[<np><cog>:]	NouNinflBoundary NSg0 CaseDefIDeclensionWithOvertcase # Dir/LR
+# plural
+NameFemaleGivenIFinalBase 		[<np><ant><f>:] NouNinflBoundary RegNounPluralFormDeclension
+NameFamilyIFinalBase			[<np><cog>:] NouNinflBoundary RegNounPluralFormDeclension
+
+
+PATTERN NounDeclFamilyNkForm
+#These are family nouns which can take -նք in the nominative
+# And նց in the genitive/dative
+# and obliques in hye
+#So this pattern only derives  
+
+# Վարդանանք
+NounFamilyNkForm [<np><cog>:] NNkSuffix  NouNinflBoundary   (Def|Poss)? 
+# Վարդանանց
+NounFamilyNkForm [<np><cog>:] NNkSuffixCaseNc NouNinflBoundary (Def|Poss)? 
+# Վարդանանցից
+NounFamilyNkForm [<np><cog>:] NNkSuffixCaseNc NouNinflBoundary CaseRegIObliqueWithoutGenAndDefPoss 
+
+# regularized Վարդանանքի
+NounFamilyNkForm [<np><cog>:] NNkSuffix NouNinflBoundary CaseDefIDeclension # Dir/LR
+# plural
+NounFamilyNkForm [<np><cog>:] NNkSuffix NouNinflBoundary RegPluralDeclension # Dir/LR
+
+# for any name like Հովսեփ-ենք -ենց -ենցից
+NameBaseNotCountry NEnkSuffix    (Def|Poss)? 
+NameBaseNotCountry NEnkSuffixCaseNc    (Def|Poss)? 
+NameBaseNotCountry NEnkSuffixCaseNc    CaseRegIObliqueWithoutGenAndDefPoss
+NameBaseNotCountry NAnkSuffix    (Def|Poss)?  # Dir/LR
+NameBaseNotCountry NAnkSuffixCaseNc    (Def|Poss)?  # Dir/LR
+NameBaseNotCountry NAnkSuffixCaseNc    CaseRegIObliqueWithoutGenAndDefPoss # Dir/LR
+
+# attributive
+NameBaseNotCountry NEnkSuffixCaseNc AttributiveGenIDef|AttributiveInst
+NameBaseNotCountry NEnkSuffix AttributiveGenIDef|AttributiveInst # Dir/LR
+NameBaseNotCountry NAnkSuffixCaseNc AttributiveGenIDef|AttributiveInst # Dir/LR
+NameBaseNotCountry NAnkSuffix AttributiveGenIDef|AttributiveInst # Dir/LR
+
+
+
+PATTERN NounDeclIrregReduce
+
+
+
+#For nouns which supplete or have single-lexeme paradigms
+#տղա
+#regular caseless and regular case տղա տղայի
+NounIrregBoyBase NZero NouNinflBoundary NSg0 CaseDefIDeclension
+# irregular definite տղեն տղես
+NounIrregBoyReduced NZero NouNinflBoundary NSg0 NounIrregBoyRaisedVowelE Poss|Def # Dir/LR
+#irregular  case տղի տղու
+NounIrregBoyReduced NZero NouNinflBoundary NSg0 CaseDefIDeclensionWithOvertcase # Dir/LR
+NounIrregBoyReduced NZero NouNinflBoundary NSg0 CaseDefUDeclensionWithOvertcase # Dir/LR
+
+#regularized plural and reguarlized case տղաների
+NounIrregBoyBase NZero  NouNinflBoundary RegNounPluralFormDeclension  
+# irregular plural տղեք տղեքի or տղեքների or տղերք
+NounIrregBoyReduced NZero  NouNinflBoundary NounIrregBoyRaisedVowelE NPlIrregK NPlNerVacuous? CaseDefIDeclension  # Dir/LR
+NounIrregBoyReduced NZero  NouNinflBoundary NounIrregBoyRaisedVowelE NPlIrregRK NPlNerVacuous? CaseDefIDeclension  # Dir/LR
+
+#GAGA GAGA!	#regularized plural possessive տղայներնիս տղաքներնիս
+#GAGA GAGA!	NounIrregBoyBase NZero	 NouNinflBoundary NSg0|(NPlIrregK? NPlReg)  PossPl CaseRegPostPluralPoss? Def|Poss  # Dir/LR
+#GAGA GAGA!	NounIrregBoyBase NZero  NouNinflBoundary NSg0|(NPlIrregK? NPlReg)  InsReg PossPl  Def|Poss  # Dir/LR
+#GAGA GAGA!	#irregular plural possessive տղաքնիս տղաքովնիս տղաքմովնիս
+#GAGA GAGA!	NounIrregBoyBase NZero	 NouNinflBoundary NPlIrregK  PossPl CaseRegPostPluralPoss? Def|Poss
+#GAGA GAGA!	NounIrregBoyBase NZero  NouNinflBoundary NPlIrregK CaseBoundaryM? InsReg PossPl  Def|Poss
+
+
+
+#մարդ
+#regular caseless  մարդ and cased մարդու մարդուց
+NounIrregMan NZero NouNinflBoundary NSg0 CaseDefUDeclension? 
+#regular dative case մարդի
+NounIrregMan NZero NouNinflBoundary NSg0 CaseDefIDeclension # Dir/LR
+
+#Irregular plural and irregular case մարդիկ մարդկանց մարդկանցից
+NounIrregMan NZero NouNinflBoundary NPlIrregIk  (Def|Poss)? 
+NounIrregMan NZero NouNinflBoundary PlDatGenIrregularKAnts (Def|Poss)? 
+NounIrregMan NZero NouNinflBoundary PlDatGenIrregularKAnts CaseRegIObliqueWithoutGenAndDefPoss
+#regularized plural and reguarlized case մարդերի, մարդիկից
+NounIrregMan NZero  NouNinflBoundary RegNounPluralFormDeclension  # Dir/LR
+NounIrregMan NZero  NouNinflBoundary NPlIrregIk CaseDefIDeclension  # Dir/LR
+
+#GAGA GAGA!	#regularized plural possessive մարդերնիս
+#GAGA GAGA!	NounIrregMan NZero	 NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss? Def|Poss  # Dir/LR
+#GAGA GAGA!	NounIrregMan NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss	 # Dir/LR
+#GAGA GAGA!	#irregular plural possessive մարդիկնիս մարդոցնիս մարդոցովնիս մարդոցմովնիս
+#GAGA GAGA!	NounIrregMan NZero	 NouNinflBoundary NPlIrregIk  PossPl CaseRegPostPluralPoss? Def|Poss
+#GAGA GAGA!	NounIrregMan NZero  NouNinflBoundary  PlDatGenIrregularOts CaseBoundaryM? InsReg PossPl  Def|Poss
+
+#attributive
+NounIrregMan NZero NouNinflBoundary NSg0 AttributiveGenUDef|AttributiveInst  
+NounIrregMan NZero NouNinflBoundary NSg0 AttributiveGenIDef  # Dir/LR
+NounIrregMan NZero NouNinflBoundary  AttributiveKAnts 
+
+
+
+#տիկին
+#regular caseless  տիկին
+NounIrregWomanBase NZero NouNinflBoundary NSg0 (Def|Poss)? 
+#regular dative case and oblique տիկինի տիկինից
+NounIrregWomanBase NZero NouNinflBoundary NSg0 CaseDefIDeclension  # Dir/LR
+#irregular dative case տիկնոջ and oblique տիկնոջից
+NounIrregWomanReducedSg NZero NouNinflBoundary NSg0 DatGenArchaicOch (Def|Poss)?
+NounIrregWomanReducedSg NZero NouNinflBoundary NSg0 DatGenArchaicOch CaseRegIObliqueWithoutGenAndDefPoss
+
+#regularized plural and reguarlized case տիկինների
+NounIrregWomanBase NZero  NouNinflBoundary RegNounPluralFormDeclension # Dir/LR
+#Irregular plural and irregular case տիկնայք տինանց  տիկնանցից
+NounIrregWomanReducedPl NZero NouNinflBoundary [<pl>:այք]  (Def|Poss)? 
+NounIrregWomanReducedPl NZero NouNinflBoundary [<pl><dat_gen>:անց]  (Def|Poss)? 
+NounIrregWomanReducedPl NZero NouNinflBoundary [<pl><dat_gen>:անց]  CaseRegIObliqueWithoutGenAndDefPoss
+
+# optional անոց
+NounIrregWomanReducedPl NZero NouNinflBoundary [<dat_gen>:անոց]  (Def|Poss)?  # Dir/LR
+
+# frozen կին forms
+NounIrregWomanReducedPlGinGn  NZero NouNinflBoundary [<pl>:անիք] CaseDefIDeclension # Dir/LR
+NounIrregWomanReducedPlGinGn  NZero NouNinflBoundary [<pl><dat_gen>:անց] CaseRegIObliqueWithoutGenAndDefPoss? # Dir/LR
+
+
+#GAGA GAGA!	#regularized plural possessive տիկիննիս տիկիններնիս
+#GAGA GAGA!	NounIrregWomanBase NZero	NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss? Def|Poss
+#GAGA GAGA!	NounIrregWomanBase NZero  	NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+#GAGA GAGA!	#irregular plural possessive տիկնայքնիս տիկնացնիս տիկնանցմովնիս
+#GAGA GAGA!	NounIrregWomanReduced NZero NouNinflBoundary [<pl>:այք]  PossPl CaseRegPostPluralPoss? Def|Poss
+#GAGA GAGA!	NounIrregWomanReduced NZero NouNinflBoundary [<dat_gen>:անց] CaseBoundaryM? InsReg PossPl Def|Poss
+
+#attributive, i dont know about attriburive for այք/անց
+NounIrregWomanBase NZero NouNinflBoundary NSg0 AttributiveGenIDef|AttributiveInst   # Dir/LR
+NounIrregWomanReducedSg NZero NouNinflBoundary NSg0 AttributiveOch
+NounIrregWomanBase NZero  NouNinflBoundary NPlReg AttributiveGenIDef|AttributiveInst
+
+
+# աստված աստծո աստուծո աստուծմէ
+#Singular 
+NounIrregGod NZero NouNinflBoundary NSg0   (Def|Poss)? 
+#Regular case աստվածից ասվածով
+NounIrregGod NZero NouNinflBoundary NSg0 CaseDefIDeclension # Dir/LR
+# Archaic dative case  աստծո աստծու աստուծո աստուծոն , ածստոս 
+#TOA: Have to variably force a boundary after ոյ to trigger glide deletion
+NounIrregGodNoVowel NZero NouNinflBoundary NSg0 DatGenArchaicOj  (Def|Poss)?  #Dir/LR
+NounIrregGodNoVowel NZero NouNinflBoundary NSg0 DatGenRegU  (Def|Poss)?  #Dir/LR
+NounIrregGodReducedU NZero NouNinflBoundary NSg0 DatGenArchaicOj  (Def|Poss)? 
+# Archaic oblique case աստծուց աստծով
+NounIrregGodNoVowel NZero NouNinflBoundary NSg0 CaseRegUObliqueWithoutGenAndDefPoss
+NounIrregGodReducedU NZero NouNinflBoundary NSg0 CaseRegUObliqueWithoutGenAndDefPoss  # Dir/LR
+
+#Plural
+NounIrregGod NZero  NouNinflBoundary RegNounPluralFormDeclension
+
+#GAGA GAGA!	#Plural possessive (separate line for instrumental)
+#GAGA GAGA!	NounIrregGod NZero	 NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss? Def|Poss
+#GAGA GAGA!	NounIrregGod NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+
+#don't think can form attributive irregularly
+NounIrregGod NZero NouNinflBoundary NSg0 AttributiveGenIDef|AttributiveInst
+
+# սեր սիրո հոգի հոգւոյն, սիրով մարմին մարմնո հուսո հուսով
+#Regular forms are derived elsewhere by having a duplicat entry in RegNoun
+#These entries here are treated as optional ones
+
+# Archaic dative case  սեր սիրո սիրու, սիրուց, 
+#Can't have  boundary after ո to block glide deletion + force ն definite
+NounIrregArchaicOj NZero NouNinflBoundary NSg0 DatGenArchaicOj (DefNOnly|Poss)?   # Dir/LR
+# սիրով սիրովն
+NounIrregArchaicOj NZero NouNinflBoundary NSg0 CaseDefUDeclensionWithOvertcase  # Dir/LR
+
+
+
+
+# for հանգստեան words
+# this is optional because regular form is more common
+IrregArchaicYan NZero NouNinflBoundary NSg0 DatGenArchaicYan (Def|Poss)? # Dir/LR
+IrregArchaicYan NZero NouNinflBoundary NSg0 InsArchaicYamp (Def|Poss)? # Dir/LR
+
+
+#For a bunch of words with frozen classical case-slots
+# կայսր կայսեր
+#Regular form is norm, so I only list irregular
+#Regular form is derived in other declensions
+IrregFrozenCase (Def|Poss)?  # Dir/LR
+IrregFrozenCaseDatGenOblique (Def|Poss)? # Dir/LR
+IrregFrozenCaseDatGenOblique CaseRegIObliqueWithoutGenAndDefPoss?   # Dir/LR
+
+
+#GAGA GAGA!	# for words with optional syncope of non-high vowel in declined forms like բերան բերնի
+#GAGA GAGA!	#I only show syncopated forms as optional. Unsyncopated should be part of regular forms
+#GAGA GAGA!	NounSyncopeReduced NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)?    # Dir/LR
+#GAGA GAGA!	#attributive
+#GAGA GAGA!	NounSyncopeReduced NZero NouNinflBoundary NSg0 AttributiveGenIDef    # Dir/LR
+
+#GAGA GAGA!	# For words that can reduce before plural Ներ like երկրներ
+#GAGA GAGA!	# I only derive the reduction here as an optional path
+#GAGA GAGA!	# The noun gets normal inflection elsewhere
+#GAGA GAGA!	NounReduceBeforeNer NZero NouNinflBoundary NPlNerOnly CaseRegU? (Def|Poss)?    # Dir/LR
+
+#GAGA GAGA!	############ Attributive
+#GAGA GAGA!	#I don't think the gen-def for attributive replace def with a possessive
+
+# for monosyllabic words which take plural ner
+# հարս հարսից հարսներ
+NounMonoWithNer NZero NouNinflBoundary NSg0 CaseDefIDeclension
+NounMonoWithNer NZero NouNinflBoundary RegPluralDeclension # Dir/LR
+NounMonoWithNer NZero NouNinflBoundary RegNounPluralFormDeclensionNerOnly
+
+
+PATTERN AttributiveGenIDef
+DatGenRegI  Def|Poss [+NP:] AttributiveDefinitePostInflection
+PATTERN AttributiveGenUDef
+DatGenRegU  Def|Poss [+NP:] AttributiveDefinitePostInflection
+PATTERN AttributiveInst
+InsReg  [+NP:] AttributiveInstrumentalPostInflection
+PATTERN AttributiveVan
+#special ones for the Van forms
+[<dat_gen><def>:վան]   [+NP:] AttributiveDefinitePostInflection
+[<ins>:ով]  [+NP:] AttributiveInstrumentalPostInflection
+([<ins>:վանով])  [+NP:] AttributiveInstrumentalPostInflection # Dir/LR
+PATTERN AttributiveUm
+#special ones for the um forms
+NUmSuffixReduced DatGenArchaicAn  [+NP:] AttributiveDefinitePostInflection #Dir/LR
+NUmSuffixBase DatGenRegI  Def|Poss   [+NP:] AttributiveDefinitePostInflection
+NUmSuffixBase InsReg [+NP:] AttributiveInstrumentalPostInflection # not sure why this was Dir/LR
+PATTERN AttributiveUtjun
+# archaic forms like թեանէն
+CaseUtjunArchaicDat|CaseUtjunArchaicInst   [+NP:] AttributiveDefinitePostInflection #Dir/LR 
+NUtjunSuffix AttributiveGenIDef|AttributiveInst
+
+PATTERN AttributiveOch
+#special ones for the och forms
+DatGenArchaicOch [+NP:] AttributiveDefinitePostInflection
+DatGenArchaicOch InsReg  [+NP:] AttributiveInstrumentalPostInflection 
+PATTERN AttributiveKAnts
+#special ones for the կանց forms
+PlDatGenIrregularKAnts   [+NP:] AttributiveDefinitePostInflection
+PlDatGenIrregularKAnts  InsReg [+NP:] AttributiveInstrumentalPostInflection 
+#PATTERN AttributiveOts
+#seems ots does not exist in hye
+# PlDatGenIrregularOts   [+NP:] AttributiveDefinitePostInflection
+# PlDatGenIrregularOts CaseBoundaryM InsReg   [+NP:] AttributiveInstrumentalPostInflection
+# PlDatGenIrregularOts  InsReg [+NP:] AttributiveInstrumentalPostInflection # Dir/LR
+PATTERN AttributiveAnNoIns
+#special ones for the an forms like աղջիկ --> աղջկան-ներով, no ins because complex
+DatGenArchaicAn  [+NP:] AttributiveDefinitePostInflection
+DatGenArchaicAn InsReg [+NP:] AttributiveInstrumentalPostInflection # Dir/LR
+
+
+PATTERN AttributiveDefinitePostInflection
+#This is for declension of an attributive noun
+#Pre-inflection, an attributive noun ends in genitive-definite or in instrumental
+#This is for the definit-ending attributive
+#It has to take some overt inflection later
+NSg0 CaseRegI_DefPoss
+NSg0 (Def|Poss)
+NPlNerOnly CaseRegI_DefPoss?
+
+PATTERN AttributiveInstrumentalPostInflection
+#This is for the instrumental-ending attributive;
+#It can't just take definite because then the same meaning as un-attributive
+#It has to take some overt inflection later
+NSg0 CaseRegI_DefPoss
+NPlNerOnly CaseRegI_DefPoss?
+
+#####################
+####### Case patterns
+
+PATTERN CaseRegI_DefPoss
+#I incorporate Def/Poss marking here because of hye-case restriction
+# i distinguish dative from genitive, and dative from the oblique cases
+# obligue case is abl-ins-loc
+# dative can take poss or def
+# oblique can take poss but not def
+#NomAccReg
+DatGenRegI (Def|Poss)?
+OblRegI Poss?
+OblRegI Def # Dir/LR
+
+PATTERN CaseRegU_DefPoss
+#I allow the regular ի to be an optional form
+#This overgeneralized for infintivals and reduced irregulars like ամսի
+#I incorporate Def/Poss marking here because of hye-case restriction
+#NomAccReg
+DatGenRegU (Def|Poss)?
+OblRegU Poss?
+OblRegU Def # Dir/LR
+
+
+
+PATTERN OblRegI
+# genitive is -ի
+AblReg 
+InsReg 
+LocReg 
+
+PATTERN OblRegU
+# genitive is -ու
+# the regular oblique cases abl-ins-loc get a suffix, optional poss, but definite is banned
+AblRegU 
+InsReg 
+LocReg
+
+
+#GAGA GAGA!	PATTERN CaseRegPostPluralPoss
+#GAGA GAGA!	#NomAccReg 	
+#GAGA GAGA!	DatGenRegU
+#GAGA GAGA!	AblReg
+#GAGA GAGA!	LocReg
+
+
+
+PATTERNS
+
+#Relevant functional morphemes
+Indf
+
+##############
+##############
+##############
+#### Adjective morphemes
+##############
+##############
+LEXICON AdvOren
+<adv>:որեն
+LEXICON AdjSuper
+<sup>:ամենա{super} # this boundary between superlative Ամենա and root to trigger mono plural allomorphy when root is mono
+
+
+##############
+##############
+##############
+#### Noun morphemes
+##############
+##############
+
+LEXICON NZero
+<n>:
+
+LEXICON NUtjunSuffix
+:ություն
+
+#ում suffix reduces to մ before ան
+LEXICON NUmSuffixBase
+:ում
+:ումն # Dir/LR for archaic speech
+LEXICON NUmSuffixReduced
+:մ
+
+
+#The suffix նք when part of a nominal suffix like family names
+LEXICON NNkSuffix
+<coll>:նք
+LEXICON NEnkSuffix
+<coll>:ենք
+LEXICON NAnkSuffix
+<coll>:անք
+#And its dative/genitive form
+LEXICON NNkSuffixCaseNc
+<coll><dat_gen>:նց
+LEXICON NEnkSuffixCaseNc
+<coll><dat_gen>:ենց
+LEXICON NAnkSuffixCaseNc
+<coll><dat_gen>:անց
+
+###### Other POS morphemes
+LEXICON AdjZero
+<adj>:
+LEXICON AdvZero
+<adv>:
+LEXICON SubstZero
+<subst>:
+
+
+#Number marking
+LEXICON NSg0
+<sg>:
+LEXICON NPlReg
+#This is the correct plural that counts syllables
+<pl>:{Plն}եր 
+#But for plural variation and errors:
+#Compounds can vary in the choice of plural suffix
+#Some monosyllables optionally surface with -ներ  because of possessive plural readings in Eastern
+#Some final CC-clusters variably take -ner or -er depending on a schwa
+<pl>:ներ		# Dir/LR
+<pl>:եր		# Dir/LR
+
+
+LEXICON NPlNerOnly
+<pl>:ներ	
+
+LEXICON NPlNerVacuous # used for multiple plural marking
+:ներ	
+LEXICON NPlIrregK
+<pl>:ք
+LEXICON NPlIrregRK
+<pl>:րք
+
+LEXICON NPlIrregIk
+<pl>:իկ
+
+#Boundary between noun and inflection
+LEXICON NouNinflBoundary
+:{Ninfl}
+#Used for reduction and other boundary rules
+LEXICON NouNinflBoundaryRed
+:{NinflRed}
+#Used for forced reduction before plural -ner 
+LEXICON NouNinflBoundaryRedForcedNer
+:{NinflRedForcedNer}
+
+#Case marking
+#LEXICON NomAccReg
+#<nom>:
+#<acc>:
+LEXICON DatGenRegI
+<dat_gen>:ի
+<dat_gen>:ու #Dir/LR In case of unexpected irregularization
+LEXICON DatGenRegU
+<dat_gen>:ու
+<dat_gen>:ի # Dir/LR In case of regularization
+LEXICON AblReg
+<abl>:ից 
+LEXICON AblRegU
+<abl>:ուց 
+LEXICON InsReg
+<ins>:ով
+LEXICON LocReg
+<loc>:ում
+
+
+LEXICON CaseUtjunArchaicDat
+<dat_gen>:ության
+LEXICON CaseUtjunArchaicAbl
+<abl>:ութենից 
+LEXICON CaseUtjunArchaicInst
+<ins>:ությամբ
+
+
+LEXICON CaseUtjunArchaicPluralDatGen
+<pl><dat_gen>:ությանց
+
+LEXICON CaseTimeVanDatGenSuffixVa
+<dat_gen>:վա
+LEXICON CaseTimeVanDatGenSuffixVan
+<dat_gen>:վան
+
+LEXICON CaseTimeVanInsVamp
+<ins>:վամբ
+
+LEXICON DatGenArchaicAn
+<dat_gen>:ան
+LEXICON DatGenArchaicAnAj
+<dat_gen>:ա
+LEXICON DatGenArchaicYan
+<dat_gen>:յան
+LEXICON InsArchaicYamp
+<ins>:յամբ
+
+
+LEXICON InstArchaicAmp
+<ins>:ամբ
+
+
+LEXICON DatGenArchaicOch
+<dat_gen>:ոջ
+
+LEXICON DatGenArchaicOj
+<dat_gen>:ո
+
+
+LEXICON DatGenArchaicEmpty #used for հօր
+<dat_gen>:
+
+#irregular marker of plural and dative genitive like it մարդոց
+# LEXICON PlDatGenIrregularOts
+# seems to not exist in hye
+#<pl><dat_gen>:ոց
+
+LEXICON PlDatGenIrregularKAnts
+<pl><dat_gen>:կանց
+
+# some words take a final ն before either all inflection or just vowel-initial inflection
+# like մուկ(ն)-ի Or այնպիսի-ն-ով
+LEXICON NominalNasal
+:ն
+
+
+#Definite/possessive marking
+LEXICON Def
+<def>:{defն}
+<def>:ն # Dir/LR for pre-clitic forms
+LEXICON DefNOnly
+# for words that forcibly take a definite ն such as archaic սիրոյ-ն
+<def>:ն
+
+LEXICON Poss
+<px1sg>:ս
+#<px1sg>:ըս # Dir/LR  -- in case of typos because EANC has this rule
+<px2sg>:դ
+#<px2sg>:ըդ # Dir/LR  -- in case of typos because EANC has this rule
+
+#GAGA GAGA!	LEXICON PossPl
+#GAGA GAGA!	# Spurious plural -er- is added before -ni 
+#GAGA GAGA!	#after monosyllable and before plural possessive 
+#GAGA GAGA!	<pl_poss>:{SpurPlե}{SpurPlր}ն{PossPlի}  #The ի is deleted in vowel hiatus
+
+#GAGA GAGA!	LEXICON PossPlWithSpuriousNer
+#GAGA GAGA!	# Spurious plural -ner- is added before -ni 
+#GAGA GAGA!	#after irregular monosyllables and before plural possessive  (մուկ-ներ-նիս) 
+#GAGA GAGA!	<pl_poss>:ներն{PossPlի}  #The ի is deleted in vowel hiatus
+
+
+#Functional morphemes
+LEXICON Indf
+մի<pro><idf>:մի
+
+#####  Nouns
+LEXICON NounReg
+# Nouns whose final vowel is either non-high, or a high that prefers to not reduce
+պատ:պատ
+սեղան:սեղան
+դառն:դառն
+սառն:սառն
+լիքն:լիքն
+խառն:խառն
+արաբա:արաբա
+ա:ա
+սեր:սեր
+հույս:հույս
+բույն:բույն
+ակն:ակն 
+ակ:ակ
+կյանք:կյանք
+չաստված:չաստված
+պարոն:պարոն
+աղջիկ-պարոն:աղջիկ-պարոն
+ուտիս:ուտիս 
+
+սեր:սեր
+կորուստ:կորուստ
+արյուն:արյուն
+փախուստ:փախուստ
+գալուստ:գալուստ
+թաքուստ:թաքուստ 
+անկյուն:անկյուն
+սյուն:սյուն
+կայսր:կայսր
+
+LEXICON NounRegPreferReduce
+# Nouns whose final vowel is a high that prefers to reduce before vowel-initial inflection
+# in a iC-V context
+# takes regular i-case
+գիրք:գիրք
+խնդրագիրք:խնդրագիրք{mono}
+սունկ:սունկ
+ծաղիկ:ծաղիկ
+կորուստ:կորուստ # Dir/LR
+հանգիստ:հանգիստ
+ծնունդ:ծնունդ
+փախուստ:փախուստ # Dir/LR
+գալուստ:գալուստ # Dir/LR
+թաքուստ:թաքուստ 
+քուր:քուր
+դուստր:դուստր
+
+LEXICON NounRegMonoUFinalVBase
+# mono ouns which end in ու and which turns to վ before V-initial
+# I tried to use a twol rule for this but it got too complicated because of overbleeding/overfeeding with vowel reduction
+# and overapplication
+ձու:ձու{mono}
+LEXICON NounRegMonoUFinalVChanged
+# force the mono tag to force the right PL suffix because of vowel loss
+ձու:ձվ{mono}
+LEXICON NounRegPolyUFinalVBase
+կատու:կատու
+կաշի:կաշի
+LEXICON NounRegPolyUFinalVChanged
+կատու:կատվ
+կաշի:կաշվ
+
+LEXICON NounRegPolyIFinalZeroBase_U_Uts
+# Nouns which end in ի and which turns to zero before V-initial
+# I tried to use a twol rule for this but it got too complicated because of overbleeding/overfeeding with vowel reduction
+# and overapplication
+# these stems then take -ու -ուց dat/abl
+գինի:գինի
+կուլի:կուլի
+Րաֆֆի:Րաֆֆի
+ամուսին:ամուսին
+կաշի:կաշի # Dir/LR
+տարի:տարի # Dir/LR
+LEXICON NounRegPolyIFinalZeroChanged_U_Uts
+գինի:գին
+կուլի:կուլ
+Րաֆֆի:Րաֆֆ
+ամուսին:ամուսն
+կաշի:կաշ # Dir/LR
+տարի:տար # Dir/LR
+
+#Adjectives and adverbs
+LEXICON AdjReg
+մեծ:մեծ
+ուրախ:ուրախ
+սև:սև
+LEXICON AdvReg
+ուրախորեն:ուրախորեն
+
+LEXICON NounIrregPolyNasal
+# takes n before case and before plural ner
+այնպիսի:այնպիսի
+այսպիսի:այսպիսի
+այդպիսի:այդպիսի
+
+
+LEXICON NounIrregU
+#These words take ու in the dative
+#I allow them to optionally take ի 
+#This don't have high vowels that can undergo vowel hiatus repair
+#Larger list in noun_lex_irreg
+ձի:ձի
+
+#List of all words that take the ութիւն suffix
+#The suffix utjun cannot be part of the stem
+LEXICON NounUtjunSuffix
+ուրախություն:ուրախ
+
+#List of all words that take the -ում suffix
+#The suffix ում takes an optional irregular -ան
+#The suffix ում cannot be part of the stem
+LEXICON NounUmSuffix
+շարժում:շարժ
+անկում:անկ
+ծագում:ծագ
+
+
+
+#Time words which take the ուան declension
+LEXICON NounTimeVan
+#Larger list in noun_lex_irreg
+ձմեռ:ձմեռ
+ձյուն-ձմեռ:ձյուն-ձմեռ
+ծանրաձմեռ:ծանրաձմեռ
+առավոտ:առավոտ
+ամառ:ամառ
+ետամառ:ետամառ
+օր:օր
+շաբաթ:շաբաթ 
+զատկաշաբաթ:զատկաշաբաթ # Dir/LR
+ուտիս:ուտիս # Dir/LR
+LEXICON NounTimeVanU
+#words which take the -van declension class, but can also do dative -u
+#Larger list in noun_lex_irreg
+ժամ:ժամ
+մահ:մահ
+
+#Time words which reduce a final vowel or substring in inflected forms
+LEXICON NounTimeVanBase
+#Larger list in noun_lex_irreg
+զատիկ:զատիկ
+LEXICON NounTimeVanReduced
+#Larger list in noun_lex_irreg
+զատիկ:զատկ
+
+# but only in իրիկվան իրիկվանից բայց իրիկունով
+LEXICON NounTimeVanIrigunBase
+#Larger list in noun_lex_irreg
+իրիկուն:իրիկուն
+LEXICON NounTimeVanIrigunReduced
+#Larger list in noun_lex_irreg
+իրիկուն:իրիկ
+
+#Words which take -van and -u and reduce
+LEXICON NounTimeVanUReducedBase
+#Larger list in noun_lex_irreg
+շաբաթ:շաբաթ # Dir/LR
+ամիս:ամիս
+տարի:տարի
+LEXICON NounTimeVanUReducedReduced
+#Larger list in noun_lex_irreg
+ամիս:ամս
+տարի:տար
+շաբաթ:շաբթ # Dir/LR
+
+#GAGA GAGA!	#Adverbs which take -van when nominalized
+#GAGA GAGA!	LEXICON NounTimeVanAdv
+#GAGA GAGA!	#Larger list in noun_lex_irreg
+#GAGA GAGA!	այսօր:այսօր
+#GAGA GAGA!	հիմակ:հիմակ # this is a very rare word, more often just հիմա
+
+#GAGA GAGA!	LEXICON NounTimeVanHima
+#GAGA GAGA!	հիմա:հիմա #This word takes the time suffixes
+
+LEXICON NounMonoWithNer
+# monosyllabic which take plural ner ներ while maintaining regular obliguqes
+# հարս հարսից հարցներ
+հարս:հարս
+ոտ:ոտ
+
+#These irregulars take irregular dative ան 
+# Some have ամբ form too
+# for hyw, these forms have a duplicate in regular list; but here i become more self-contained
+LEXICON NounOldAnFormGar
+# գառ գառան գառնից գառներ
+# բուռ բռան բռնից բռներ
+#Larger list in noun_lex_irreg
+գառ:գառ
+բուռ:բուռ
+եզ:եզ
+ծունկ:ծունկ
+բեռ:բեռ
+լեռ:լեռ
+դառ:դառ
+սառ:սառ
+լիք:լիք
+խառ:խառ
+հիմ:հիմ
+թոռ:թոռ
+թոռանթոռ:թոռանթոռ{mono}
+ձուկ:ձուկ
+դուռ:դուռ
+նուռ:նուռ
+կուռ:կուռ
+
+LEXICON NounOldAnFormGarunBase
+# գարուն գարնան գարնանից գարուններ
+#Larger list in noun_lex_irreg
+գարուն:գարուն
+ամառ:ամառ # Dir/LR primarily van group
+ետամառ:ետամառ # Dir/LR primarily van group
+անուն:անուն
+աշուն:աշուն
+LEXICON NounOldAnFormGarunReduced
+#Larger list in noun_lex_irreg
+գարուն:գարն
+ամառ:ամռ # Dir/LR
+ետամառ:ետամռ # Dir/LR 
+անուն:անվ
+աշուն:աշն
+LEXICON NounOldAnFormGirl
+աղջիկ:աղջիկ
+կնիկ:կնիկ
+
+LEXICON NounMonoArchaicVowelReductionBase
+# irregular nouns with classical է or ոյ that turns to ի or ու or 0 in archaic inflection
+# while still taking regular case
+մեջ:մեջ
+կես:կես
+էշ:էշ 
+կիսեշ:կիսէշ{mono}
+LEXICON NounMonoArchaicVowelReductionReduced
+մեջ:միջ
+կես:կիս
+էշ:իշ 
+կիսեշ:կիսիշ{mono}
+LEXICON NounMonoArchaicVowelReductionReducedDativeU
+#Words that supplete/syncopate with է reduction and optionally take -u 
+#էշ իշի իշու
+էշ:իշ 
+կիսեշ:կիսիշ{mono}
+
+#These irregulars  take an optional irregular dative ոջ, 
+#The oblique forms can take a մ 
+#I classify into nouns that never reduce, those that do reduce, and the reduced form
+LEXICON NounFamilyOchFixed
+#Larger list in noun_lex_irreg
+ընկեր:ընկեր
+տագր:տագր
+տեգր:տեգր
+տեքր:տեքր
+տալ:տալ
+
+LEXICON NounFamilyOchBase
+#Larger list in noun_lex_irreg
+քույր:քույր
+տեր:տեր
+ներ:ներ
+LEXICON NounFamilyOchReduced
+քույր:քր
+տագր:տագեր # Dir/LR
+տեր:տիր
+ներ:նիր
+
+#Words like հայր հօր
+LEXICON NounFamilyOBase
+#Larger list in noun_lex_irreg
+հայր:հայր
+եղբայր:եղբայր
+մայր:մայր
+
+LEXICON NounFamilyOAblauted
+հայր:հոր
+տեգր:տեգոր # Dir/LR
+տեքր:տեքոր # Dir/LR
+եղբայր:եղբոր
+մայր:մոր
+
+#Words like տուն տան
+LEXICON NounRandomOBase
+#Larger list in noun_lex_irreg
+տուն:տուն
+շուն:շուն
+LEXICON NounRandomOAblauted
+տուն:տան
+շուն:շան
+
+
+#Family names which take the նք suffix in nominative
+#And նց in dative/genitive with no other cases
+#I don't include the suffix in the stem
+LEXICON NounFamilyNkForm
+Վարդանանք:Վարդանա
+
+#These are nouns which supplete or have irregular reduction in their declensions
+LEXICON NounIrregBoyBase
+տղա:տղա
+երեխա:երեխա
+էրեխա:էրեխա
+սատանա:սատանա
+LEXICON NounIrregBoyReduced
+տղա:տղ
+երեխա:երեխ
+էրեխա:էրեխ
+սատանա:սատան
+LEXICON NounIrregBoyRaisedVowelE
+:ե
+
+LEXICON NounIrregMan
+մարդ:մարդ
+
+
+LEXICON NounIrregWomanBase
+տիկին:տիկին
+կին:կին
+LEXICON NounIrregWomanReducedSg #I make hard-coded allomorphs տիկնայք տիկնանց inside the PATTTERns
+տիկին:տիկն
+կին:կն
+LEXICON NounIrregWomanReducedPl #I make hard-coded allomorphs տիկնայք տիկնանց inside the PATTTERns
+տիկին:տիկն
+կին:կան
+կնիկ:կնկ
+պարոն:պարոն # Dir/LR to get պարոնայք
+աղջիկ-պարոն:աղջիկ-պարոն  # Dir/LR to get պարոնայք
+
+LEXICON NounIrregWomanReducedPlGinGn # special for frozen forms
+կին:կն
+
+
+
+
+#The noun աստուած suppletes to աստծոյ աստուծոյ  for dative/genitive
+LEXICON NounIrregGod
+աստված:աստված
+չաստված:չաստված # Dir/LR
+LEXICON NounIrregGodReducedU
+աստված:աստուծ
+չաստված:չաստուծ # Dir/LR
+LEXICON NounIrregGodNoVowel
+աստված:աստծ
+չաստված:չաստծ # Dir/LR
+
+#The noun սէր reduces to սիրոյ  for dative/genitive
+# make sure this word has duplicate in regular list
+# this list only has the reduced form as seen in archaic cases
+LEXICON NounIrregArchaicOj
+#Larger list in noun_lex_irreg
+սեր:սիր
+հույս:հուս
+սուգ:սգ
+
+LEXICON NounIrregArchaicEye
+# make sure in regular list as well
+ակն:ակ
+ակ:ակ
+
+#GAGA GAGA!	#The noun բերանի reduces to բերնի բերնէ by irregular syncope of non-high vowel
+#GAGA GAGA!	LEXICON NounSyncopeReduced
+#GAGA GAGA!	բերան:բերն
+#GAGA GAGA!	զաւակ:զաւկ
+#GAGA GAGA!	պատիւ:պատու 
+
+LEXICON NounReduceBeforeNer
+# For nouns which can reduce before plural -ner
+# Like երկիր երկրներ
+երկիր:երկիր
+սկիզբ:սկիզբ
+
+#For nouns which are regular except for fossilized archaic case-forms, with possible def/poss
+#I only list irregulars, and i let the regular versions be in the normal list
+LEXICON IrregFrozenCase
+#I put the wordin the lex_irreg list
+անուն<n><sg><ins>:անվամբ
+
+LEXICON IrregFrozenCaseDatGenOblique
+# frozen oblique forms that could possibly take stacked inflection like կայսերից
+կայսր<n><sg><dat_gen>:կայսեր
+դուստր<n><sg><dat_gen>:դստեր
+
+LEXICON IrregArchaicYan
+# make sure got in regular list
+# includes եան
+կորուստ:կորստ
+հանգիստ:հանգստ
+ծնունդ:ծննդ
+արյուն:ար
+փախուստ:փախստ
+գալուստ:գալստ
+թաքուստ:թաքստ
+անկյուն:անկ
+սյուն:ս
+
+#The country names անգլիա changes to անգլիոյ  for dative/genitive
+#Regular nouns which never shift are in separate group
+LEXICON NounCountryBase
+Անգլիա:Անգլիա
+Կիլիկիա:Կիլիկիա
+LEXICON NounCountryReduced
+Անգլիա:Անգլի
+Կիլիկիա:Կիլիկի
+LEXICON NounCountryHighVowelreduction
+# I set this apart in hye because of it how it utilizes more productive vowel reduction
+Պոլիս:Պոլիս
+Էջմիածին:Էջմիածին
+Կոստանդնուպոլիս:Կոստանդնուպոլիս
+
+LEXICON NounCountryUnreducible
+Հայաստան:Հայաստան
+# for placenames like Գյումրի which have optional գյումրու գյումրիի
+LEXICON NounCountryIHiatusBase
+Գյումրի:Գյումրի
+Լոռի:Լոռի
+Շուշի:Շուշի
+LEXICON NounCountryIHiatusReduced
+Գյումրի:Գյումր
+Լոռի:Լոռ
+Շուշի:Շուշ
+LEXICON NounCountryUHiatusBase
+Բաքու:Բաքու
+LEXICON NounCountryUHiatusReduced
+Բաքու:Բաքվ
+
+LEXICON NameMaleGiven
+Յովսէփ:Յովսէփ
+Հովսեփ:Հովսեփ
+LEXICON NameFemaleGiven
+Մարիամ:Մարիամ
+LEXICON NameFemaleGivenIFinalBase
+Վարդուհի:Վարդուհի
+LEXICON NameFemaleGivenIFinalReduced
+Վարդուհի:Վարդուհ
+LEXICON NameGivenUnclassified
+#Given names that were taken from un-gendered lists
+Ամալյա:Ամալյա
+LEXICON NameFamily
+Տէօվլէթեան:Տէօվլէթեան
+Տեովլէթյան:Տեովլէթյան
+Յովսէփեան:Յովսէփեան
+Հովսեփյան:Հովսեփյան
+
+LEXICON NameFamilyIFinalBase
+Արծրունի:Արծրունի
+LEXICON NameFamilyIFinalReduced
+Արծրունի:Արծրուն
+
+LEXICON NameNotGivenCountry
+Արշակունիք:Արշակունիք
+
+#GAGA GAGA!	#This is just for quick use o# f just the noun-paradigm lexd
+LEXICON Infinitival
+gartal:gartal-
+LEXICON Neg
+not:not-
+LEXICON ResultPart
+gartatsadz:gartatsadz-
+LEXICON SubjectPart
+gartatsogh:gartatsogh-
+LEXICON ProspectivePart
+gartalik:gartalik-
+
+
+#GAGA GAGA!	#! Resources:
+#GAGA GAGA!	#! https://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Lexicon
+#GAGA GAGA!	#! https://wiki.apertium.org/wiki/Lttoolbox_and_lexc
+#GAGA GAGA!	#! https://wiki.apertium.org/wiki/Apertium-specific_conventions_for_lexc
+#GAGA GAGA!	#! https://kitwiki.csc.fi/twiki/bin/view/KitWiki/HfstHome
+#GAGA GAGA!	#! https://github.com/hfst/
+#GAGA GAGA!	#! http://www.cis.upenn.edu/~cis639/docs/lexc.html
+#GAGA GAGA!	#! https://wiki.apertium.org/wiki/Hfst
+
