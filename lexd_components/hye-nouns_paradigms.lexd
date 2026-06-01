@@ -186,11 +186,24 @@ PATTERN OpenClassRegularNounDeclCantBeBare
 # This includes  adverbs/adjectives and participles that are nominalized when non-bare
 # interjctions, nubmers
 
+
 OpenClassRegularNounDeclCantBeBareStem NSg0 RegNounCaseIDeclensionWithReqDef
 OpenClassRegularNounDeclCantBeBareStem RegPluralDeclension
 
-#For bookkeeping, I also have bare adjectives/adverbs here without any substantivization
-AdjAdvBaseDegreed
+#For bookkeeping, I have bare adjectives/adverbs here without any substantivization
+AdjAdvBaseDegreedPrefersNotReduce
+AdjAdvBaseDegreedPrefersToReduce
+AdjAdvBaseDegreedMonoNer
+AdjAdvBaseDegreedWithAlternationsIBase
+AdjAdvBaseDegreedWithAlternationsUBase
+
+# adj քաղցրի քաղցրներ
+AdjAdvMonoNerDeclStem NSg0 RegNounCaseIDeclensionWithReqDef
+AdjAdvMonoNerDeclStem RegNounPluralFormDeclensionNerOnly
+
+# make sure to duplicate in the poly final i section for adjectives like անճոռնի անճոռնու
+AdjAdvDeclStemWithAlternations
+
 
 
 PATTERN OpenClassRegularNounDeclCantBeBareStem
@@ -211,17 +224,41 @@ ResultPart
 SubjectPart
 ProspectivePart
 
+
+
 PATTERN AdjAdvDeclStem
-AdjAdvBaseDegreed SubstZero NouNinflBoundary
-AdjAdvBaseDegreed SubstZero NouNinflBoundaryRed # Dir/LR
+AdjAdvBaseDegreedPrefersNotReduce SubstZero NouNinflBoundary
+AdjAdvBaseDegreedPrefersNotReduce SubstZero NouNinflBoundaryRed # Dir/LR
+AdjAdvBaseDegreedPrefersToReduce SubstZero NouNinflBoundary # Dir/LR
+AdjAdvBaseDegreedPrefersToReduce SubstZero NouNinflBoundaryRed 
 
+PATTERN AdjAdvMonoNerDeclStem
+AdjAdvBaseDegreedMonoNer SubstZero NouNinflBoundary
+AdjAdvBaseDegreedMonoNer SubstZero NouNinflBoundaryRed # Dir/LR
 
-PATTERN AdjAdvBaseDegreed
+PATTERN AdjAdvBaseDegreedPrefersNotReduce
 #Adj with or without superlative prefix
-AdjAdvBaseSimple
-:AdjSuper AdjAdvBaseSimple AdjSuper:
+AdjAdvBaseSimplePrefersNotReduce
+:AdjSuper AdjAdvBaseSimplePrefersNotReduce AdjSuper:
 
-PATTERN AdjAdvBaseSimple
+PATTERN AdjAdvBaseDegreedPrefersToReduce
+#Adj with or without superlative prefix
+AdjAdvBaseSimplePrefersToReduce
+:AdjSuper AdjAdvBaseSimplePrefersToReduce AdjSuper:
+
+PATTERN AdjAdvBaseDegreedMonoNer
+#Adj with or without superlative prefix
+AdjAdvBaseMonoNer
+:AdjSuper AdjAdvBaseMonoNer AdjSuper:
+
+PATTERN AdjAdvBaseSimplePrefersToReduce
+#Bare adjectives
+AdjRegPrefersToReduce AdjZero
+#Derived adverbs
+AdjReg AdvOren # Dir/LR
+AdjReg NouNinflBoundaryRed AdvOren
+
+PATTERN AdjAdvBaseSimplePrefersNotReduce
 #Bare adjectives
 AdjReg AdjZero
 #Bare adverbs
@@ -230,6 +267,99 @@ AdvReg AdvZero
 #Derived adverbs
 AdjReg AdvOren
 AdjReg NouNinflBoundaryRed AdvOren # Dir/LR
+
+PATTERN AdjAdvBaseMonoNer
+#Bare adjectives քաղցր
+AdjMonoWithNer AdjZero
+
+#Derived adverbs
+AdjMonoWithNer AdvOren
+AdjMonoWithNer NouNinflBoundaryRed AdvOren # Dir/LR
+
+
+
+PATTERN AdjAdvDeclStemWithAlternations
+# had to duplicate adj/adv system for nouns like անճոռնի-անճոռնու
+
+# nouns where final ի turns to zero preferably
+# and then dat/abl uses ու ուց
+# անճոռնին, cannot appear bare
+AdjAdvBaseDegreedWithAlternationsIBase SubstZero NouNinflBoundary NSg0 (Def|Poss)
+
+# անճոռնու  անճոռնուց անճոռնով անճոռնում
+AdjAdvBaseDegreedWithAlternationsIChanged SubstZero NouNinflBoundary NSg0  CaseDefUDeclensionWithOvertcase
+
+#  անճոռնիով  անճոռնիում, 
+AdjAdvBaseDegreedWithAlternationsIBase SubstZero NouNinflBoundary NSg0 CaseDefIDeclensionWithOvertcase # Dir/LR
+
+# անճոռնիներ
+AdjAdvBaseDegreedWithAlternationsIBase SubstZero NouNinflBoundary   RegNounPluralFormDeclension
+
+# pattern for թթու թթվի
+# had to duplicate from noun pattern
+
+
+# թթուն
+AdjAdvBaseDegreedWithAlternationsUBase SubstZero NouNinflBoundary NSg0 (Def|Poss)
+
+#  թթվի թթուի
+AdjAdvBaseDegreedWithAlternationsUChanged SubstZero NouNinflBoundary NSg0 CaseDefIDeclensionWithOvertcase
+AdjAdvBaseDegreedWithAlternationsUBase SubstZero NouNinflBoundary NSg0 CaseDefIDeclensionWithOvertcase # Dir/LR
+
+# թթուներ
+AdjAdvBaseDegreedWithAlternationsUBase SubstZero NouNinflBoundary RegNounPluralFormDeclension
+
+PATTERN AdjAdvBaseDegreedWithAlternationsIBase
+#Adj with or without superlative prefix
+AdjAdvBaseSimpleWithAlternationsIBase
+:AdjSuper AdjAdvBaseSimpleWithAlternationsIBase AdjSuper:
+
+PATTERN AdjAdvBaseDegreedWithAlternationsIChanged
+#Adj with or without superlative prefix
+AdjAdvBaseSimpleWithAlternationsIChanged
+:AdjSuper AdjAdvBaseSimpleWithAlternationsIChanged AdjSuper:
+
+PATTERN AdjAdvBaseSimpleWithAlternationsIBase
+#Bare adjectives
+AdjRegPolyIFinalZeroBase_U_Uts AdjZero
+
+#Derived adverbs
+AdjRegPolyIFinalZeroBase_U_Uts AdvOren # Dir/LR
+AdjRegPolyIFinalZeroChanged_U_Uts  AdvOren 
+
+PATTERN AdjAdvBaseSimpleWithAlternationsIChanged
+#Bare adjectives
+AdjRegPolyIFinalZeroChanged_U_Uts AdjZero
+#Derived adverbs
+AdjRegPolyIFinalZeroChanged_U_Uts AdvOren # Dir/LR
+AdjRegPolyIFinalZeroChanged_U_Uts  AdvOren 
+
+
+PATTERN AdjAdvBaseDegreedWithAlternationsUBase
+#Adj with or without superlative prefix
+AdjAdvBaseSimpleWithAlternationsUBase
+:AdjSuper AdjAdvBaseSimpleWithAlternationsUBase AdjSuper:
+
+PATTERN AdjAdvBaseDegreedWithAlternationsUChanged
+#Adj with or without superlative prefix
+AdjAdvBaseSimpleWithAlternationsUChanged
+:AdjSuper AdjAdvBaseSimpleWithAlternationsUChanged AdjSuper:
+
+PATTERN AdjAdvBaseSimpleWithAlternationsUBase
+#Bare adjectives
+AdjRegPolyUFinalVBase AdjZero
+
+#Derived adverbs
+AdjRegPolyUFinalVBase AdvOren # Dir/LR
+AdjRegPolyUFinalVChanged  AdvOren 
+
+PATTERN AdjAdvBaseSimpleWithAlternationsUChanged
+#Bare adjectives
+AdjRegPolyUFinalVChanged AdjZero
+#Derived adverbs
+AdjRegPolyUFinalVChanged AdvOren # Dir/LR
+AdjRegPolyUFinalVChanged  AdvOren 
+
 
 
 
@@ -1021,6 +1151,7 @@ NounMonoWithNer NZero NouNinflBoundary RegPluralDeclension # Dir/LR
 NounMonoWithNer NZero NouNinflBoundary RegNounPluralFormDeclensionNerOnly
 
 
+
 PATTERN AttributiveGenIDef
 DatGenRegI  Def|Poss [+NP:] AttributiveDefinitePostInflection
 PATTERN AttributiveGenUDef
@@ -1393,6 +1524,12 @@ LEXICON NounRegPolyUFinalVChanged
 կատու:կատվ
 կաշի:կաշվ
 
+LEXICON AdjRegPolyUFinalVBase
+թթու:թթու
+LEXICON AdjRegPolyUFinalVChanged
+թթու:թթվ
+
+
 LEXICON NounRegPolyIFinalZeroBase_U_Uts
 # Nouns which end in ի and which turns to zero before V-initial
 # I tried to use a twol rule for this but it got too complicated because of overbleeding/overfeeding with vowel reduction
@@ -1417,6 +1554,15 @@ LEXICON AdjReg
 մեծ:մեծ
 ուրախ:ուրախ
 սև:սև
+
+LEXICON AdjRegPrefersToReduce
+գիժ:գիժ
+
+LEXICON AdjRegPolyIFinalZeroBase_U_Uts
+անճոռնի:անճոռնի
+LEXICON AdjRegPolyIFinalZeroChanged_U_Uts
+անճոռնի:անճոռն
+
 LEXICON AdvReg
 ուրախորեն:ուրախորեն
 
@@ -1510,6 +1656,12 @@ LEXICON NounMonoWithNer
 # հարս հարսից հարցներ
 հարս:հարս
 ոտ:ոտ
+
+LEXICON AdjMonoWithNer
+քաղցր:քաղցր
+թթվաքաղցր:թթվաքաղցր
+մյուս:մյուս
+ռուս:ռուս
 
 #These irregulars take irregular dative ան 
 # Some have ամբ form too
