@@ -1,0 +1,343 @@
+
+################################
+#### Lexicon of other elements from Kouyoumdjian's dictionary "A comprehensive dictionary Armenian-English"
+#### Includes
+####  * Interjections
+####  * Letters
+####  * Conjunctions
+####  * Other particles
+
+#### TOO DO figure out subclasses of conjunctions, like coordinating vs subjunctive
+
+PATTERNS
+Interjection [<ij>:]
+LowerCaseLetter [<min>:]
+UpperCaseLetter [<maj>:]
+Conjunction [<conj>:]
+OtherParticles [<particle>:]
+DeclDeclinableInterjection
+ForeignPhrases [<foreign>:]
+Barbarisms
+
+PATTERN DeclDeclinableInterjection
+#Declined interjections are computed in the noun paradigms file
+DeclinableInterjection [<ij>:]
+DeclinableInterjection [<ij>:]
+
+LEXICON DeclinableInterjection
+այո:այո 
+ոչ:ոչ 
+
+
+LEXICON Interjection
+հեռի:հեռի # ՜
+իցիւ:իցիւ # had ՜
+հապա:հապա 
+Ա:Ա # had ՜
+Աա:Ա{՜}ա{՜} # had ՜
+սուս:սուս # had ՜
+ախ:ախ 
+բաբէ:բաբէ # had ՜, բաբէ:բա{՜}բէ # had ՜
+երնէկ:երնէկ # had ՜
+ապրի:ապրի # ՛
+ապրիս:ապրիս # ՛
+ահ:ահ 
+աղէ:աղէ 
+օֆ:օֆ  # had օ՜ֆ
+այ:այ 
+ա:ա # had ՜
+օ:օ # had ՜
+անկցի:անկցի 
+աւաղ:աւաղ # had ՜
+ափսոս:ափսոս 
+բա:բա # had ՛ 
+բէհ:բէհ 
+եղուկ:եղուկ 
+երանի:երանի 
+էհ:էհ 
+լեր:լեր 
+լռէ:լռէ # had ՜
+ծօ:ծօ # had ՜
+կա:կա 
+կեցցեն:կեցցեն # had ՜
+կեցցես:կեցցես # had ՜
+կեցցէ:կեցցէ # had ՜
+հա:հա 
+հայ:հայ 
+հէ:հէ 
+հովայ:հովայ 
+հուռայ:հուռայ 
+ոհ:ոհ 
+ով:ով # had ՜
+ուռա:ուռա 
+վախվախ:վա{՜}խվա{՜}խ # had ՜
+վահ:վահ # had ՜
+վայ:վայ # had ՜
+վաշ:վաշ 
+փարգաստ:փարգաստ 
+փու:փու 
+քաւ:քաւ 
+օխ:օխ 
+օն:օն 
+քա:քա # had ՛ 
+քաւլիցի:քաւլիցի # reassigned from adverb
+քաւ\ լիցի:քաւ\ լիցի
+լիցի:լիցի
+
+LEXICON LowerCaseLetter
+ա:ա
+բ:բ
+գ:գ
+դ:դ
+ե:ե
+զ:զ
+է:է
+ը:ը
+թ:թ
+ժ:ժ
+ի:ի
+լ:լ
+խ:խ
+ծ:ծ
+կ:կ
+հ:հ
+ձ:ձ
+ղ:ղ
+ճ:ճ
+մ:մ
+յ:յ
+ն:ն
+շ:շ
+ո:ո
+չ:չ
+պ:պ
+ջ:ջ
+ռ:ռ
+ս:ս
+վ:վ
+տ:տ
+ր:ր
+ց:ց
+ւ:ւ
+փ:փ
+ք:ք
+օ:օ
+ֆ:ֆ
+
+LEXICON UpperCaseLetter
+Ա:Ա
+Բ:Բ
+Գ:Գ
+Դ:Դ
+Ե:Ե
+Զ:Զ
+Է:Է
+Ը:Ը
+Թ:Թ
+Ժ:Ժ
+Ի:Ի
+Լ:Լ
+Խ:Խ
+Ծ:Ծ
+Կ:Կ
+Հ:Հ
+Ձ:Ձ
+Ղ:Ղ
+Ճ:Ճ
+Մ:Մ
+Յ:Յ
+Ն:Ն
+Շ:Շ
+Ո:Ո
+Չ:Չ
+Պ:Պ
+Ջ:Ջ
+Ռ:Ռ
+Ս:Ս
+Վ:Վ
+Տ:Տ
+Ր:Ր
+Ց:Ց
+Ւ:Ւ
+Փ:Փ
+Ք:Ք
+Օ:Օ
+Ֆ:Ֆ
+
+LEXICON Conjunction
+հապա:հապա  #reassigned
+գոնէ:գոնէ  #reassigned
+գուցէ:գուցէ  #reassigned
+այնուհետեւ:այնուհետեւ  #reassigned
+այսուհետեւ:այսուհետեւ  #reassigned
+զիարդ:զիարդ # had ՞
+իսկ:իսկ
+ուստի:ուստի
+այլ:այլ
+ուրեմն:ուրեմն
+ի:ի
+զի:զի
+թէ:թէ
+կամ:կամ
+գէթ:գէթ
+եւ:եւ
+քան:քան
+բայց:բայց
+մինչ:մինչ
+քանզի:քանզի
+որպէս:որպէս
+որպէսզի:որպէսզի  # Treated as a phrase in Kouyoumdjian
+եթէ:եթէ
+դեկուզ:դեկուզ
+թէպէտ:թէպէտ
+սակայն:սակայն
+որովհետեւ:որովհետեւ
+որտեւ:որտեւ # added as colloquial form
+քանի\ որ:քանի\ որ #added because not compositional
+թէպէտեւ:թէպէտեւ
+ու:ու
+վասնզի:վասնզի
+վասն\ զի:վասն\ զի
+վասնորոյ:վասնորոյ
+այլեւ:այլեւ
+այսինքն:այսինքն
+այնունի:այնունի
+յորժամ:յորժամ
+անգամ:անգամ
+թէեւ:թէեւ
+ալ:ալ
+էլ:էլ # EA
+միթէ:միթէ # had ՞
+այնուամենայնիւ:այնուամենայնիւ
+թէկուզ:թէկուզ
+
+LEXICON OtherParticles
+#These are 'prepositons' or 'particles' from Kouyoumdjian 1970
+# which are common enough to add
+ահա:ահա 
+ահաւադիկ:ահաւադիկ
+ահաւանիկ:ահաւանիկ
+ահաւասիկ:ահաւասիկ 
+մէյ:մէյ
+մէյմը:մէյմը
+մէյմըն:մէյմըն
+թող:թող
+եւ\ այլն:եւ\ այլն
+եւայլն:եւայլն
+եւն:եւն
+արդեօք:արդեօք 
+ապա:ապա
+
+# from me
+նէ:նէ
+
+LEXICON ForeignPhrases
+#A lot of these are biblical
+Օրթի:Օրթի
+յԱստուծոյ:յԱստուծոյ
+յանուանէ:յանուանէ
+Ողորմեա:Ողորմեա
+պռօսխումը:պռօսխումը
+գտանին:գտանին
+գրեսցուք:գրեսցուք
+
+PATTERN Barbarisms
+BarbaricLetter+ [<barb>:]
+
+LEXICON BarbaricLetter
+A
+B
+C
+Ç
+D
+E
+É
+F
+G
+H
+I
+Ï
+J
+K
+L
+M
+N
+O
+Ø
+P
+Q
+R
+S
+T
+U
+Ü
+V
+W
+X
+Y
+Z
+a
+b
+c
+ç
+d
+e
+é
+f
+g
+h
+i
+ï
+j
+k
+l
+m
+n
+o
+ø
+p
+q
+r
+s
+t
+u
+ü
+v
+w
+x
+y
+z
+ا
+آ
+أ
+ؤ
+إ
+ئ
+ب
+ة
+ت
+ث
+ج
+ح
+خ
+د
+ذ
+ر
+ز
+س
+ش
+ص
+ض
+ط
+ظ
+ع
+غ
+ف
+ق
+ك
+ل
+م
+ن
+ه
+و
+ي

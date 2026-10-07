@@ -1274,6 +1274,9 @@ LEXICON NounTimeVanReduced
 
 LEXICON NounRegPolyIFinalZeroBase_U_Uts
 ամուսին:ամուսին
+անամուսին:անամուսին
+կրկնամուսին:կրկնամուսին
+
 անկողին:անկողին
 գինի:գինի
 կաշի:կաշի # Dir/LR
@@ -2246,6 +2249,8 @@ LEXICON NounRegPolyIFinalZeroChanged_U_Uts
 նրբենի:նրբեն
 խինալի:խինալ
 ամուսին:ամուսն
+անամուսին:անամուսն
+կրկնամուսին:կրկնամուսն
 անկողին:անկողն
 գինի:գին
 կաշի:կաշ # Dir/LR

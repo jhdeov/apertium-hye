@@ -1,0 +1,154 @@
+
+################################
+#### Lexicon of numbers
+#### Using only standard numbers and most common colloquial variants
+
+PATTERNS
+
+#Cardinals and unordinals
+CardinalFraction
+ClassicalOrdinals [<num><ord>:]
+NumericalBase
+#Declined numbers are computed in the nouns paradigm file
+
+
+
+PATTERN NumericalBase
+#Base for declension and so
+NumberWeird [<num>:]
+OnesCardinal 
+Number2Declined 
+OnesOrdinal 
+DecadesCardinalOrdinal
+CardinalOrdinalHundreds
+CardinalOrdinalThousandsMillions
+
+PATTERN OnesCardinal
+#Numbers 1-9, including meaningless def
+Number1   [<num>:]
+Number2 [<num>:]
+Number3_4 [<num>:]
+Number0_5_6 [<num>:]
+Number7_8_9 [<num>:] Def? 
+
+PATTERN OnesOrdinal
+#Ordinals 1-9, including fused ordinals like առաջին
+OnesCardinal OrdinalSuffixRegular
+SpecialOrdinals [<num><ord>:]
+
+PATTERN DecadesCardinalOrdinal
+#Numbers 10, 20/30/../90, and combined forms like 11
+#Assume the intervening definite nasal and schwa are optional
+Number10 [<num>:] MeaninglessDefNasal? OrdinalSuffixRegular?
+NumberDecades [<num>:] OrdinalSuffixRegular?
+Number10 MeaninglessDefNasal ConnectiveSchwa? OnesCardinal|OnesOrdinal|Number2Declined
+NumberDecades (ConnectiveSchwa|ConnectiveU)? OnesCardinal|OnesOrdinal|Number2Declined
+
+PATTERN CardinalOrdinalHundreds
+OnesCardinal? NumberHundred [<num>:] OrdinalSuffixRegular?
+OnesCardinal? NumberHundred (ConnectiveSchwa|ConnectiveU)? OnesCardinal|OnesOrdinal|DecadesCardinalOrdinal|Number2Declined
+
+PATTERN CardinalOrdinalThousandsMillions
+NumberThousand [<num>:] OrdinalSuffixRegular?
+NumberMillionUp [<num>:] OrdinalSuffixRegular?
+
+
+PATTERN CardinalFraction
+#This is for fractions that are spelled without a space liek մէկուկէս one-and-half
+OnesCardinal ConnectiveU HalfFraction
+Number10 [<num>:] MeaninglessDefNasal? ConnectiveU HalfFraction
+
+LEXICON Number1
+մէկ:մէկ 
+մեկ:մեկ  # Dir/LR EA
+LEXICON Number2
+երկու:երկու  
+LEXICON Number2Declined(2)
+երկուք:երկուք  <num>
+LEXICON Number3_4
+երեք:երեք  
+չորս:չորս  
+LEXICON Number0_5_6
+զէրօ:զէրօ  
+զրօ:զրօ # Dir/LR
+զրո:զրո  # Dir/LR EA
+հինգ:հինգ  
+վեց:վեց  
+LEXICON Number7_8_9
+եօթ:եօթ  
+յոթ:յոթ  # Dir/LR EA
+ութ:ութ  
+ին:ին  
+LEXICON Number10
+տաս:տաս  
+LEXICON NumberDecades
+քսան:քսան  
+երեսուն:երեսուն  
+քառասուն:քառասուն  
+յիսուն:յիսուն  
+հիսուն:հիսուն  # Dir/LR EA
+վաթսուն:վաթսուն  
+եօթանասուն:եօթանասուն  
+յոթանասուն:յոթանասուն  # Dir/LR EA
+ութսուն:ութսուն  
+ինիսուն:ինիսուն  
+իննսուն:իննսուն  
+իննիսուն:իննիսուն
+
+LEXICON NumberHundred
+հարիւր:հարիւր  
+LEXICON NumberThousand
+հազար:հազար  
+LEXICON NumberMillionUp
+միլիոն:միլիոն  
+բիլիոն:բիլիոն
+պիլիոն:պիլիոն  
+միլիարդ:միլիարդ  
+միլիառ:միլիառ  
+LEXICON NumberWeird
+# These are numbers which are rarely found and don't form complex numbers
+մի:մի
+
+LEXICON MeaninglessDefNasal
+<def_meaningless>:ն
+LEXICON ConnectiveSchwa
+:ը
+LEXICON ConnectiveU
+:ու
+
+
+LEXICON OrdinalSuffixRegular
+<ord>:երորդ
+LEXICON SpecialOrdinals
+առաջին:առաջին 
+երկրորդ:երկրորդ 
+երրորդ:երրորդ 
+չորրորդ:չորրորդ 
+
+LEXICON HalfFraction
+<frac>:կէս
+<frac>:քառորդ
+
+LEXICON ClassicalOrdinals
+# Kouyoumdjian had some classical ordinals
+# I don't know how they're used so I didn't make any internal analysis for them
+վաթսներորդ:վաթսներորդ
+հնգետասաներորդ:հնգետասաներորդ
+տասներկուերորդ:տասներկուերորդ
+յիսներորդ:յիսներորդ
+վեցհարիւրորդ:վեցհարիւրորդ
+քառսուներորդ:քառսուներորդ
+վեշտասաներորդ:վեշտասաներորդ
+տասներեքերորդ:տասներեքերորդ
+երեսներորդ:երեսներորդ
+երեքհարիւր:երեքհարիւր
+չորեքհարիւրորդ:չորեքհարիւրորդ
+քառասներորդ:քառասներորդ
+երեքտասաներորդ:երեքտասաներորդ
+չորեքտասաներորդ:չորեքտասաներորդ
+մետասաներորդ:մետասաներորդ
+ութեւտասներորդ:ութեւտասներորդ
+եօթանասներորդ:եօթանասներորդ
+իննսներորդ:իննսներորդ
+ութսներորդ:ութսներորդ
+իննեւտասներորդ:իննեւտասներորդ
