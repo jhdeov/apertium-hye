@@ -45,11 +45,11 @@ LEXICON TruePreposition
 #Does not decline, always a preposition
 ի<pr>:ի
 իբր<pr>:իբր
-իբրեւ<pr>:իբրեւ
-մինչեւ<pr>:մինչեւ
+իբրև<pr>:իբրև
+մինչև<pr>:մինչև
 առանց<pr>:առանց
-դէպի<pr>:դէպի
-դէպ<pr>:դէպ
+դեպի<pr>:դեպի
+դեպ<pr>:դեպ
 ըստ<pr>:ըստ
 վասն<pr>:վասն
 զկնի<pr>:զկնի #maybe
@@ -76,30 +76,30 @@ LEXICON TruePostposition
 ի\ բուն<post>:ի\ բուն
 ի\ վար<post>:ի\ վար
 ի\ վեր<post>:ի\ վեր
-միջեւ<post>:միջեւ
+միջև<post>:միջև
 քան<post>:քան
 համար<post>:համար
-պէս<post>:պէս
+պես<post>:պես
 թարց<post>:թարց  # maybe
 զերթ<post>:զերթ   # maybe
 զերդ<post>:զերդ  # maybe
 ձեռամբ<post>:ձեռամբ #maybe
-ձեռօք<post>:ձեռօք #maybe
-հանգոյն<post>:հանգոյն # maybe
+ձեռոք<post>:ձեռոք #maybe
+հանգույն<post>:հանգույն # maybe
 
 LEXICON TruePostpositionVary
 #Does not decline, can sometimes be a preposition
 
 համեմատ<pr>:համեմատ
 համեմատ<post>:համեմատ
-հանդէպ<pr>:հանդէպ
-հանդէպ<post>:հանդէպ
-փոխարէն<pr>:փոխարէն
-փոխարէն<post>:փոխարէն
-փոխարէն<pr><px1sg>:փոխարէնս
-փոխարէն<post><px1sg>:փոխարէնս
-փոխարէն<pr><px2sg>:փոխարէնդ
-փոխարէն<post><px2sg>:փոխարէնդ
+հանդեպ<pr>:հանդեպ
+հանդեպ<post>:հանդեպ
+փոխարեն<pr>:փոխարեն
+փոխարեն<post>:փոխարեն
+փոխարեն<pr><px1sg>:փոխարենս
+փոխարեն<post><px1sg>:փոխարենս
+փոխարեն<pr><px2sg>:փոխարենդ
+փոխարեն<post><px2sg>:փոխարենդ
 
 
 
@@ -112,10 +112,10 @@ LEXICON DerivedPostposition
 չափ<post>:չափ
 անդին<post>:անդին
 զատ<post>:զատ
-յետոյ<post>:յետոյ
+հետո<post>:հետո
 նման<post>:նման
 կախ<post>:կախ
-մէկտեղ<post>:մէկտեղ
+մեկտեղ<post>:մեկտեղ
 
 LEXICON DerivedPostpositionVary
 #don't decline, derived from nouns or verbs or adjectives, can sometimes be preposition
@@ -124,10 +124,10 @@ LEXICON DerivedPostpositionVary
 համաձայն<post>:համաձայն
 անկախ<pr>:անկախ
 անկախ<post>:անկախ
-աւելի<pr>:աւելի
-աւելի<post>:աւելի #reassigned
-նուազ<pr>:նուազ
-նուազ<post>:նուազ #reassigned
+ավելի<pr>:ավելի
+ավելի<post>:ավելի #reassigned
+նվազ<pr>:նվազ
+նվազ<post>:նՎազ #reassigned
 պակաս<pr>:պակաս
 պակաս<post>:պակաս
 հակառակ<pr>:հակառակ
@@ -140,17 +140,17 @@ LEXICON FrozenPreposition
 նկատմամբ<pr>:նկատմամբ
 բաղդատած<pr>:բաղդատած
 բաղդատմամբ<pr>:բաղդատմամբ
-կախեալ<pr>:կախեալ
-կախուած<pr>:կախուած
-չհաշուած<pr>:չհաշուած  
+կախյալ<pr>:կախյալ
+կախված<pr>:կախված
+չհաշված<pr>:չհաշված  
 նկատի\ չառած<pr>:նկատի\ չառած
-ընդմէջ<pr>:ընդմէջ #in my judgment, preposition is frozen, while postposition takes ablative
+ընդմեջ<pr>:ընդմեջ #in my judgment, preposition is frozen, while postposition takes ablative
 ընդդիմական<pr>:ընդդիմական
 ընդձեռն<pr>:ընդձեռն
 առընթեր<pr>:առընթեր
 ընթեր<pr>:ընթեր
 յաղագս<pr>:յաղագս
-ընդդէմ<pr>:ընդդէմ
+ընդդեմ<pr>:ընդդեմ
 
 
 LEXICON FrozenPrepositionVary
@@ -173,54 +173,54 @@ LEXICON FrozenPostposition
 
 առթիւ<post>:առթիւ
 չափով<post>:չափով
-սկսեալ<post>:սկսեալ
+սկսյալ<post>:սկսյալ
 սկսած<post>:սկսած
 
 LEXICON FrozenPostpositionVary
 #don't decline, frozen from nouns or verbs or adjectives, can sometimes be preposition
-շնորհիւ<pr>:շնորհիւ
-շնորհիւ<post>:շնորհիւ
-յանդիման<pr>:յանդիման
-յանդիման<post>:յանդիման
+շնորհիվ<pr>:շնորհիվ
+շնորհիվ<post>:շնորհիվ
+հանդիման<pr>:հանդիման
+հանդիման<post>:հանդիման
 
 LEXICON DeclinablePostposition
 #Take case and plural and substantive
-առջեւ<post>:առջեւ
-դէմ<post>:դէմ
-մէջ<post>:մէջ
-վրայ<post>:վրայ
+առջև<post>:առջև
+դեմ<post>:դեմ
+մեջ<post>:մեջ
+վրա<post>:վրա
 մերձ<post>:մերձ
-վերայ<post>:վերայ
+վերա<post>:վերա
 տակ<post>:տակ
 քով<post>:քով
-մօտ<post>:մօտ
+մոտ<post>:մոտ
 հետ<post>:հետ
 յետ<post>:յետ #maybe
 
 դիմաց<post>:դիմաց  # reassigned from Hagopian
 
 միջոցով<post>:միջոցով #This block was reassigned from True postpositions because I can decline them
-միջոցաւ<post>:միջոցաւ
-վերաբերեալ<post>:վերաբերեալ
+միջոցավ<post>:միջոցավ
+վերաբերյալ<post>:վերաբերյալ
 պատճառով<post>:պատճառով
-պատճառաւ<post>:պատճառաւ
-նպատակաւ<post>:նպատակաւ
+պատճառավ<post>:պատճառավ
+նպատակավ<post>:նպատակավ
 
-ընդմէջ<post>:ընդմէջ #postposition form takes case in my judgments; added from corpus
+ընդմեջ<post>:ընդմեջ #postposition form takes case in my judgments; added from corpus
 # Also include adverbal postpositions
 առաջ<post>:առաջ
 ատեն<post>:ատեն
-ետեւ<post>:ետեւ
+ետև<post>:ետև
 ետք<post>:ետք
 դուրս<post>:դուրս
 վեր<post>:վեր
-վերեւ<post>:վերեւ
+վերև<post>:վերև
 վար<post>:վար
 հեռու<post>:հեռու
 շուրջ<post>:շուրջ
-մէջտեղ<post>:մէջտեղ
+մեջտեղ<post>:մեջտեղ
 ներս<post>:ներս
-ներքեւ<post>:ներքեւ
+ներքև<post>:ներքև
 
 
 

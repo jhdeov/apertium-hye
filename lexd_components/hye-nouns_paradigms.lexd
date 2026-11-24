@@ -7,7 +7,6 @@
 # Not making եան declension because obsolete
 # Not making եաց class From Hagopian grammar
 
-#GAGA GAGA!	 2026: do wiktionary transclusion from ik tempaltes and others
 
 ########################################
 ########################################
@@ -77,18 +76,18 @@ NounRegPreferReduce NZero NouNinflBoundaryRed  # preferably undergoes vowel redu
 NounRegPreferReduce NZero NouNinflBoundary # Dir/LR optionally rejects vowel reduction
 
 
-#GAGA GAGA!	DeclinablePostposition  NouNinflBoundary
+DeclinablePostposition  NouNinflBoundary
 
 # For names or proper nouns. Don't have the NouNInflBoundary to block glide deletion
 #Country names  are in separate category because some of them take -ia suffix
 
 NameBaseNotCountry NouNinflBoundary
 
-#GAGA GAGA!	# quantifiers and question words are explained in the pronoun lexd
-#GAGA GAGA!	Quantifier [<prn><qnt>:]
-#GAGA GAGA!	QuestionWords [<prn>:] ([<rel>:]|[<itg>:])
-#GAGA GAGA!	QuantifierQuestionWords [<prn><qnt>:] ([<itg>:])?
-#GAGA GAGA!	StrictQuestionWords [<prn><itg>:]
+# quantifiers and question words are explained in the pronoun lexd
+Quantifier [<prn><qnt>:]
+QuestionWords [<prn>:] ([<rel>:]|[<itg>:])
+QuantifierQuestionWords [<prn><qnt>:] ([<itg>:])?
+StrictQuestionWords [<prn><itg>:]
 
 PATTERN NameBaseNotCountry
 NameMaleGiven [<np><ant><m>:]
@@ -166,16 +165,16 @@ OblRegU Def # Dir/LR
 PATTERN CaseDefDatGenArchaicAn
 DatGenArchaicAn (Def|Poss)? 
 
-#GAGA GAGA!	PATTERN PluralPossessiveDeclension # plural possessive
-#GAGA GAGA!	PossPl CaseRegPostPluralPoss? Def|Poss
-#GAGA GAGA!	InsReg PossPl  Def|Poss
+#unmodeled plural possessive!	PATTERN PluralPossessiveDeclension # plural possessive
+#unmodeled plural possessive!	PossPl CaseRegPostPluralPoss? Def|Poss
+#unmodeled plural possessive!	InsReg PossPl  Def|Poss
 
 PATTERN RegPluralDeclension
 # plural
 RegNounPluralFormDeclension
-#GAGA GAGA!	# plural possessive
-#GAGA GAGA!	NSg0|NPlReg PluralPossessiveDeclension
-#GAGA GAGA!	#Not doing combo of plural possessive and of attributive because weird
+#unmodeled plural possessive!	# plural possessive
+#unmodeled plural possessive!	NSg0|NPlReg PluralPossessiveDeclension
+#unmodeled plural possessive!	#Not doing combo of plural possessive and of attributive because weird
 
 
 
@@ -189,6 +188,11 @@ PATTERN OpenClassRegularNounDeclCantBeBare
 
 OpenClassRegularNounDeclCantBeBareStem NSg0 RegNounCaseIDeclensionWithReqDef
 OpenClassRegularNounDeclCantBeBareStem RegPluralDeclension
+
+# pronouns
+SubstantiveRecipPronoun RegNounCaseIDeclensionWithReqDef
+# Take irregular U
+SubstantiveRecipPronounTakesU RegNounCaseUDeclensionWithReqDef
 
 #For bookkeeping, I have bare adjectives/adverbs here without any substantivization
 AdjAdvBaseDegreedPrefersNotReduce
@@ -209,11 +213,12 @@ AdjAdvDeclStemWithAlternations
 PATTERN OpenClassRegularNounDeclCantBeBareStem
 ParticipleDeclStem
 AdjAdvDeclStem
-#GAGA GAGA!	DeclDeclinableInterjection SubstZero NouNinflBoundary
-#GAGA GAGA!	NumericalBase|CardinalFraction SubstZero  NouNinflBoundary
-#GAGA GAGA!	# NumericalBase|CardinalFraction SubstZero  NouNinflBoundaryRed # I don't think these reduce Dir LR
-#GAGA GAGA!	ClassicalOrdinals [<num><ord>:]  SubstZero  NouNinflBoundary
-#GAGA GAGA!	AdverbialPronounDeclinable AdvZero SubstZero  NouNinflBoundary
+DeclDeclinableInterjection SubstZero NouNinflBoundary
+NumericalBase|CardinalFraction SubstZero  NouNinflBoundary
+NumericalBase|CardinalFraction SubstZero  NouNinflBoundaryRed # I don't think these reduce Dir LR
+ClassicalOrdinals [<num><ord>:]  SubstZero  NouNinflBoundary
+AdverbialPronounDeclinable AdvZero SubstZero  NouNinflBoundary
+SubstantivePossessedPronoun
 
 PATTERN ParticipleDeclStem
 ParticipleInflectable SubstZero NouNinflBoundary
@@ -408,6 +413,14 @@ Def|Poss
 # with case, with/without definite
 CaseDefIDeclensionWithOvertcase
 
+PATTERN RegNounCaseUDeclensionWithReqDef
+#This is for singular case/def inflection where both either case or  def is required
+#This is like funny pronouns where the case is ու
+# without case
+Def|Poss
+# with case, with/without definite
+CaseDefUDeclensionWithOvertcase
+
 ##########################
 ##########################
 
@@ -428,8 +441,8 @@ UNounStemBoundary RegPluralDeclension
 
 PATTERN UNounStemBoundary
 NounIrregU NZero NouNinflBoundary
-#GAGA GAGA!	Number1 [<num>:]  SubstZero  NouNinflBoundary
-#GAGA GAGA!	QuantifierU  [<prn><qnt>:] 
+Number1 [<num>:]  SubstZero  NouNinflBoundary # Dir/LR
+QuantifierU  [<prn><qnt>:]  # Dir/LR
 
 
 ##########################
@@ -443,8 +456,8 @@ PATTERN InfinitivalDecl
 
 #Singular caseless definite and attributive
 InfinitivalDeclStem  NSg0 DeclUWithFixedDef
-#GAGA GAGA!	#Plural possessive
-#GAGA GAGA!	InfinitivalDeclStem   PluralPossessiveDeclension
+#unmodeled plural possessive!	#Plural possessive
+#unmodeled plural possessive!	InfinitivalDeclStem   PluralPossessiveDeclension
 
 
 PATTERN InfinitivalDeclStem
@@ -460,13 +473,15 @@ Infinitival
 
 
 
-#GAGA GAGA!	PATTERN NounTimeVanAdvStem
-#GAGA GAGA!	NounTimeVanAdv AdvZero
+PATTERN NounTimeVanAdvStem
+NounTimeVanAdv AdvZero
 
-#GAGA GAGA!	PATTERN NounTimeVanAdvNominalizedStem
-#GAGA GAGA!	NounTimeVanAdvStem SubstZero NouNinflBoundary
-#GAGA GAGA!	[երբ<prn>:երբ] ([<rel>:]|[<itg>:])   SubstZero NouNinflBoundary 
+PATTERN NounTimeVanAdvNominalizedStem
+NounTimeVanAdvStem SubstZero NouNinflBoundary
+[երբ<prn>:երբ] ([<rel>:]|[<itg>:])   SubstZero NouNinflBoundary 
 
+PATTERN NounTimeVanAdvHimaDerivedNominalizedStem
+NounTimeVanHimaDerived SubstZero NouNinflBoundary
 
 PATTERN NounTimeVanStemBaseNoOrYesU
 NounTimeVan 
@@ -544,35 +559,56 @@ NounTimeVanStemReducedNoOrYesUWithIrigun NZero NouNinflBoundary NSg0 Attributive
 
 
 
-#GAGA GAGA!	#For irregulars among the time words
-#GAGA GAGA!	#For irregulars derived from adverbs like այսօր
-#GAGA GAGA!	#Bare adverb
-#GAGA GAGA!	NounTimeVanAdvStem
-#GAGA GAGA!	#Without case, but with definite
-#GAGA GAGA!	NounTimeVanAdvNominalizedStem NouNinflBoundary NSg0 (Def|Poss)
-#GAGA GAGA!	#With case
-#GAGA GAGA!	NounTimeVanAdvNominalizedStem NSg0 CaseTimeVan NouNinflBoundary (Def|Poss)? 
-#GAGA GAGA!	NounTimeVanAdvNominalizedStem NSg0 CaseRegI (Def|Poss)?  # Dir/LR
-#GAGA GAGA!	#with possible case-boundary m like շատոնցմէ
-#GAGA GAGA!	NounTimeVanAdvNominalizedStem NSg0 CaseBoundaryM CaseRegObliqueWithoutGen (Def|Poss)?  # Dir/LR
+#For irregulars among the time words
+#For irregulars derived from adverbs like այսօր
+#Bare adverb
+NounTimeVanAdvStem
+#Without case, but with definite
+NounTimeVanAdvNominalizedStem NouNinflBoundary NSg0 (Def|Poss)
+#With case այսօրվա
+NounTimeVanAdvNominalizedStem NSg0 CaseTimeVanDatGenSuffixVa
+NounTimeVanAdvNominalizedStem NSg0 CaseTimeVanDatGenSuffixVan Poss
+NounTimeVanAdvNominalizedStem NSg0 CaseTimeVanDatGenSuffixVa Def  
+NounTimeVanAdvNominalizedStem NSg0 CaseTimeVanDatGenSuffixVan Def # Dir/LR
+NounTimeVanAdvNominalizedStem NSg0 CaseTimeVanDatGenSuffixVan # Dir/LR
+# այսօրվանից 
+NounTimeVanAdvNominalizedStem NSg0 CaseTimeVanDatGenSuffixVan AblReg Poss?
+NounTimeVanAdvNominalizedStem NSg0 CaseTimeVanDatGenSuffixVan AblReg Def? # Dir/LR
+# այսօրով
+NounTimeVanAdvNominalizedStem NSg0 InsReg|LocReg Poss?
+NounTimeVanAdvNominalizedStem NSg0 InsReg|LocReg Def? # Dir/LR
+
+# այսօրի
+NounTimeVanAdvNominalizedStem NSg0 CaseDefIDeclensionWithOvertcase # Dir/LR
+
+#Attributive
+NounTimeVanAdvNominalizedStem NSg0 AttributiveVan
+
+#Plural
+NounTimeVanAdvNominalizedStem RegNounPluralFormDeclension 
 
 
-#GAGA GAGA!	#Attributive
-#GAGA GAGA!	NounTimeVanAdvNominalizedStem NSg0 AttributiveVan
+#For irregular հիմիկվա from հիմա
+NounTimeVanHimaBase AdvZero
+# հիման
+NounTimeVanHimaBase AdvZero SubstZero NouNinflBoundary NSg0 NouNinflBoundary (Def|Poss)? 
+# հիմիկվա
+NounTimeVanAdvHimaDerivedNominalizedStem NSg0 CaseTimeVanDatGenSuffixVa
+NounTimeVanAdvHimaDerivedNominalizedStem NSg0 CaseTimeVanDatGenSuffixVan Poss
+NounTimeVanAdvHimaDerivedNominalizedStem NSg0 CaseTimeVanDatGenSuffixVa Def  
+NounTimeVanAdvHimaDerivedNominalizedStem NSg0 CaseTimeVanDatGenSuffixVan Def # Dir/LR
+NounTimeVanAdvHimaDerivedNominalizedStem NSg0 CaseTimeVanDatGenSuffixVan # Dir/LR
+# հիմիկվանից 
+NounTimeVanAdvHimaDerivedNominalizedStem NSg0 CaseTimeVanDatGenSuffixVan AblReg Poss?
+NounTimeVanAdvHimaDerivedNominalizedStem NSg0 CaseTimeVanDatGenSuffixVan AblReg Def? # Dir/LR
+# հիմիկով
+NounTimeVanAdvHimaDerivedNominalizedStem NSg0 InsReg|LocReg Poss?
+NounTimeVanAdvHimaDerivedNominalizedStem NSg0 InsReg|LocReg Def # Dir/LR
 
-#GAGA GAGA!	#Plural
-#GAGA GAGA!	NounTimeVanAdvNominalizedStem RegPluralDeclension
-
-#GAGA GAGA!	#For irregular հիմակուան from հիմա
-#GAGA GAGA!	NounTimeVanHima AdvZero
-#GAGA GAGA!	NounTimeVanHima [:կ] AdvZero SubstZero NouNinflBoundary NSg0 CaseTimeVan NouNinflBoundary (Def|Poss)? 
-
-#GAGA GAGA!	#singular attributive
-#GAGA GAGA!	NounTimeVanHima [:կ] AdvZero SubstZero NouNinflBoundary NSg0 AttributiveVan
+#singular attributive
+NounTimeVanAdvHimaDerivedNominalizedStem NSg0 AttributiveVan
 
 
-#GAGA GAGA!	#Plural possessive (separate line for instrumental)
-#GAGA GAGA!	NounTimeVanHima [:կուան] AdvZero SubstZero NouNinflBoundary NSg0|NPlReg PluralPossessiveDeclension
 
 
 
@@ -656,8 +692,8 @@ NounUtjunSuffix NZero NouNinflBoundary NSg0 (CaseUtjunArchaicAbl|CaseUtjunArchai
 NounUtjunSuffix NUtjunSuffix  NZero NouNinflBoundary RegNounPluralFormDeclension
 #Archaic -ութեանց for plural genitive/dat
 NounUtjunSuffix NZero NouNinflBoundary CaseUtjunArchaicPluralDatGen (Def|Poss)?   # Dir/LR
-#GAGA GAGA!	#Plural possessive (separate line for instrumental)
-#GAGA GAGA!	NounUtjunSuffix NUtjunSuffix  NZero	 NouNinflBoundary NSg0|NPlReg  PluralPossessiveDeclension
+#unmodeled plural possessive!	#Plural possessive (separate line for instrumental)
+#unmodeled plural possessive!	NounUtjunSuffix NUtjunSuffix  NZero	 NouNinflBoundary NSg0|NPlReg  PluralPossessiveDeclension
 
 
 #attributive, arak included թեանիս
@@ -683,8 +719,8 @@ NounUmSuffix NUmSuffixReduced NZero NouNinflBoundary NSg0 InstArchaicAmp (Def|Po
 #Plural (already know it's polysyllabic)
 NounUmSuffix NUmSuffixBase NZero NouNinflBoundary RegNounPluralFormDeclension
 
-#GAGA GAGA!	#Plural possessive (separate line for instrumental)
-#GAGA GAGA!	NounUmSuffix NUmSuffixBase  NZero NouNinflBoundary NSg0|NPlReg PluralPossessiveDeclension
+#unmodeled plural possessive!	#Plural possessive (separate line for instrumental)
+#unmodeled plural possessive!	NounUmSuffix NUmSuffixBase  NZero NouNinflBoundary NSg0|NPlReg PluralPossessiveDeclension
 
 
 #attributive,
@@ -702,8 +738,8 @@ PATTERN NounDeclOldAnForm
 #The -an then triggers arbitrary reduction
 #The words should have a regular version in the regular list
 # There are subcategories based on reduction EANC: գառ, գառան, գառնից vs գարուն գարնան գարունից
-#GAGA GAGA!	# can also do unreduced nouns like կողմ կողման կողմանէ
-#GAGA GAGA!	# Can have ամբ forms in instrumental
+# can also do unreduced nouns like կողմ կողման կողմանէ
+# Can have ամբ forms in instrumental
 
 # base form գառ
 NounOldAnFormGar NZero NouNinflBoundary NSg0  (Def|Poss)?
@@ -786,11 +822,11 @@ NounDecOldOchNominativeStem  NZero NouNinflBoundary NSg0 CaseDefIDeclension   # 
 #Plural 
 NounDecOldOchNominativeStem  NZero NouNinflBoundary RegPluralDeclension
 
-#GAGA GAGA!	#regularized plural possessive ընկերնիս կիներնիս
-#GAGA GAGA!	NounDecOldOchNominativeStem NZero NouNinflBoundary NSg0|NPlReg  PluralPossessiveDeclension
-#GAGA GAGA!	#irregular plural possessive ընկերոջնիս ընկերոջմովնիս ընկերոջովնիս կնոջնիս կնոջմովնիս կնոջոջնիս
-#GAGA GAGA!	NounDecOldOchObliqueStem NZero	 NouNinflBoundary  DatGenArchaicOch PossPl CaseRegPostPluralPoss? Def|Poss  # Dir/LR
-#GAGA GAGA!	NounDecOldOchObliqueStem NZero  NouNinflBoundary  DatGenArchaicOch CaseBoundaryM? InsReg PossPl  Def|Poss  # Dir/LR
+#unmodeled plural possessive!	#regularized plural possessive ընկերնիս կիներնիս
+#unmodeled plural possessive!	NounDecOldOchNominativeStem NZero NouNinflBoundary NSg0|NPlReg  PluralPossessiveDeclension
+#unmodeled plural possessive!	#irregular plural possessive ընկերոջնիս ընկերոջմովնիս ընկերոջովնիս կնոջնիս կնոջմովնիս կնոջոջնիս
+#unmodeled plural possessive!	NounDecOldOchObliqueStem NZero	 NouNinflBoundary  DatGenArchaicOch PossPl CaseRegPostPluralPoss? Def|Poss  # Dir/LR
+#unmodeled plural possessive!	NounDecOldOchObliqueStem NZero  NouNinflBoundary  DatGenArchaicOch CaseBoundaryM? InsReg PossPl  Def|Poss  # Dir/LR
 
 
 #Attributive
@@ -828,12 +864,12 @@ NounFamilyOBase  NZero NouNinflBoundary NSg0 CaseDefI_OnlyGenDat # Dir/LR
 #Plural հայրեր 
 NounFamilyOBase  NZero NouNinflBoundary RegNounPluralFormDeclension
 
-#GAGA GAGA!	#regularized plural possessive եղբայրնիս եղբայրովնիս
-#GAGA GAGA!	NounFamilyOBase NZero	 NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss? Def|Poss
-#GAGA GAGA!	NounFamilyOBase NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
-#GAGA GAGA!	#irregular plural possessive եղբօրնիս եղբօրմովնիս եղբօրովնիս
-#GAGA GAGA!	NounFamilyOAblauted NZero	 NouNinflBoundary  DatGenArchaicEmpty PossPl CaseRegPostPluralPoss? Def|Poss  # Dir/LR
-#GAGA GAGA!	NounFamilyOAblauted NZero  NouNinflBoundary  DatGenArchaicEmpty CaseBoundaryM? InsReg PossPl  Def|Poss  # Dir/LR
+#unmodeled plural possessive!	#regularized plural possessive եղբայրնիս եղբայրովնիս
+#unmodeled plural possessive!	NounFamilyOBase NZero	 NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss? Def|Poss
+#unmodeled plural possessive!	NounFamilyOBase NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+#unmodeled plural possessive!	#irregular plural possessive եղբօրնիս եղբօրմովնիս եղբօրովնիս
+#unmodeled plural possessive!	NounFamilyOAblauted NZero	 NouNinflBoundary  DatGenArchaicEmpty PossPl CaseRegPostPluralPoss? Def|Poss  # Dir/LR
+#unmodeled plural possessive!	NounFamilyOAblauted NZero  NouNinflBoundary  DatGenArchaicEmpty CaseBoundaryM? InsReg PossPl  Def|Poss  # Dir/LR
 
 
 #attributive, I don't think ablauted stem takes attributive
@@ -864,9 +900,9 @@ NounRandomOBase  NZero NouNinflBoundaryRed RegNounPluralFormDeclension
 # unreduced
 NounRandomOBase  NZero NouNinflBoundary RegNounPluralFormDeclension # Dir/LR
 
-#GAGA GAGA!	#regularized plural possessive տուներնիս
-#GAGA GAGA!	NounRandomOBase NZero  NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss? Def|Poss
-#GAGA GAGA!	NounRandomOBase NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+#unmodeled plural possessive!	#regularized plural possessive տուներնիս
+#unmodeled plural possessive!	NounRandomOBase NZero  NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss? Def|Poss
+#unmodeled plural possessive!	NounRandomOBase NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
 
 
 #attributive, doesnt take ablaut I think
@@ -927,9 +963,9 @@ NounCountryIHiatusBase  		[<np><top>:] NouNinflBoundary RegNounPluralFormDeclens
 NounCountryUHiatusBase 			[<np><top>:] NouNinflBoundary RegNounPluralFormDeclension
 
 
-#GAGA GAGA!	#regularized plural possessive տուներնիս
-#GAGA GAGA!	NounCountryBase|NounCountryUnreducible  [<np><top>:] NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss? Def|Poss
-#GAGA GAGA!	NounCountryBase|NounCountryUnreducible  [<np><top>:] NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+#unmodeled plural possessive!	#regularized plural possessive տուներնիս
+#unmodeled plural possessive!	NounCountryBase|NounCountryUnreducible  [<np><top>:] NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss? Def|Poss
+#unmodeled plural possessive!	NounCountryBase|NounCountryUnreducible  [<np><top>:] NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
 
 
 #attributive, is already in casedefI and pl decl patterns
@@ -1004,12 +1040,12 @@ NounIrregBoyBase NZero  NouNinflBoundary RegNounPluralFormDeclension
 NounIrregBoyReduced NZero  NouNinflBoundary NounIrregBoyRaisedVowelE NPlIrregK NPlNerVacuous? CaseDefIDeclension  # Dir/LR
 NounIrregBoyReduced NZero  NouNinflBoundary NounIrregBoyRaisedVowelE NPlIrregRK NPlNerVacuous? CaseDefIDeclension  # Dir/LR
 
-#GAGA GAGA!	#regularized plural possessive տղայներնիս տղաքներնիս
-#GAGA GAGA!	NounIrregBoyBase NZero	 NouNinflBoundary NSg0|(NPlIrregK? NPlReg)  PossPl CaseRegPostPluralPoss? Def|Poss  # Dir/LR
-#GAGA GAGA!	NounIrregBoyBase NZero  NouNinflBoundary NSg0|(NPlIrregK? NPlReg)  InsReg PossPl  Def|Poss  # Dir/LR
-#GAGA GAGA!	#irregular plural possessive տղաքնիս տղաքովնիս տղաքմովնիս
-#GAGA GAGA!	NounIrregBoyBase NZero	 NouNinflBoundary NPlIrregK  PossPl CaseRegPostPluralPoss? Def|Poss
-#GAGA GAGA!	NounIrregBoyBase NZero  NouNinflBoundary NPlIrregK CaseBoundaryM? InsReg PossPl  Def|Poss
+#unmodeled plural possessive!	#regularized plural possessive տղայներնիս տղաքներնիս
+#unmodeled plural possessive!	NounIrregBoyBase NZero	 NouNinflBoundary NSg0|(NPlIrregK? NPlReg)  PossPl CaseRegPostPluralPoss? Def|Poss  # Dir/LR
+#unmodeled plural possessive!	NounIrregBoyBase NZero  NouNinflBoundary NSg0|(NPlIrregK? NPlReg)  InsReg PossPl  Def|Poss  # Dir/LR
+#unmodeled plural possessive!	#irregular plural possessive տղաքնիս տղաքովնիս տղաքմովնիս
+#unmodeled plural possessive!	NounIrregBoyBase NZero	 NouNinflBoundary NPlIrregK  PossPl CaseRegPostPluralPoss? Def|Poss
+#unmodeled plural possessive!	NounIrregBoyBase NZero  NouNinflBoundary NPlIrregK CaseBoundaryM? InsReg PossPl  Def|Poss
 
 
 
@@ -1027,12 +1063,12 @@ NounIrregMan NZero NouNinflBoundary PlDatGenIrregularKAnts CaseRegIObliqueWithou
 NounIrregMan NZero  NouNinflBoundary RegNounPluralFormDeclension  # Dir/LR
 NounIrregMan NZero  NouNinflBoundary NPlIrregIk CaseDefIDeclension  # Dir/LR
 
-#GAGA GAGA!	#regularized plural possessive մարդերնիս
-#GAGA GAGA!	NounIrregMan NZero	 NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss? Def|Poss  # Dir/LR
-#GAGA GAGA!	NounIrregMan NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss	 # Dir/LR
-#GAGA GAGA!	#irregular plural possessive մարդիկնիս մարդոցնիս մարդոցովնիս մարդոցմովնիս
-#GAGA GAGA!	NounIrregMan NZero	 NouNinflBoundary NPlIrregIk  PossPl CaseRegPostPluralPoss? Def|Poss
-#GAGA GAGA!	NounIrregMan NZero  NouNinflBoundary  PlDatGenIrregularOts CaseBoundaryM? InsReg PossPl  Def|Poss
+#unmodeled plural possessive!	#regularized plural possessive մարդերնիս
+#unmodeled plural possessive!	NounIrregMan NZero	 NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss? Def|Poss  # Dir/LR
+#unmodeled plural possessive!	NounIrregMan NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss	 # Dir/LR
+#unmodeled plural possessive!	#irregular plural possessive մարդիկնիս մարդոցնիս մարդոցովնիս մարդոցմովնիս
+#unmodeled plural possessive!	NounIrregMan NZero	 NouNinflBoundary NPlIrregIk  PossPl CaseRegPostPluralPoss? Def|Poss
+#unmodeled plural possessive!	NounIrregMan NZero  NouNinflBoundary  PlDatGenIrregularOts CaseBoundaryM? InsReg PossPl  Def|Poss
 
 #attributive
 NounIrregMan NZero NouNinflBoundary NSg0 AttributiveGenUDef|AttributiveInst  
@@ -1065,12 +1101,12 @@ NounIrregWomanReducedPlGinGn  NZero NouNinflBoundary [<pl>:անիք] CaseDefIDec
 NounIrregWomanReducedPlGinGn  NZero NouNinflBoundary [<pl><dat_gen>:անց] CaseRegIObliqueWithoutGenAndDefPoss? # Dir/LR
 
 
-#GAGA GAGA!	#regularized plural possessive տիկիննիս տիկիններնիս
-#GAGA GAGA!	NounIrregWomanBase NZero	NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss? Def|Poss
-#GAGA GAGA!	NounIrregWomanBase NZero  	NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
-#GAGA GAGA!	#irregular plural possessive տիկնայքնիս տիկնացնիս տիկնանցմովնիս
-#GAGA GAGA!	NounIrregWomanReduced NZero NouNinflBoundary [<pl>:այք]  PossPl CaseRegPostPluralPoss? Def|Poss
-#GAGA GAGA!	NounIrregWomanReduced NZero NouNinflBoundary [<dat_gen>:անց] CaseBoundaryM? InsReg PossPl Def|Poss
+#unmodeled plural possessive!	#regularized plural possessive տիկիննիս տիկիններնիս
+#unmodeled plural possessive!	NounIrregWomanBase NZero	NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss? Def|Poss
+#unmodeled plural possessive!	NounIrregWomanBase NZero  	NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+#unmodeled plural possessive!	#irregular plural possessive տիկնայքնիս տիկնացնիս տիկնանցմովնիս
+#unmodeled plural possessive!	NounIrregWomanReduced NZero NouNinflBoundary [<pl>:այք]  PossPl CaseRegPostPluralPoss? Def|Poss
+#unmodeled plural possessive!	NounIrregWomanReduced NZero NouNinflBoundary [<dat_gen>:անց] CaseBoundaryM? InsReg PossPl Def|Poss
 
 #attributive, i dont know about attriburive for այք/անց
 NounIrregWomanBase NZero NouNinflBoundary NSg0 AttributiveGenIDef|AttributiveInst   # Dir/LR
@@ -1095,9 +1131,9 @@ NounIrregGodReducedU NZero NouNinflBoundary NSg0 CaseRegUObliqueWithoutGenAndDef
 #Plural
 NounIrregGod NZero  NouNinflBoundary RegNounPluralFormDeclension
 
-#GAGA GAGA!	#Plural possessive (separate line for instrumental)
-#GAGA GAGA!	NounIrregGod NZero	 NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss? Def|Poss
-#GAGA GAGA!	NounIrregGod NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+#unmodeled plural possessive!	#Plural possessive (separate line for instrumental)
+#unmodeled plural possessive!	NounIrregGod NZero	 NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss? Def|Poss
+#unmodeled plural possessive!	NounIrregGod NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
 
 #don't think can form attributive irregularly
 NounIrregGod NZero NouNinflBoundary NSg0 AttributiveGenIDef|AttributiveInst
@@ -1130,19 +1166,12 @@ IrregFrozenCaseDatGenOblique (Def|Poss)? # Dir/LR
 IrregFrozenCaseDatGenOblique CaseRegIObliqueWithoutGenAndDefPoss?   # Dir/LR
 
 
-#GAGA GAGA!	# for words with optional syncope of non-high vowel in declined forms like բերան բերնի
-#GAGA GAGA!	#I only show syncopated forms as optional. Unsyncopated should be part of regular forms
-#GAGA GAGA!	NounSyncopeReduced NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)?    # Dir/LR
-#GAGA GAGA!	#attributive
-#GAGA GAGA!	NounSyncopeReduced NZero NouNinflBoundary NSg0 AttributiveGenIDef    # Dir/LR
+# for words with optional syncope of non-high vowel in declined forms like բերան բերնի
+#I only show syncopated forms as optional. Unsyncopated should be part of regular forms
+NounSyncopeReduced NZero NouNinflBoundary NSg0 CaseDefIDeclensionWithOvertcase  # Dir/LR
 
-#GAGA GAGA!	# For words that can reduce before plural Ներ like երկրներ
-#GAGA GAGA!	# I only derive the reduction here as an optional path
-#GAGA GAGA!	# The noun gets normal inflection elsewhere
-#GAGA GAGA!	NounReduceBeforeNer NZero NouNinflBoundary NPlNerOnly CaseRegU? (Def|Poss)?    # Dir/LR
 
-#GAGA GAGA!	############ Attributive
-#GAGA GAGA!	#I don't think the gen-def for attributive replace def with a possessive
+
 
 # for monosyllabic words which take plural ner
 # հարս հարսից հարսներ
@@ -1247,11 +1276,11 @@ InsReg
 LocReg
 
 
-#GAGA GAGA!	PATTERN CaseRegPostPluralPoss
-#GAGA GAGA!	#NomAccReg 	
-#GAGA GAGA!	DatGenRegU
-#GAGA GAGA!	AblReg
-#GAGA GAGA!	LocReg
+#unmodeled plural possessive!	PATTERN CaseRegPostPluralPoss
+#unmodeled plural possessive!	#NomAccReg 	
+#unmodeled plural possessive!	DatGenRegU
+#unmodeled plural possessive!	AblReg
+#unmodeled plural possessive!	LocReg
 
 
 
@@ -1445,15 +1474,15 @@ LEXICON Poss
 <px2sg>:դ
 #<px2sg>:ըդ # Dir/LR  -- in case of typos because EANC has this rule
 
-#GAGA GAGA!	LEXICON PossPl
-#GAGA GAGA!	# Spurious plural -er- is added before -ni 
-#GAGA GAGA!	#after monosyllable and before plural possessive 
-#GAGA GAGA!	<pl_poss>:{SpurPlե}{SpurPlր}ն{PossPlի}  #The ի is deleted in vowel hiatus
+#unmodeled plural possessive!	LEXICON PossPl
+#unmodeled plural possessive!	# Spurious plural -er- is added before -ni 
+#unmodeled plural possessive!	#after monosyllable and before plural possessive 
+#unmodeled plural possessive!	<pl_poss>:{SpurPlե}{SpurPlր}ն{PossPlի}  #The ի is deleted in vowel hiatus
 
-#GAGA GAGA!	LEXICON PossPlWithSpuriousNer
-#GAGA GAGA!	# Spurious plural -ner- is added before -ni 
-#GAGA GAGA!	#after irregular monosyllables and before plural possessive  (մուկ-ներ-նիս) 
-#GAGA GAGA!	<pl_poss>:ներն{PossPlի}  #The ի is deleted in vowel hiatus
+#unmodeled plural possessive!	LEXICON PossPlWithSpuriousNer
+#unmodeled plural possessive!	# Spurious plural -ner- is added before -ni 
+#unmodeled plural possessive!	#after irregular monosyllables and before plural possessive  (մուկ-ներ-նիս) 
+#unmodeled plural possessive!	<pl_poss>:ներն{PossPlի}  #The ի is deleted in vowel hiatus
 
 
 #Functional morphemes
@@ -1642,14 +1671,19 @@ LEXICON NounTimeVanUReducedReduced
 տարի:տար
 շաբաթ:շաբթ # Dir/LR
 
-#GAGA GAGA!	#Adverbs which take -van when nominalized
-#GAGA GAGA!	LEXICON NounTimeVanAdv
-#GAGA GAGA!	#Larger list in noun_lex_irreg
-#GAGA GAGA!	այսօր:այսօր
-#GAGA GAGA!	հիմակ:հիմակ # this is a very rare word, more often just հիմա
+#Adverbs which take -van when nominalized
+LEXICON NounTimeVanAdv
+այսօր:այսօր
+վաղ:վաղ
+էսօր:էսօր
+երեկ:երեկ
+ցերեկ:ցերեկ
+էրեկ:էրեկ
 
-#GAGA GAGA!	LEXICON NounTimeVanHima
-#GAGA GAGA!	հիմա:հիմա #This word takes the time suffixes
+LEXICON NounTimeVanHimaBase
+հիմա:հիմա 
+LEXICON NounTimeVanHimaDerived
+հիմա:հիմիկ 
 
 LEXICON NounMonoWithNer
 # monosyllabic which take plural ner ներ while maintaining regular obliguqes
@@ -1839,11 +1873,11 @@ LEXICON NounIrregArchaicEye
 ակն:ակ
 ակ:ակ
 
-#GAGA GAGA!	#The noun բերանի reduces to բերնի բերնէ by irregular syncope of non-high vowel
-#GAGA GAGA!	LEXICON NounSyncopeReduced
-#GAGA GAGA!	բերան:բերն
-#GAGA GAGA!	զաւակ:զաւկ
-#GAGA GAGA!	պատիւ:պատու 
+#The noun բերանի reduces to բերնի բերնէ by irregular syncope of non-high vowel
+LEXICON NounSyncopeReduced
+բերան:բերն
+զաւակ:զավկ
+պատիվ:պատվ 
 
 LEXICON NounReduceBeforeNer
 # For nouns which can reduce before plural -ner
@@ -1931,25 +1965,25 @@ LEXICON NameFamilyIFinalReduced
 LEXICON NameNotGivenCountry
 Արշակունիք:Արշակունիք
 
-#GAGA GAGA!	#This is just for quick use o# f just the noun-paradigm lexd
-LEXICON Infinitival
-gartal:gartal-
-LEXICON Neg
-not:not-
-LEXICON ResultPart
-gartatsadz:gartatsadz-
-LEXICON SubjectPart
-gartatsogh:gartatsogh-
-LEXICON ProspectivePart
-gartalik:gartalik-
+#This is just for quick use o# f just the noun-paradigm lexd
+# LEXICON Infinitival
+# gartal:gartal-
+# LEXICON Neg
+# not:not-
+# LEXICON ResultPart
+# gartatsadz:gartatsadz-
+# LEXICON SubjectPart
+# gartatsogh:gartatsogh-
+# LEXICON ProspectivePart
+# gartalik:gartalik-
 
 
-#GAGA GAGA!	#! Resources:
-#GAGA GAGA!	#! https://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Lexicon
-#GAGA GAGA!	#! https://wiki.apertium.org/wiki/Lttoolbox_and_lexc
-#GAGA GAGA!	#! https://wiki.apertium.org/wiki/Apertium-specific_conventions_for_lexc
-#GAGA GAGA!	#! https://kitwiki.csc.fi/twiki/bin/view/KitWiki/HfstHome
-#GAGA GAGA!	#! https://github.com/hfst/
-#GAGA GAGA!	#! http://www.cis.upenn.edu/~cis639/docs/lexc.html
-#GAGA GAGA!	#! https://wiki.apertium.org/wiki/Hfst
+#! Resources:
+#! https://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Lexicon
+#! https://wiki.apertium.org/wiki/Lttoolbox_and_lexc
+#! https://wiki.apertium.org/wiki/Apertium-specific_conventions_for_lexc
+#! https://kitwiki.csc.fi/twiki/bin/view/KitWiki/HfstHome
+#! https://github.com/hfst/
+#! http://www.cis.upenn.edu/~cis639/docs/lexc.html
+#! https://wiki.apertium.org/wiki/Hfst
 
