@@ -217,6 +217,7 @@ DeclDeclinableInterjection SubstZero NouNinflBoundary
 NumericalBase|CardinalFraction SubstZero  NouNinflBoundary
 NumericalBase|CardinalFraction SubstZero  NouNinflBoundaryRed # I don't think these reduce Dir LR
 ClassicalOrdinals [<num><ord>:]  SubstZero  NouNinflBoundary
+NumericalBase CardinalAdjectizedSuffix SubstZero  NouNinflBoundary
 AdverbialPronounDeclinable AdvZero SubstZero  NouNinflBoundary
 SubstantivePossessedPronoun
 
@@ -1965,7 +1966,7 @@ LEXICON NameFamilyIFinalReduced
 LEXICON NameNotGivenCountry
 Արշակունիք:Արշակունիք
 
-#This is just for quick use o# f just the noun-paradigm lexd
+# This is just for quick use o# f just the noun-paradigm lexd
 # LEXICON Infinitival
 # gartal:gartal-
 # LEXICON Neg
@@ -1976,7 +1977,28 @@ LEXICON NameNotGivenCountry
 # gartatsogh:gartatsogh-
 # LEXICON ProspectivePart
 # gartalik:gartalik-
-
+# LEXICON DeclinablePostposition
+# vra:vra-
+# LEXICON Quantifier
+# amen:amen-
+# LEXICON QuestionWords
+# ov:ov-
+# LEXICON QuantifierQuestionWords
+# ov:ov-
+# LEXICON StrictQuestionWords
+# ov:ov-
+# LEXICON DeclDeclinableInterjection
+# vay:vay-
+# LEXICON AdverbialPronounDeclinable
+# adv:adv-
+# LEXICON SubstantivePossessedPronoun
+# pro:pro-
+# LEXICON SubstantiveRecipPronoun
+# pro:pro-
+# LEXICON SubstantiveRecipPronounTakesU
+# pro:pro-
+# LEXICON QuantifierU
+# pro:pro-
 
 #! Resources:
 #! https://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Lexicon

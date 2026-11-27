@@ -32,6 +32,8 @@ DigitNumbers [<num><ord>:րդ] Def?  # Dir/LR - analyse without the - but don't 
 AbbreviationDeclinable  [<abbr>:]  ([:-] StrandedAffixes)?
 AbbreviationDeclinable   [<abbr>:] StrandedAffixes     # Dir/LR - analyse without the - but don't generate
 
+# Other
+AbbreviationOtherUndec [<abbr>:]
 
 
 PATTERN StrandedAffixes
@@ -58,21 +60,37 @@ LEXICON AbbreviationNumbers
 հզ:հզ
 մկ:մկ
 քկ:քկ
-անգլ:անգլ
 ԺԳ:ԺԳ
 ԺԴ:ԺԴ
 ԺԵ:ԺԵ
 ԺԶ:ԺԶ
 ԺԸ:ԺԸ
 ԺԹ:ԺԹ
-լատ:լատ
 ծն:ծն
+
+LEXICON AbbreviationOtherUndec
+անգլ:անգլ
+լատ:լատ
 յուն:յուն
-սբ:սբ
 վրաց:վրաց
-փրոֆ:փրոֆ
 ֆր:ֆր
 
+ավ:ավ  # from EANC, didnt check meaning
+բժշկ:բժշկ  # from EANC, didnt check meaning
+գերմ:գերմ  # from EANC, didnt check meaning
+գիտ:գիտ  # from EANC, didnt check meaning
+դդ:դդ  # from EANC, didnt check meaning
+լատ:լատ  # from EANC, didnt check meaning
+կյ:կյ  # from EANC, didnt check meaning
+համկկ:համկկ  # from EANC, didnt check meaning
+հռ:հռ  # from EANC, didnt check meaning
+մլրդ:մլրդ  # from EANC, didnt check meaning
+նո:նո  # from EANC, didnt check meaning
+պատմ:պատմ  # from EANC, didnt check meaning
+վրկ:վրկ  # from EANC, didnt check meaning
+փօկ:փօկ  # from EANC, didnt check meaning
+քիմ:քիմ  # from EANC, didnt check meaning
+ֆրանս:ֆրանս  # from EANC, didnt check meaning
 
 LEXICON AbbreviationDeclinable
 # These are abbreviations that stand in as nouns, and which can be declined
@@ -111,6 +129,25 @@ LEXICON AbbreviationDeclinable
 ՍՕԽ:ՍՕԽ
 ՔԱՍԱՏ:ՔԱՍԱՏ
 
+ՄԱԿ:ՄԱԿ
+
+ար:ար # from EANC, didnt check meaning
+բուհ:բուհ # from EANC, didnt check meaning
+գյուղատնտ:գյուղատնտ # from EANC, didnt check meaning
+գյուղբաժին:գյուղբաժին # from EANC, didnt check meaning
+գյուղկոոպ:գյուղկոոպ # from EANC, didnt check meaning
+գր:գր # from EANC, didnt check meaning
+դեկտ:դեկտ # from EANC, didnt check meaning
+դր:դր # from EANC, didnt check meaning
+երաժշտ:երաժշտ # from EANC, didnt check meaning
+ինստ:ինստ # from EANC, didnt check meaning
+հր:հր # from EANC, didnt check meaning
+ունիվերմագ:ունիվերմագ # from EANC, didnt check meaning
+պետապ:պետապ # from EANC, didnt check meaning
+պետառ:պետառ # from EANC, didnt check meaning
+պրոֆ:պրոֆ # from EANC, didnt check meaning
+ԱՄՆ:ԱՄՆ
+
 LEXICON AbbreviationTitles
 #These are abbreivations for titles. They are not declinable
 պր:պր
@@ -135,7 +172,9 @@ LEXICON AbbreviationTitles
 ԺԲ:ԺԲ
 կեդր:կեդր
 եղբ:եղբ
-
+սբ:սբ
+փրոֆ:փրոֆ
+պրոֆ
 
 PATTERN DigitNumbers
 Digit+ 

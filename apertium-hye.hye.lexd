@@ -217,6 +217,7 @@ DeclDeclinableInterjection SubstZero NouNinflBoundary
 NumericalBase|CardinalFraction SubstZero  NouNinflBoundary
 NumericalBase|CardinalFraction SubstZero  NouNinflBoundaryRed # I don't think these reduce Dir LR
 ClassicalOrdinals [<num><ord>:]  SubstZero  NouNinflBoundary
+NumericalBase CardinalAdjectizedSuffix SubstZero  NouNinflBoundary
 AdverbialPronounDeclinable AdvZero SubstZero  NouNinflBoundary
 SubstantivePossessedPronoun
 
@@ -1965,7 +1966,7 @@ LEXICON NameFamilyIFinalReduced
 LEXICON NameNotGivenCountry
 Արշակունիք:Արշակունիք
 
-#This is just for quick use o# f just the noun-paradigm lexd
+# This is just for quick use o# f just the noun-paradigm lexd
 # LEXICON Infinitival
 # gartal:gartal-
 # LEXICON Neg
@@ -1976,7 +1977,28 @@ LEXICON NameNotGivenCountry
 # gartatsogh:gartatsogh-
 # LEXICON ProspectivePart
 # gartalik:gartalik-
-
+# LEXICON DeclinablePostposition
+# vra:vra-
+# LEXICON Quantifier
+# amen:amen-
+# LEXICON QuestionWords
+# ov:ov-
+# LEXICON QuantifierQuestionWords
+# ov:ov-
+# LEXICON StrictQuestionWords
+# ov:ov-
+# LEXICON DeclDeclinableInterjection
+# vay:vay-
+# LEXICON AdverbialPronounDeclinable
+# adv:adv-
+# LEXICON SubstantivePossessedPronoun
+# pro:pro-
+# LEXICON SubstantiveRecipPronoun
+# pro:pro-
+# LEXICON SubstantiveRecipPronounTakesU
+# pro:pro-
+# LEXICON QuantifierU
+# pro:pro-
 
 #! Resources:
 #! https://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Lexicon
@@ -20788,6 +20810,8 @@ LEXICON NounRegPolyIFinalZeroBase_U_Uts
 տարի:տարի # Dir/LR
 հաշվետարի:հաշվետարի # Dir/LR
 
+մառոժնի:մառոժնի
+
 կուլի:կուլի
 րաբբի:րաբբի
 զերզամբի:զերզամբի
@@ -21761,6 +21785,8 @@ LEXICON NounRegPolyIFinalZeroChanged_U_Uts
 այծակաշի:այծակաշ # Dir/LR
 տարի:տար # Dir/LR
 հաշվետարի:հաշվետար # Dir/LR
+
+մառոժնի:մառոժն
 
 կուլի:կուլ
 րաբբի:րաբբ
@@ -33118,27 +33144,31 @@ LEXICON NounUtjunSuffix
 #### Using only standard numbers and most common colloquial variants
 
 PATTERNS
+CardinalFraction
+HalfFraction
 
 #Cardinals and unordinals
-CardinalFraction
-ClassicalOrdinals [<num><ord>:]
 NumericalBase
 #Declined numbers are computed in the nouns paradigm file
+
+# number+ական like հինգերորդական
+NumericalBase NouNinflBoundaryRed? CardinalAdjectizedSuffix
 
 
 
 PATTERN NumericalBase
 #Base for declension and so
-NumberWeird [<num>:]
 OnesCardinal 
 Number2Declined 
 OnesOrdinal 
 DecadesCardinalOrdinal
 CardinalOrdinalHundreds
 CardinalOrdinalThousandsMillions
+ClassicalOrdinals [<num><ord>:]
 
 PATTERN OnesCardinal
 #Numbers 1-9, including meaningless def
+NumberWeird [<num>:]
 Number1   [<num>:]
 Number2 [<num>:]
 Number3_4 [<num>:]
@@ -33148,14 +33178,16 @@ Number7_8_9 [<num>:] Def?
 PATTERN OnesOrdinal
 #Ordinals 1-9, including fused ordinals like առաջին
 OnesCardinal OrdinalSuffixRegular
+Number2Declined OrdinalSuffixRegular
 SpecialOrdinals [<num><ord>:]
+
 
 PATTERN DecadesCardinalOrdinal
 #Numbers 10, 20/30/../90, and combined forms like 11
 #Assume the intervening definite nasal and schwa are optional
 Number10 [<num>:] MeaninglessDefNasal? OrdinalSuffixRegular?
 NumberDecades [<num>:] OrdinalSuffixRegular?
-Number10 MeaninglessDefNasal ConnectiveSchwa? OnesCardinal|OnesOrdinal|Number2Declined
+Number10 MeaninglessDefNasal? ConnectiveSchwa? OnesCardinal|OnesOrdinal|Number2Declined
 NumberDecades (ConnectiveSchwa|ConnectiveU)? OnesCardinal|OnesOrdinal|Number2Declined
 
 PATTERN CardinalOrdinalHundreds
@@ -33163,24 +33195,29 @@ OnesCardinal? NumberHundred [<num>:] OrdinalSuffixRegular?
 OnesCardinal? NumberHundred (ConnectiveSchwa|ConnectiveU)? OnesCardinal|OnesOrdinal|DecadesCardinalOrdinal|Number2Declined
 
 PATTERN CardinalOrdinalThousandsMillions
-NumberThousand [<num>:] OrdinalSuffixRegular?
-NumberMillionUp [<num>:] OrdinalSuffixRegular?
+OnesCardinal? NumberThousand [<num>:] OrdinalSuffixRegular?
+OnesCardinal? NumberThousand (ConnectiveSchwa|ConnectiveU)? OnesCardinal|OnesOrdinal|DecadesCardinalOrdinal|Number2Declined
+OnesCardinal? NumberMillionUp [<num>:] OrdinalSuffixRegular?
+OnesCardinal? NumberMillionUp (ConnectiveSchwa|ConnectiveU)? OnesCardinal|OnesOrdinal|DecadesCardinalOrdinal|Number2Declined
+
+
 
 
 PATTERN CardinalFraction
 #This is for fractions that are spelled without a space liek մէկուկէս one-and-half
-OnesCardinal ConnectiveU HalfFraction
-Number10 [<num>:] MeaninglessDefNasal? ConnectiveU HalfFraction
+NumericalBase MeaninglessDefNasal? ConnectiveU HalfFraction
 
 LEXICON Number1
 մէկ:մէկ  # Dir/LR 
 մեկ:մեկ 
 LEXICON Number2
 երկու:երկու  
+էրկու:էրկու
 LEXICON Number2Declined(2)
 երկուք:երկուք  <num> # Dir/LR
 երկուս:երկուս  <num>
 LEXICON Number3_4
+իրեք:իրեք
 երեք:երեք  
 չորս:չորս  
 LEXICON Number0_5_6
@@ -33201,6 +33238,7 @@ LEXICON NumberDecades
 քսան:քսան  
 երեսուն:երեսուն  
 քառասուն:քառասուն  
+քառսուն:քառսուն # Dir/LR
 յիսուն:յիսուն  # Dir/LR 
 հիսուն:հիսուն  
 վաթսուն:վաթսուն  
@@ -33221,9 +33259,14 @@ LEXICON NumberMillionUp
 պիլիոն:պիլիոն  
 միլիարդ:միլիարդ  
 միլիառ:միլիառ  
+երկիլիոն:երկիլիոն
+եռիլիոն:եռիլիոն
+տրիլիոն:տրիլիոն
+
 LEXICON NumberWeird
 # These are numbers which are rarely found and don't form complex numbers
 մի:մի
+մե:մե 
 
 LEXICON MeaninglessDefNasal
 <def_meaningless>:ն
@@ -33241,9 +33284,13 @@ LEXICON SpecialOrdinals
 երրորդ:երրորդ 
 չորրորդ:չորրորդ 
 
+LEXICON CardinalAdjectizedSuffix
+<adj>:ական
+
+
 LEXICON HalfFraction
-<frac>:կես
-<frac>:քառորդ
+կես<frac>:կես
+քառորդ<frac>:քառորդ
 
 LEXICON ClassicalOrdinals
 # Kouyoumdjian had some classical ordinals
@@ -33268,7 +33315,7 @@ LEXICON ClassicalOrdinals
 իննսներորդ:իննսներորդ
 ութսներորդ:ութսներորդ
 իննևտասներորդ:իննևտասներորդ
-
+տասնորդ:տասնորդ
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 #!!!  M O R P H O T A C T I C S  !!!
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -55540,6 +55587,7 @@ LEXICON AdjReg
 չորսանոց:չորսանոց
 կարատանոց:կարատանոց
 հազարանոց:հազարանոց
+չորսհազարանոց:չորսհազարանոցհազարանոց
 բազմահազարանոց:բազմահազարանոց
 հինգհազարանոց:հինգհազարանոց
 մերկապարանոց:մերկապարանոց
@@ -57659,6 +57707,9 @@ LEXICON AdjRegPolyUFinalVChanged
 ախպերացու:ախպերացվ # Dir/LR
 զինվորացու:զինվորացվ # Dir/LR
 LEXICON AdvReg
+երկոքեան:երկոքեան
+մինական:մինական
+
 հըլը:հըլը
 հլը:հլը
 տեղնուտեղը:տեղնուտեղ
@@ -62061,6 +62112,15 @@ LEXICON AdvReg
 
 # from eanc noun lexeme list
 LEXICON NounReg
+կոմ:կոմ
+յան:յան
+կիլո:կիլո
+յուբկա:յուբկա
+կոֆե:կոֆե
+յուբկա:յուբկա
+կոֆե:կոֆե
+դաչա:դաչա
+
 ալեչափ:ալեչափ
 ալիքաչափ:ալիքաչափ
 արկածախնդիր:արկածախնդիր
@@ -85848,6 +85908,8 @@ DigitNumbers [<num><ord>:րդ] Def?  # Dir/LR - analyse without the - but don't 
 AbbreviationDeclinable  [<abbr>:]  ([:-] StrandedAffixes)?
 AbbreviationDeclinable   [<abbr>:] StrandedAffixes     # Dir/LR - analyse without the - but don't generate
 
+# Other
+AbbreviationOtherUndec [<abbr>:]
 
 
 PATTERN StrandedAffixes
@@ -85874,21 +85936,37 @@ LEXICON AbbreviationNumbers
 հզ:հզ
 մկ:մկ
 քկ:քկ
-անգլ:անգլ
 ԺԳ:ԺԳ
 ԺԴ:ԺԴ
 ԺԵ:ԺԵ
 ԺԶ:ԺԶ
 ԺԸ:ԺԸ
 ԺԹ:ԺԹ
-լատ:լատ
 ծն:ծն
+
+LEXICON AbbreviationOtherUndec
+անգլ:անգլ
+լատ:լատ
 յուն:յուն
-սբ:սբ
 վրաց:վրաց
-փրոֆ:փրոֆ
 ֆր:ֆր
 
+ավ:ավ  # from EANC, didnt check meaning
+բժշկ:բժշկ  # from EANC, didnt check meaning
+գերմ:գերմ  # from EANC, didnt check meaning
+գիտ:գիտ  # from EANC, didnt check meaning
+դդ:դդ  # from EANC, didnt check meaning
+լատ:լատ  # from EANC, didnt check meaning
+կյ:կյ  # from EANC, didnt check meaning
+համկկ:համկկ  # from EANC, didnt check meaning
+հռ:հռ  # from EANC, didnt check meaning
+մլրդ:մլրդ  # from EANC, didnt check meaning
+նո:նո  # from EANC, didnt check meaning
+պատմ:պատմ  # from EANC, didnt check meaning
+վրկ:վրկ  # from EANC, didnt check meaning
+փօկ:փօկ  # from EANC, didnt check meaning
+քիմ:քիմ  # from EANC, didnt check meaning
+ֆրանս:ֆրանս  # from EANC, didnt check meaning
 
 LEXICON AbbreviationDeclinable
 # These are abbreviations that stand in as nouns, and which can be declined
@@ -85927,6 +86005,25 @@ LEXICON AbbreviationDeclinable
 ՍՕԽ:ՍՕԽ
 ՔԱՍԱՏ:ՔԱՍԱՏ
 
+ՄԱԿ:ՄԱԿ
+
+ար:ար # from EANC, didnt check meaning
+բուհ:բուհ # from EANC, didnt check meaning
+գյուղատնտ:գյուղատնտ # from EANC, didnt check meaning
+գյուղբաժին:գյուղբաժին # from EANC, didnt check meaning
+գյուղկոոպ:գյուղկոոպ # from EANC, didnt check meaning
+գր:գր # from EANC, didnt check meaning
+դեկտ:դեկտ # from EANC, didnt check meaning
+դր:դր # from EANC, didnt check meaning
+երաժշտ:երաժշտ # from EANC, didnt check meaning
+ինստ:ինստ # from EANC, didnt check meaning
+հր:հր # from EANC, didnt check meaning
+ունիվերմագ:ունիվերմագ # from EANC, didnt check meaning
+պետապ:պետապ # from EANC, didnt check meaning
+պետառ:պետառ # from EANC, didnt check meaning
+պրոֆ:պրոֆ # from EANC, didnt check meaning
+ԱՄՆ:ԱՄՆ
+
 LEXICON AbbreviationTitles
 #These are abbreivations for titles. They are not declinable
 պր:պր
@@ -85951,7 +86048,9 @@ LEXICON AbbreviationTitles
 ԺԲ:ԺԲ
 կեդր:կեդր
 եղբ:եղբ
-
+սբ:սբ
+փրոֆ:փրոֆ
+պրոֆ
 
 PATTERN DigitNumbers
 Digit+ 

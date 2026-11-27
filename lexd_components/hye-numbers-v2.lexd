@@ -4,27 +4,31 @@
 #### Using only standard numbers and most common colloquial variants
 
 PATTERNS
+CardinalFraction
+HalfFraction
 
 #Cardinals and unordinals
-CardinalFraction
-ClassicalOrdinals [<num><ord>:]
 NumericalBase
 #Declined numbers are computed in the nouns paradigm file
+
+# number+ական like հինգերորդական
+NumericalBase NouNinflBoundaryRed? CardinalAdjectizedSuffix
 
 
 
 PATTERN NumericalBase
 #Base for declension and so
-NumberWeird [<num>:]
 OnesCardinal 
 Number2Declined 
 OnesOrdinal 
 DecadesCardinalOrdinal
 CardinalOrdinalHundreds
 CardinalOrdinalThousandsMillions
+ClassicalOrdinals [<num><ord>:]
 
 PATTERN OnesCardinal
 #Numbers 1-9, including meaningless def
+NumberWeird [<num>:]
 Number1   [<num>:]
 Number2 [<num>:]
 Number3_4 [<num>:]
@@ -34,14 +38,16 @@ Number7_8_9 [<num>:] Def?
 PATTERN OnesOrdinal
 #Ordinals 1-9, including fused ordinals like առաջին
 OnesCardinal OrdinalSuffixRegular
+Number2Declined OrdinalSuffixRegular
 SpecialOrdinals [<num><ord>:]
+
 
 PATTERN DecadesCardinalOrdinal
 #Numbers 10, 20/30/../90, and combined forms like 11
 #Assume the intervening definite nasal and schwa are optional
 Number10 [<num>:] MeaninglessDefNasal? OrdinalSuffixRegular?
 NumberDecades [<num>:] OrdinalSuffixRegular?
-Number10 MeaninglessDefNasal ConnectiveSchwa? OnesCardinal|OnesOrdinal|Number2Declined
+Number10 MeaninglessDefNasal? ConnectiveSchwa? OnesCardinal|OnesOrdinal|Number2Declined
 NumberDecades (ConnectiveSchwa|ConnectiveU)? OnesCardinal|OnesOrdinal|Number2Declined
 
 PATTERN CardinalOrdinalHundreds
@@ -49,24 +55,29 @@ OnesCardinal? NumberHundred [<num>:] OrdinalSuffixRegular?
 OnesCardinal? NumberHundred (ConnectiveSchwa|ConnectiveU)? OnesCardinal|OnesOrdinal|DecadesCardinalOrdinal|Number2Declined
 
 PATTERN CardinalOrdinalThousandsMillions
-NumberThousand [<num>:] OrdinalSuffixRegular?
-NumberMillionUp [<num>:] OrdinalSuffixRegular?
+OnesCardinal? NumberThousand [<num>:] OrdinalSuffixRegular?
+OnesCardinal? NumberThousand (ConnectiveSchwa|ConnectiveU)? OnesCardinal|OnesOrdinal|DecadesCardinalOrdinal|Number2Declined
+OnesCardinal? NumberMillionUp [<num>:] OrdinalSuffixRegular?
+OnesCardinal? NumberMillionUp (ConnectiveSchwa|ConnectiveU)? OnesCardinal|OnesOrdinal|DecadesCardinalOrdinal|Number2Declined
+
+
 
 
 PATTERN CardinalFraction
 #This is for fractions that are spelled without a space liek մէկուկէս one-and-half
-OnesCardinal ConnectiveU HalfFraction
-Number10 [<num>:] MeaninglessDefNasal? ConnectiveU HalfFraction
+NumericalBase MeaninglessDefNasal? ConnectiveU HalfFraction
 
 LEXICON Number1
 մէկ:մէկ  # Dir/LR 
 մեկ:մեկ 
 LEXICON Number2
 երկու:երկու  
+էրկու:էրկու
 LEXICON Number2Declined(2)
 երկուք:երկուք  <num> # Dir/LR
 երկուս:երկուս  <num>
 LEXICON Number3_4
+իրեք:իրեք
 երեք:երեք  
 չորս:չորս  
 LEXICON Number0_5_6
@@ -87,6 +98,7 @@ LEXICON NumberDecades
 քսան:քսան  
 երեսուն:երեսուն  
 քառասուն:քառասուն  
+քառսուն:քառսուն # Dir/LR
 յիսուն:յիսուն  # Dir/LR 
 հիսուն:հիսուն  
 վաթսուն:վաթսուն  
@@ -98,7 +110,8 @@ LEXICON NumberDecades
 իննիսուն:իննիսուն
 
 LEXICON NumberHundred
-հարյուր:հարյուր  
+հարիւր:հարիւր    # Dir/LR 
+հարյուր:հարյուր
 LEXICON NumberThousand
 հազար:հազար  
 LEXICON NumberMillionUp
@@ -107,9 +120,14 @@ LEXICON NumberMillionUp
 պիլիոն:պիլիոն  
 միլիարդ:միլիարդ  
 միլիառ:միլիառ  
+երկիլիոն:երկիլիոն
+եռիլիոն:եռիլիոն
+տրիլիոն:տրիլիոն
+
 LEXICON NumberWeird
 # These are numbers which are rarely found and don't form complex numbers
 մի:մի
+մե:մե 
 
 LEXICON MeaninglessDefNasal
 <def_meaningless>:ն
@@ -127,9 +145,14 @@ LEXICON SpecialOrdinals
 երրորդ:երրորդ 
 չորրորդ:չորրորդ 
 
+LEXICON CardinalAdjectizedSuffix
+<adj>:ական
+
+
 LEXICON HalfFraction
-<frac>:կես
-<frac>:քառորդ
+կես<frac>:կես
+կէս<frac>:կէս # Dir/LR
+քառորդ<frac>:քառորդ
 
 LEXICON ClassicalOrdinals
 # Kouyoumdjian had some classical ordinals
@@ -154,3 +177,4 @@ LEXICON ClassicalOrdinals
 իննսներորդ:իննսներորդ
 ութսներորդ:ութսներորդ
 իննևտասներորդ:իննևտասներորդ
+տասնորդ:տասնորդ
